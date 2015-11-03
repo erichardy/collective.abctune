@@ -26,5 +26,4 @@ var
 *~
 *.swp
 # src
-src/collective/abctransforms/tests/outputs/DonaldBlue*
-src/collective/abctransforms/tests/outputs/got*
+src/collective.abctransforms/*
