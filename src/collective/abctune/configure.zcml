@@ -46,4 +46,16 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.abctune-hiddenprofiles" />
 
+  <subscriber
+    for="collective.abctune.interfaces.Iabctune
+         zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+    handler=".abctune_events.newAbcTune"
+    />
+
+  <subscriber
+    for="collective.abctune.interfaces.Iabctune
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler=".abctune_events.updateAbcTune"
+    />
+
 </configure>

@@ -47,6 +47,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'plone.app.dexterity',
+        'collective.dexteritytextindexer',
         'collective.abctransforms',
     ],
     extras_require={
