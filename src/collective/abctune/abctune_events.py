@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import logging
-# from collective.abctune.interfaces import Iabctune
+from Products.CMFCore.utils import getToolByName
+from plone import api
 from collective.abctune.utils import removeNonAscii
 from collective.abctune.utils import (addQ,
                                       addTuneType,
@@ -12,32 +13,47 @@ from collective.abctune.utils import (addQ,
 logger = logging.getLogger('collective.abctune')
 
 
-# @grok.subscribe(IABCTune, IObjectCreatedEvent)
 def newAbcTune(context, event):
+    portal = api.portal.get()
+    """TODO : add %abc at the begining of the file if
+    not present (for mimetype recognition)
+    Create mp3 (sound field) only when asked
+    """
     try:
         context.abc = removeNonAscii(context.abc)
         addQ(context)
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        # _make_midi(context)
-        # _make_score(context)
-        # _make_mp3(context)
+        pt = getToolByName(portal, "portal_transforms")
+        midi = pt.convertTo('audio/x-midi', context.abc)
+        context.midi = midi.getData()
+        score = pt.convertTo('image/png', context.abc)
+        context.score = score.getData()
+        sound = pt.convertTo('audio/mpeg', context.abc)
+        context.sound = sound.getData()
         logger.info("abc created !")
     except Exception:
         logger.info("abctune not created...")
 
 
-# @grok.subscribe(IABCTune, IObjectModifiedEvent)
 def updateAbcTune(context, event):
+    """TODO : see newAbcTune
+    """
+    portal = api.portal.get()
     try:
         context.abc = removeNonAscii(context.abc)
         addQ(context)
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        # _make_midi(context)
-        # _make_score(context)
+        pt = getToolByName(portal, "portal_transforms")
+        midi = pt.convertTo('audio/x-midi', context.abc)
+        context.midi = midi.getData()
+        score = pt.convertTo('image/png', context.abc)
+        context.score = score.getData()
+        sound = pt.convertTo('audio/mpeg', context.abc)
+        context.sound = sound.getData()
         """
         This event notifier should be in module
         collective.abctuneset

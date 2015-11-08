@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-"""Module where all interfaces, events and exceptions live."""
+"""Module where all interfaces live."""
 
 from collective.abctune import _
 from zope import schema
+from zope.interface import Interface
+# see plone.autoform.directives.txt
 from plone.autoform import directives as form
-# from zope.interface import Interface
+from plone.supermodel import model
+
 from collective import dexteritytextindexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.field import NamedBlobFile
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from collective.abctune.interfaces import Iabctune
 
 
 class ICollectiveAbctuneLayer(IDefaultBrowserLayer):
@@ -24,10 +26,10 @@ tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
 
-class abctune(form.Schema):
+class Iabctune(Interface):
 
     dexteritytextindexer.searchable('abc')
-    form.primary('abc')
+    model.primary('abc')
     abc = schema.Text(title=_(u"Tune abc"),
                       description=_(u'The tune in abc format'),)
 
@@ -84,7 +86,7 @@ class abctune(form.Schema):
                           )
 
 
-@form.default_value(field=Iabctune['abc'])
+# @form.default_value(field=Iabctune['abc'])
 def abcDefaultValue(data):
     # http://docs.python.org/2.6/whatsnew/2.3.html#date-time-type
     # To get hold of the folder, do: context = data.context
