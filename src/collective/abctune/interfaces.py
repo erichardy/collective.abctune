@@ -4,12 +4,13 @@
 from collective.abctune import _
 from zope import schema
 from plone.autoform import directives as form
-from zope.interface import Interface
+# from zope.interface import Interface
 from collective import dexteritytextindexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.field import NamedBlobFile
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from collective.abctune.interfaces import Iabctune
+
 
 class ICollectiveAbctuneLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
@@ -23,7 +24,7 @@ tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
 
-class Iabctune(form.Schema):
+class abctune(form.Schema):
 
     dexteritytextindexer.searchable('abc')
     form.primary('abc')
@@ -106,4 +107,3 @@ P:A
 "Em"efdB "D"A2GA:|2 "Bm"Bd ef  "G"g3a|"G"gedB "D"A2GA||
 """
     return tune
-

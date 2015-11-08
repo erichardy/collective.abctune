@@ -5,13 +5,13 @@ from plone import api
 from AccessControl import getSecurityManager
 
 from plone.directives import dexterity
-from plone.autoform import directives as form
 from zope.interface import implements
 
 from Products.CMFCore.permissions import ModifyPortalContent
 
 from Products.Five import BrowserView
 from collective.abctune.interfaces import Iabctune
+from collective.abctune import _
 
 logger = logging.getLogger('collective.abctune')
 

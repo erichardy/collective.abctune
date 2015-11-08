@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from collective.abctune.interfaces import Iabctune
+# from collective.abctune.interfaces import Iabctune
 from collective.abctune.utils import removeNonAscii
 from collective.abctune.utils import (addQ,
                                       addTuneType,
@@ -20,11 +20,11 @@ def newAbcTune(context, event):
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        _make_midi(context)
-        _make_score(context)
+        # _make_midi(context)
+        # _make_score(context)
         # _make_mp3(context)
         logger.info("abc created !")
-    except:
+    except Exception:
         logger.info("abctune not created...")
 
 
@@ -36,8 +36,8 @@ def updateAbcTune(context, event):
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        _make_midi(context)
-        _make_score(context)
+        # _make_midi(context)
+        # _make_score(context)
         """
         This event notifier should be in module
         collective.abctuneset
@@ -50,7 +50,7 @@ def updateAbcTune(context, event):
         # _make_mp3(context)
         """
 
-    except:
+    except Exception:
         logger.info("updateAbcTune : abctune not modified...")
     # logger.info("abc edited/modified !")
 
