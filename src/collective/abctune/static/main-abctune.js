@@ -26,7 +26,7 @@ require([
         onsuccess: function() {
             player = MIDI.Player ;
             player.timeWarp = 1;
-            player.loadFile("ColmanCross1.mid",
+            player.loadFile("http://myplone:8080/Plone/ColmanCross1.mid",
                         player.start)
             }
         })

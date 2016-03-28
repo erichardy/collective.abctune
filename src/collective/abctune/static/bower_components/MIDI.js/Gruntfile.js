@@ -16,6 +16,8 @@ module.exports = function (grunt) {
 		concat: {
 			'build/MIDI.js': [
 //				'js/color/spaceW3.js', // optional
+				'inc/shim/Base64.js',
+				'inc/shim/base64binary.js',
 				'js/midi/audioDetect.js',
 				'js/midi/gm.js',
 				'js/midi/loader.js',
@@ -23,12 +25,13 @@ module.exports = function (grunt) {
 				'js/midi/plugin.audiotag.js',
 				'js/midi/plugin.webaudio.js',
 				'js/midi/plugin.webmidi.js',
+				
+				'js/util/dom_request_script.js',
+				'js/util/dom_request_xhr.js'
 //				'js/midi/synesthesia.js', // optional
-				'js/util/dom_request_xhr.js', // req when using XHR
-				'js/util/dom_request_script.js', // req otherwise
-//				'js/widget/loader.js', // optional
-				'inc/polyfill/Base64.js',
-				'inc/polyfill/base64binary.js'
+				 // req when using XHR
+				 // req otherwise
+//				'js/widget/loader.js', // optional	
 			]
 		},
 		uglify: {
