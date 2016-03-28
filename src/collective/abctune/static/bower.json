@@ -1,0 +1,21 @@
+{
+  "name": "collective.abctune",
+  "homepage": "https://github.com/erichardy/collective.abctune",
+  "authors": [
+    "Eric Hardy <Eric.Hardy@univ-brest.fr>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "MIDI.js": "mudcube/MIDI.js#latest"
+    },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -27,3 +27,5 @@ var
 *.swp
 # src
 src/collective.abctransforms/*
+node_modules
+temp_resources

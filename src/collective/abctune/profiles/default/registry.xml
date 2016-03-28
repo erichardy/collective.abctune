@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<registry>
+
+
+  <records prefix="plone.resources/midijs"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++abctune/bower_components/MIDI.js/build/MIDI.js</value>
+  </records>
+
+
+  <records prefix="plone.resources/main-abctune"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++abctune/main-abctune.js</value>
+      <!-- 
+      <value key="css">
+        <element>++plone++static/plone.less</element>
+      </value>
+       -->
+  </records>
+
+
+  <records prefix="plone.bundles/abctune"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="enabled">True</value>
+    <value key="resources">
+        <element>midijs</element>
+        <element>main-abctune</element>
+    </value>
+    <value key="jscompilation">++plone++abctune/main-abctune-compiled.js</value>
+    <!-- 
+    <value key="csscompilation">++resource++wildcard-media/components/mediaelement/build/mediaelementplayer.min.css</value>
+     -->
+    <value key="last_compilation">2015-11-11 00:00:00</value>
+    <value key="compile">True</value>
+    <value key="depends">plone</value>
+  </records>
+
+</registry>
