@@ -4,8 +4,9 @@ import logging
 from plone import api
 from AccessControl import getSecurityManager
 
-from plone.directives import dexterity
+# from plone.directives import dexterity
 from zope.interface import implements
+from plone.dexterity.content import Item
 
 from Products.CMFCore.permissions import ModifyPortalContent
 
@@ -16,7 +17,7 @@ from collective.abctune import _
 logger = logging.getLogger('collective.abctune')
 
 
-class abctune(dexterity.Item):
+class abctune(Item):
     implements(Iabctune)
 
 
@@ -51,6 +52,8 @@ class View(BrowserView):
             subject_str += s + ', '
         return subject_str.strip(', ')
 
+    def gettTitle(self):
+        return self.context.title
 
 # for addForm, see : https://pypi.python.org/pypi/plone.directives.form/1.1
 # class Add(dexterity.AddForm):

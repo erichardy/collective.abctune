@@ -3,6 +3,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.abctune">
 
@@ -64,5 +65,13 @@
     type="plone"
     name="abctune"
     />
+
+  <browser:page
+      name="view"
+      for="collective.abctune.interfaces.Iabctune"
+      class="collective.abctune.abctune.View"
+      template="templates/abctune_view.pt"
+      permission="zope2.View"
+      />
 
 </configure>
