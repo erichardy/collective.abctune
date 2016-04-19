@@ -4,5 +4,6 @@
   <dependencies>
     <dependency>profile-plone.app.dexterity:default</dependency>
     <dependency>profile-collective.abctransforms:default</dependency>
+    <dependency>profile-plonewebcomponent.midiplayer:default</dependency>
   </dependencies>
 </metadata>

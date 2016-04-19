@@ -29,3 +29,4 @@ var
 src/collective.abctransforms/*
 node_modules
 temp_resources
+src/plonewebcomponent.midiplayer

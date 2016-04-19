@@ -50,6 +50,7 @@ setup(
         'plone.namedfile[blobs]',
         'collective.dexteritytextindexer',
         'collective.abctransforms',
+        'plonewebcomponent.midiplayer',
     ],
     extras_require={
         'test': [
