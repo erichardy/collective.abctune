@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from collective.abctune import _
-from collective.abctune.interfaces import Iabctune
+from collective.abctune.interfaces import IABCTune
 from plone import api
+from plone.dexterity.browser import add
 from plone.dexterity.content import Item
 from Products.Five import BrowserView
+from z3c.form import button
 # from plone.directives import dexterity
 from zope.interface import implementer
 
@@ -14,7 +16,7 @@ import logging
 logger = logging.getLogger('collective.abctune')
 
 
-@implementer(Iabctune)
+@implementer(IABCTune)
 class abctune(Item):
     pass
 
@@ -57,7 +59,39 @@ class View(BrowserView):
     def gettTitle(self):
         return self.context.title
 
-# for addForm, see : https://pypi.python.org/pypi/plone.directives.form/1.1
-# class Add(dexterity.AddForm):
-#    grok.name('abctune')
-#    grok.template('addAbcTune')
+
+class AddForm(add.DefaultAddForm):
+    portal_type = 'abctune'
+    ignoreContext = True
+    label = _(u'Add a new tune !')
+
+    def update(self):
+        super(add.DefaultAddForm, self).update()
+
+    def updateWidgets(self):
+        super(add.DefaultAddForm, self).updateWidgets()
+
+    @button.buttonAndHandler(_(u'Save this tune'), name='save_this_tune')
+    def handleApply(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = _('Please correct errors')
+            return
+        try:
+            obj = self.createAndAdd(data)
+            logger.info(obj.absolute_url())
+            contextURL = self.context.absolute_url()
+            self.request.response.redirect(contextURL)
+        except Exception:
+            raise
+
+    @button.buttonAndHandler(_(u'Cancel this tune'))
+    def handleCancel(self, action):
+        data, errors = self.extractData()
+        # context is the thesis repo
+        contextURL = self.context.absolute_url()
+        self.request.response.redirect(contextURL)
+
+
+class AddView(add.DefaultAddView):
+    form = AddForm

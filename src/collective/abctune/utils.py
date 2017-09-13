@@ -15,6 +15,17 @@ def removeNonAscii(s):
     return ''.join(i for i in s if ord(i) < 128)
 
 
+def validMIMEType(t):
+    """A valid ABC file (for MIME recognition) MUST
+    start with the line :
+    %abc
+    """
+    firstLine = t.abc.split('\n')[0][:4]
+    if firstLine != u'%abc':
+        t.abc = u'%abc\n' + t.abc
+    t.reindexObject()
+
+
 @implementer(IVocabularyFactory)
 class _getLocalTunes(object):
 

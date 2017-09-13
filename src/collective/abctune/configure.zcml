@@ -44,18 +44,35 @@
       handler=".setuphandlers.uninstall">
   </genericsetup:importStep>
 
+   <!-- Add form -->
+   <adapter
+        name="abctune"
+	    for="Products.CMFCore.interfaces.IFolderish
+	         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+	         plone.dexterity.interfaces.IDexterityFTI"
+	    provides="zope.publisher.interfaces.browser.IBrowserPage"
+	    factory=".abctune.AddView"
+    />
+
+	<class class=".abctune.AddView">
+	    <require
+	        permission="cmf.AddPortalContent"
+	        interface="zope.publisher.interfaces.browser.IBrowserPage"
+	        />
+	</class>
+
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="collective.abctune-hiddenprofiles" />
 
   <subscriber
-    for="collective.abctune.interfaces.Iabctune
+   for="collective.abctune.interfaces.IABCTune
          zope.lifecycleevent.interfaces.IObjectCreatedEvent"
     handler=".abctune_events.newAbcTune"
     />
 
   <subscriber
-    for="collective.abctune.interfaces.Iabctune
+    for="collective.abctune.interfaces.IABCTune
          zope.lifecycleevent.interfaces.IObjectModifiedEvent"
     handler=".abctune_events.updateAbcTune"
     />
@@ -68,7 +85,7 @@
 
   <browser:page
       name="view"
-      for="collective.abctune.interfaces.Iabctune"
+      for="collective.abctune.interfaces.IABCTune"
       class="collective.abctune.abctune.View"
       template="templates/abctune_view.pt"
       permission="zope2.View"

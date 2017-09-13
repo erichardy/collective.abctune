@@ -24,67 +24,84 @@ tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
 
-class Iabctune(Interface):
+class IABCTune(Interface):
 
+    dexteritytextindexer.searchable('title')
+    model.primary('title')
+    title = schema.TextLine(
+        title=_(u'Tune name'),
+        description=_(u'The name as you know this tune'),
+        )
     dexteritytextindexer.searchable('abc')
     model.primary('abc')
-    abc = schema.Text(title=_(u'Tune abc'),
-                      description=_(u'The tune in abc format'),)
+    abc = schema.Text(
+        title=_(u'Tune abc'),
+        description=_(u'The tune in abc format'),
+        )
 
     dexteritytextindexer.searchable('tunekeys')
     form.omitted('tunekeys')
-    tunekeys = schema.List(title=u'keys',
-                           description=u'set by abc content',
-                           required=False,
-                           value_type=schema.TextLine(required=False),
-                           )
+    tunekeys = schema.List(
+        title=u'keys',
+        description=u'set by abc content',
+        required=False,
+        value_type=schema.TextLine(required=False),
+        )
 
     dexteritytextindexer.searchable('tunetype')
     form.omitted('tunetype')
-    tunetype = schema.TextLine(title=_(u'The type of the tune'),
-                               description=_(u'from the field R:'),
-                               required=False,
-                               )
+    tunetype = schema.TextLine(
+        title=_(u'The type of the tune'),
+        description=_(u'from the field R:'),
+        required=False,
+        )
     # NOTE: as specified in the v2.1 standard, A: field is deprecated
     # so, only O: is used to specified country and areas... separated
     # by ';'
     dexteritytextindexer.searchable('tunearea')
     form.omitted('tunearea')
-    tunearea = schema.TextLine(title=tunearea_title,
-                               description=tunearea_desc,
-                               required=False,
-                               )
+    tunearea = schema.TextLine(
+        title=tunearea_title,
+        description=tunearea_desc,
+        required=False,
+        )
     dexteritytextindexer.searchable('tunecountry')
     form.omitted('tunecountry')
-    tunecountry = schema.TextLine(title=tunecountry_title,
-                                  description=_(u'The country'),
-                                  required=False,
-                                  )
+    tunecountry = schema.TextLine(
+        title=tunecountry_title,
+        description=_(u'The country'),
+        required=False,
+        )
 
     form.omitted('score')
-    score = NamedBlobImage(title=_(u'Score'),
-                           description=score_desc,
-                           required=False,)
+    score = NamedBlobImage(
+        title=_(u'Score'),
+        description=score_desc,
+        required=False,
+        )
 
     form.omitted('pdfscore')
-    pdfscore = NamedBlobFile(title=_(u'PDF Score'),
-                             description=_(u'The score of the tune as PDF'),
-                             required=False,
-                             )
+    pdfscore = NamedBlobFile(
+        title=_(u'PDF Score'),
+        description=_(u'The score of the tune as PDF'),
+        required=False,
+        )
 
     form.omitted('midi')
-    midi = NamedBlobFile(title=_(u'Midi'),
-                         description=_(u'Midi sound of the tune'),
-                         required=False,
-                         )
+    midi = NamedBlobFile(
+        title=_(u'Midi'),
+        description=_(u'Midi sound of the tune'),
+        required=False,
+        )
     form.omitted('sound')
-    sound = NamedBlobFile(title=_(u'sound'),
-                          description=_(u'The mp3 sound of the tune'),
-                          required=False,
-                          )
+    sound = NamedBlobFile(
+        title=_(u'sound'),
+        description=_(u'The mp3 sound of the tune'),
+        required=False,
+        )
 
 
-# @form.default_value(field=Iabctune['abc'])
+# @form.default_value(field=IABCTune['abc'])
 def abcDefaultValue(data):
     # http://docs.python.org/2.6/whatsnew/2.3.html#date-time-type
     # To get hold of the folder, do: context = data.context
