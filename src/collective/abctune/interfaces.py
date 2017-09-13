@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces live."""
 
+from collective import dexteritytextindexer
 from collective.abctune import _
+from plone.autoform import directives as form
+from plone.namedfile.field import NamedBlobFile
+from plone.namedfile.field import NamedBlobImage
+from plone.supermodel import model
 from zope import schema
 from zope.interface import Interface
-# see plone.autoform.directives.txt
-from plone.autoform import directives as form
-from plone.supermodel import model
-
-from collective import dexteritytextindexer
-from plone.namedfile.field import NamedBlobImage
-from plone.namedfile.field import NamedBlobFile
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
@@ -18,10 +16,10 @@ class ICollectiveAbctuneLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
 
-tunearea_title = _(u"The area from which the tune is from")
-tunearea_desc = _(u"More detailed origin of the tune, from O: field")
-tunecountry_title = u"The origin country of the tune, "
-tunecountry_title += u"from first part of O: field"
+tunearea_title = _(u'The area from which the tune is from')
+tunearea_desc = _(u'More detailed origin of the tune, from O: field')
+tunecountry_title = u'The origin country of the tune, '
+tunecountry_title += u'from first part of O: field'
 tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
@@ -30,7 +28,7 @@ class Iabctune(Interface):
 
     dexteritytextindexer.searchable('abc')
     model.primary('abc')
-    abc = schema.Text(title=_(u"Tune abc"),
+    abc = schema.Text(title=_(u'Tune abc'),
                       description=_(u'The tune in abc format'),)
 
     dexteritytextindexer.searchable('tunekeys')
@@ -43,8 +41,8 @@ class Iabctune(Interface):
 
     dexteritytextindexer.searchable('tunetype')
     form.omitted('tunetype')
-    tunetype = schema.TextLine(title=_(u"The type of the tune"),
-                               description=_(u"from the field R:"),
+    tunetype = schema.TextLine(title=_(u'The type of the tune'),
+                               description=_(u'from the field R:'),
                                required=False,
                                )
     # NOTE: as specified in the v2.1 standard, A: field is deprecated
@@ -59,28 +57,28 @@ class Iabctune(Interface):
     dexteritytextindexer.searchable('tunecountry')
     form.omitted('tunecountry')
     tunecountry = schema.TextLine(title=tunecountry_title,
-                                  description=_(u"The country"),
+                                  description=_(u'The country'),
                                   required=False,
                                   )
 
     form.omitted('score')
-    score = NamedBlobImage(title=_(u"Score"),
+    score = NamedBlobImage(title=_(u'Score'),
                            description=score_desc,
                            required=False,)
 
     form.omitted('pdfscore')
-    pdfscore = NamedBlobFile(title=_(u"PDF Score"),
+    pdfscore = NamedBlobFile(title=_(u'PDF Score'),
                              description=_(u'The score of the tune as PDF'),
                              required=False,
                              )
 
     form.omitted('midi')
-    midi = NamedBlobFile(title=_(u"Midi"),
+    midi = NamedBlobFile(title=_(u'Midi'),
                          description=_(u'Midi sound of the tune'),
                          required=False,
                          )
     form.omitted('sound')
-    sound = NamedBlobFile(title=_(u"sound"),
+    sound = NamedBlobFile(title=_(u'sound'),
                           description=_(u'The mp3 sound of the tune'),
                           required=False,
                           )

@@ -1,44 +1,46 @@
 # -*- coding: utf-8 -*-
 
-import logging
-from zope.component.hooks import getSite
-from zope.interface import implements
-from zope.schema.vocabulary import SimpleVocabulary
+from plone import api
+from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleVocabulary
+
+import logging
+
 
 logger = logging.getLogger('collective.abctune')
 
 
 def removeNonAscii(s):
-    return "".join(i for i in s if ord(i) < 128)
+    return ''.join(i for i in s if ord(i) < 128)
 
 
+@implementer(IVocabularyFactory)
 class _getLocalTunes(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
-        folder_path = '/'.join(context.getPhysicalPath())
-        site = getSite()
-        catalog = site.portal_catalog
-        results = catalog.searchResults(portal_type='abctune',
-                                        path={'query': folder_path,
-                                              'depth': 1},
-                                        )
+        results = api.content.find(
+            portal_type='abctune',
+            depth=1,
+            context=context
+            )
         terms = []
         i = 0
-        for tunes in results:
-            tune = tunes.getObject()
+        for tune in results:
+            obj = tune.getObject()
             value = str(i)
             token = str(i)
-            label = tune.title
-            terms.append(SimpleVocabulary.createTerm(value,
-                                                     str(token),
-                                                     label
-                                                     )
-                         )
+            label = obj.title
+            terms.append(SimpleVocabulary.createTerm(
+                value,
+                str(token),
+                label
+                )
+            )
             i += 1
 
         return SimpleVocabulary(terms)
+
 
 getLocalTunes = _getLocalTunes()
 
@@ -59,7 +61,7 @@ def addTuneType(context):
         tunetype = labc[1].split('\n')[0]
         context.tunetype = tunetype.strip().lower()
     else:
-        context.tunetype = "unknown"
+        context.tunetype = 'unknown'
 
 
 def addOrigins(context):
@@ -71,7 +73,7 @@ def addOrigins(context):
         if len(tuneOrigins) != 1:
             context.tunearea = ';'.join(tuneOrigins[1:])
     else:
-        context.tunearea = "unknown"
+        context.tunearea = 'unknown'
 
 
 def addKeys(context):

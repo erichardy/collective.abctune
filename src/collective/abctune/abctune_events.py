@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import logging
-from Products.CMFCore.utils import getToolByName
-from plone import api
+from collective.abctune.utils import addKeys
+from collective.abctune.utils import addOrigins
+from collective.abctune.utils import addQ
+from collective.abctune.utils import addTuneType
 from collective.abctune.utils import removeNonAscii
-from collective.abctune.utils import (addQ,
-                                      addTuneType,
-                                      addOrigins,
-                                      addKeys
-                                      )
+from plone import api
+
+import logging
+
 
 logger = logging.getLogger('collective.abctune')
 
 
 def newAbcTune(context, event):
-    portal = api.portal.get()
-    """TODO : add %abc at the begining of the file if
+    """A FAIRE : add %abc at the begining of the file if
     not present (for mimetype recognition)
     Create mp3 (sound field) only when asked
     """
@@ -25,29 +24,28 @@ def newAbcTune(context, event):
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        pt = getToolByName(portal, "portal_transforms")
+        pt = api.portal.get_tool('portal_transforms')
         midi = pt.convertTo('audio/x-midi', context.abc)
         context.midi = midi.getData()
         score = pt.convertTo('image/png', context.abc)
         context.score = score.getData()
         sound = pt.convertTo('audio/mpeg', context.abc)
         context.sound = sound.getData()
-        logger.info("abc created !")
+        logger.info('abc created !')
     except Exception:
-        logger.info("abctune not created...")
+        logger.info('abctune not created...')
 
 
 def updateAbcTune(context, event):
-    """TODO : see newAbcTune
+    """A FAIRE : see newAbcTune
     """
-    portal = api.portal.get()
     try:
         context.abc = removeNonAscii(context.abc)
         addQ(context)
         addTuneType(context)
         addOrigins(context)
         addKeys(context)
-        pt = getToolByName(portal, "portal_transforms")
+        pt = api.portal.get_tool('portal_transforms')
         midi = pt.convertTo('audio/x-midi', context.abc)
         context.midi = midi.getData()
         score = pt.convertTo('image/png', context.abc)
@@ -67,7 +65,7 @@ def updateAbcTune(context, event):
         """
 
     except Exception:
-        logger.info("updateAbcTune : abctune not modified...")
+        logger.info('updateAbcTune : abctune not modified...')
     # logger.info("abc edited/modified !")
 
 

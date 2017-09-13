@@ -1,34 +1,36 @@
 # -*- coding: utf-8 -*-
 
-import logging
-from plone import api
-from AccessControl import getSecurityManager
-
-# from plone.directives import dexterity
-from zope.interface import implements
-from plone.dexterity.content import Item
-
-from Products.CMFCore.permissions import ModifyPortalContent
-
-from Products.Five import BrowserView
-from collective.abctune.interfaces import Iabctune
 from collective.abctune import _
+from collective.abctune.interfaces import Iabctune
+from plone import api
+from plone.dexterity.content import Item
+from Products.Five import BrowserView
+# from plone.directives import dexterity
+from zope.interface import implementer
+
+import logging
+
 
 logger = logging.getLogger('collective.abctune')
 
 
+@implementer(Iabctune)
 class abctune(Item):
-    implements(Iabctune)
+    pass
 
 
 class View(BrowserView):
 
     def abcAutorized(self):
         context = self.context
-        sm = getSecurityManager()
-        if not sm.checkPermission(ModifyPortalContent, context):
-            return False
-        return True
+        current = api.user.get_current()
+        perm = api.user.has_permission(
+            'ModifyPortalContent',
+            username=current.getProperty('username'),
+            obj=context)
+        logger.info(u'Methode a verifier !!!!!!! : ' + str(perm))
+        logger.info(u'Donc elle retourne TJRS FALSE')
+        return False
 
     def javascript(self):
         auth = self.abcAutorized()
@@ -36,8 +38,8 @@ class View(BrowserView):
         if not auth:
             authjs = u'false'
 
-        js = u"""<script type="text/javascript">\n"""
-        js += u'tuneModified = ' + _(u"'The tune was modified... continue ?'")
+        js = u'<script type="text/javascript">\n'
+        js += u'tuneModified = ' + _(u'"The tune was modified... continue ?"')
         js += u';\n'
         js += u'var uuid = "' + api.content.get_uuid(self.context) + '";\n'
         js += u'var auth = ' + authjs + ';\n'

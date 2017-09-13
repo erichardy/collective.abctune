@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
-from plone.app.testing import TEST_USER_ID
-from zope.component import queryUtility
-from zope.component import createObject
-from plone.app.testing import setRoles
-from plone.dexterity.interfaces import IDexterityFTI
-from plone import api
-
-from collective.abctune.testing import COLLECTIVE_ABCTUNE_INTEGRATION_TESTING  # noqa
 from collective.abctune.interfaces import Iabctune
+from collective.abctune.testing import COLLECTIVE_ABCTUNE_INTEGRATION_TESTING  # noqa
+from plone import api
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import createObject
+from zope.component import queryUtility
 
 import unittest2 as unittest
 
@@ -38,7 +37,10 @@ class abctuneIntegrationTest(unittest.TestCase):
         self.assertTrue(Iabctune.providedBy(obj))
 
     def test_adding(self):
-        self.portal.invokeFactory('abctune', 'abctune')
+        api.content.create(
+            type='abctune',
+            title='abctune',
+            container=self.portal)
         self.assertTrue(
             Iabctune.providedBy(self.portal['abctune'])
         )
