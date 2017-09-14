@@ -7,6 +7,10 @@ from collective.abctune.utils import addTuneType
 from collective.abctune.utils import removeNonAscii
 from collective.abctune.utils import validMIMEType
 from plone import api
+from plone.i18n.normalizer.interfaces import INormalizer
+from plone.namedfile.file import NamedBlobFile
+from plone.namedfile.file import NamedBlobImage
+from zope.component import getUtility
 
 import logging
 
@@ -16,6 +20,8 @@ logger = logging.getLogger('collective.abctune')
 
 def makeFullTune(context):
     validMIMEType(context)
+    normalizer = getUtility(INormalizer)
+    normalizedTitle = normalizer.normalize(context.title, locale='fr')
     try:
         context.abc = removeNonAscii(context.abc)
         addQ(context)
@@ -28,24 +34,43 @@ def makeFullTune(context):
         pt = api.portal.get_tool('portal_transforms')
     except Exception:
         logger.info('cannot get portal_transforms tool')
+
     try:
-        midi = pt.convertTo('audio/x-midi', context.abc)
-        context.midi = midi.getData()
+        # il faudra tester si ce n'est pas deja un NamedBlobFile
+        # au lieu d'en creer un a chaque appel !!!
+        midiData = pt.convertTo('audio/x-midi', context.abc)
+        midiFilename = normalizedTitle + u'.mid'
+        midiContentType = u'audio/mid'
+        context.midi = NamedBlobFile()
+        context.midi.data = midiData.getData()
+        context.midi.contentType = midiContentType
+        context.midi.filename = midiFilename
     except Exception:
         logger.info('Failed to create MIDI')
     try:
-        score = pt.convertTo('image/png', context.abc)
-        context.score = score.getData()
+        scoreData = pt.convertTo('image/png', context.abc)
+        scoreFilename = normalizedTitle + u'.png'
+        scoreContenType = 'image/png'
+        context.score = NamedBlobImage()
+        context.score.data = scoreData.getData()
+        context.score.filename = scoreFilename
+        context.score.contentType = scoreContenType
     except Exception:
         logger.info('Failed to create score')
     try:
-        pdfscore = pt.convertTo('application/pdf', context.abc)
-        context.pdfscore = pdfscore.getData()
+        pdfData = pt.convertTo('application/pdf', context.abc)
+        pdfFilename = normalizedTitle + u'.pdf'
+        pdfContenType = 'application/pdf'
+        context.pdfscore = NamedBlobImage()
+        context.pdfscore.data = pdfData.getData()
+        context.pdfscore.filename = pdfFilename
+        context.pdfscore.contentType = pdfContenType
     except Exception:
         logger.info('Failed to create PDF score')
     try:
-        sound = pt.convertTo('audio/mpeg', context.abc)
-        context.sound = sound.getData()
+        # sound = pt.convertTo('audio/mpeg', context.abc)
+        # context.sound = sound.getData()
+        pass
     except Exception:
         logger.info('Failed to create MPEG sound')
 
