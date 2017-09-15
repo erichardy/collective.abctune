@@ -50,6 +50,11 @@
  </a>
 </div>
 
+<audio controls>
+  <source tal:attributes="src string:${context/absolute_url}/@@download/mp3/${context/mp3/filename}" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
 </metal:main>
 
 </body>

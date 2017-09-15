@@ -82,8 +82,13 @@ def makeFullTune(context):
         logger.info('Failed to create PDF score')
 
     try:
-        # sound = pt.convertTo('audio/mpeg', context.abc)
-        # context.sound = sound.getData()
+        mp3Data = pt.convertTo('audio/mpeg', context.abc)
+        mp3Filename = normalizedTitle + u'.pdf'
+        mp3ContenType = 'audio/mpeg'
+        context.mp3 = NamedBlobImage()
+        context.mp3.data = mp3Data.getData()
+        context.mp3.filename = mp3Filename
+        context.mp3.contentType = mp3ContenType
         pass
     except Exception:
         logger.info('Failed to create MPEG sound')

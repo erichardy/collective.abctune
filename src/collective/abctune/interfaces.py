@@ -98,9 +98,9 @@ class IABCTune(Interface):
         description=_(u'Midi sound of the tune'),
         required=False,
         )
-    form.omitted('sound')
-    sound = NamedBlobFile(
-        title=_(u'sound'),
+    form.omitted('mp3')
+    mp3 = NamedBlobFile(
+        title=_(u'mp3'),
         description=_(u'The mp3 sound of the tune'),
         required=False,
         )
