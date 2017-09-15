@@ -79,7 +79,12 @@ class IABCTune(Interface):
         description=score_desc,
         required=False,
         )
-
+    form.omitted('svgscore')
+    svgscore = NamedBlobFile(
+        title=_(u'SVG Score'),
+        description=_(u'The score of the tune as SVG'),
+        required=False,
+        )
     form.omitted('pdfscore')
     pdfscore = NamedBlobFile(
         title=_(u'PDF Score'),

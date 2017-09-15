@@ -47,24 +47,29 @@ def makeFullTune(context):
         context.midi.filename = midiFilename
     except Exception:
         logger.info('Failed to create MIDI')
-    scoreData = pt.convertTo('image/svg+xml', context.abc)
-    scoreFilename = normalizedTitle + u'.svg'
-    scoreContenType = 'image/svg+xml'
-    context.score = NamedBlobImage()
-    context.score.data = scoreData.getData()
-    context.score.filename = scoreFilename
-    context.score.contentType = scoreContenType
 
     try:
-        scoreData = pt.convertTo('image/svg+xml', context.abc)
-        scoreFilename = normalizedTitle + u'.svg'
-        scoreContenType = 'image/svg+xml'
+        scoreData = pt.convertTo('image/png', context.abc)
+        scoreFilename = normalizedTitle + u'.png'
+        scoreContenType = 'image/png'
         context.score = NamedBlobImage()
         context.score.data = scoreData.getData()
         context.score.filename = scoreFilename
         context.score.contentType = scoreContenType
     except Exception:
-        logger.info('Failed to create score')
+        logger.info('Failed to create PNG score')
+
+    try:
+        svgData = pt.convertTo('image/svg+xml', context.abc)
+        svgFilename = normalizedTitle + u'.svg'
+        svgContenType = 'image/svg+xml'
+        context.svgscore = NamedBlobImage()
+        context.svgscore.data = svgData.getData()
+        context.svgscore.filename = svgFilename
+        context.svgscore.contentType = svgContenType
+    except Exception:
+        logger.info('Failed to create SVG score')
+
     try:
         pdfData = pt.convertTo('application/pdf', context.abc)
         pdfFilename = normalizedTitle + u'.pdf'
@@ -75,6 +80,7 @@ def makeFullTune(context):
         context.pdfscore.contentType = pdfContenType
     except Exception:
         logger.info('Failed to create PDF score')
+
     try:
         # sound = pt.convertTo('audio/mpeg', context.abc)
         # context.sound = sound.getData()

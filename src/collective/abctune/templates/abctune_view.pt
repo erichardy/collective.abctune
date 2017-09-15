@@ -42,7 +42,7 @@
 </span>
 
 <img tal:attributes="src string:${context/absolute_url}/@@download/score/${context/score/filename}" />
-
+<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
 <div>
  <a src=""
     tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
