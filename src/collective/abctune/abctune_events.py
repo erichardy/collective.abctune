@@ -89,7 +89,6 @@ def makeFullTune(context):
         context.mp3.data = mp3Data.getData()
         context.mp3.filename = mp3Filename
         context.mp3.contentType = mp3ContenType
-        pass
     except Exception:
         logger.info('Failed to create MPEG sound')
 
