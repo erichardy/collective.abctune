@@ -47,6 +47,7 @@ def makeFullTune(context):
         context.midi.filename = midiFilename
     except Exception:
         logger.info('Failed to create MIDI')
+    # import pdb;pdb.set_trace()
     """
     scoreData = pt.convertTo('image/png', context.abc)
     scoreFilename = normalizedTitle + u'.png'

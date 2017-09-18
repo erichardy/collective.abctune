@@ -22,26 +22,14 @@
         abc
     </pre>
 
-<span tal:replace="nothing">sqdqd</span>
 
 	<span tal:define="base string:${context/portal_url};
 	                  SFlocation string:${base}/++plone++midiplayer/soundfont/;
 	                  instrument string:acoustic_grand_piano;
 	                  ">
-	  <play-midi tal:attributes="SFlocation string:${SFlocation};
-	                             instrument string:${instrument};
-	                             src string:${context/absolute_url}/@@download/midi/${context/midi/filename};
-	                             autoplay string:0"
-	  >
-	  </play-midi>      
 	</span>
-<span tal:define="midi nocall:context/midi"
-      tal:content="structure string:${context/absolute_url}/@@download/midi/${context/midi/filename}">
-  
 
-</span>
-
-<span tal:replace="nothing">
+<span>
   <img tal:attributes="src string:${context/absolute_url}/@@download/score/${context/score/filename}" />
 </span>
 
