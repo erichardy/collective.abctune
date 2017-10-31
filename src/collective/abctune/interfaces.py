@@ -26,6 +26,32 @@ score_desc = _(u'The score of the tune as png image')
 
 class IABCTune(Interface):
 
+    """
+    A faire / réflexions :
+    * ajouter champ pour liens vers des infos diverses
+    * ajouter champ pour enregistrement "libres de droits"
+    * champ(s) discographie
+    NB: étudier l'éventualité qu'un ABCTune pourrait être
+    un folderish qui contient des éléments en remplacement
+    des champs ci-dessus. Ce serait peut-être plus souple.
+    Mettre alors en place des types de contenus adaptés :
+    * lien (existe déjà)
+    * élément discographique
+    * fichiers son contenant des enregistrements libres de droit
+    * etc...
+    Voir si cette façon de faire ne pourrait pas être étendue :
+    - un ABCTune serait alors un folder qui peut contenir plusieurs
+    versions d'un même Tune. On bénéficie alors de la possibilité de
+    publier ou non certaines versions, de regrouper des versions avec
+    et/ou sans arangements, de les ordonner, mettre des enregistrements non
+    libres mais non publiés, etc...
+    - il serait plus simple d'ajouter des spécificités ou particularités
+    à chaque ABCTune
+    - la vue des contenus d'une ABCTune pourrait se faire par viewlets, mais
+    il faudrait pouvoir adapter l'ordre des viewlets pour chaque ABCTune...
+    Voir si Mosaic ne permettrait pas de faciliter cela, avec plusieurs
+    Layouts possibles.... en remplacement d'un vue composée de viewlets...?
+    """
     dexteritytextindexer.searchable('title')
     model.primary('title')
     title = schema.TextLine(
