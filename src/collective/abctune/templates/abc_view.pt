@@ -22,12 +22,6 @@
     </pre>
 
 
-	<span tal:define="base string:${context/portal_url};
-	                  SFlocation string:${base}/++plone++midiplayer/soundfont/;
-	                  instrument string:acoustic_grand_piano;
-	                  ">
-	</span>
-
 <span>
   <img tal:attributes="src string:${context/absolute_url}/@@download/score/${context/score/filename}" />
 </span>

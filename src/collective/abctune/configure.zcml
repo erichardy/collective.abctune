@@ -44,7 +44,7 @@
       handler=".setuphandlers.uninstall">
   </genericsetup:importStep>
 
-   <!-- Add form -->
+   <!-- abctune -->
    <adapter
         name="abctune"
 	    for="Products.CMFCore.interfaces.IFolderish
@@ -61,21 +61,68 @@
 	        />
 	</class>
 
+  <!-- Tune -->
+  <adapter
+        name="tune"
+	    for="Products.CMFCore.interfaces.IFolderish
+	         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+	         plone.dexterity.interfaces.IDexterityFTI"
+	    provides="zope.publisher.interfaces.browser.IBrowserPage"
+	    factory=".tune.AddView"
+    />
+	<class class=".tune.AddView">
+	    <require
+	        permission="cmf.AddPortalContent"
+	        interface="zope.publisher.interfaces.browser.IBrowserPage"
+	        />
+	</class>
+  <!-- EBD Tune -->
+
+  <!-- ABC -->
+  <adapter
+        name="abc"
+	    for="Products.CMFCore.interfaces.IFolderish
+	         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+	         plone.dexterity.interfaces.IDexterityFTI"
+	    provides="zope.publisher.interfaces.browser.IBrowserPage"
+	    factory=".abc.AddView"
+    />
+	<class class=".abc.AddView">
+	    <require
+	        permission="cmf.AddPortalContent"
+	        interface="zope.publisher.interfaces.browser.IBrowserPage"
+	        />
+	</class>
+	<browser:page
+      name="view"
+      for="collective.abctune.interfaces.IABC"
+      class="collective.abctune.abc.View"
+      template="templates/abc_view.pt"
+      permission="zope2.View"
+      />
+	
+  <!-- END ABC -->
+
+  <!-- Events -->
+  <!-- ABC Events -->
+  <subscriber
+   for="collective.abctune.interfaces.IABC
+         zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+    handler=".abc_events.newAbc"
+    />
+  <subscriber
+    for="collective.abctune.interfaces.IABC
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler=".abc_events.updateAbc"
+    />
+  <!-- END ABC Events -->
+  <!-- END Events -->
+
+  <!-- Utilities -->
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="collective.abctune-hiddenprofiles" />
-
-  <subscriber
-   for="collective.abctune.interfaces.IABCTune
-         zope.lifecycleevent.interfaces.IObjectCreatedEvent"
-    handler=".abctune_events.newAbcTune"
-    />
-
-  <subscriber
-    for="collective.abctune.interfaces.IABCTune
-         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-    handler=".abctune_events.updateAbcTune"
-    />
+  <!-- END Utilities -->
 
   <plone:static
     directory="static"

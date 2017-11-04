@@ -102,7 +102,7 @@ def makeFullTune(context):
         logger.info('Failed to create MPEG sound')
 
 
-def newAbcTune(context, event):
+def newAbc(context, event):
     """A FAIRE : add %abc at the begining of the file if
     not present (for mimetype recognition)
     Create mp3 (sound field) only when asked
@@ -111,7 +111,7 @@ def newAbcTune(context, event):
     context.reindexObject()
 
 
-def updateAbcTune(context, event):
+def updateAbc(context, event):
     """A FAIRE : see newAbcTune
     """
     makeFullTune(context)

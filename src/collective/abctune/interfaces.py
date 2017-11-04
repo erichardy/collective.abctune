@@ -24,7 +24,16 @@ tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
 
-class IABCTune(Interface):
+class ITune(Interface):
+    dexteritytextindexer.searchable('title')
+    model.primary('title')
+    title = schema.TextLine(
+        title=_(u'Tune name'),
+        description=_(u'The main name as you know this tune'),
+        )
+
+
+class IABC(Interface):
 
     """
     A faire / réflexions :
@@ -155,3 +164,7 @@ P:A
 "Em"efdB "D"A2GA:|2 "Bm"Bd ef  "G"g3a|"G"gedB "D"A2GA||
 """
     return tune
+
+
+class IABCTune(Interface):
+    pass
