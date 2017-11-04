@@ -36,8 +36,6 @@ def makeFullTune(context):
         logger.info('cannot get portal_transforms tool')
 
     try:
-        # il faudra tester si ce n'est pas deja un NamedBlobFile
-        # au lieu d'en creer un a chaque appel !!!
         midiData = pt.convertTo('audio/x-midi', context.abc)
         midiFilename = normalizedTitle + u'.mid'
         midiContentType = u'audio/mid'
@@ -47,16 +45,6 @@ def makeFullTune(context):
         context.midi.filename = midiFilename
     except Exception:
         logger.info('Failed to create MIDI')
-    # import pdb;pdb.set_trace()
-    """
-    scoreData = pt.convertTo('image/png', context.abc)
-    scoreFilename = normalizedTitle + u'.png'
-    scoreContenType = 'image/png'
-    context.score = NamedBlobImage()
-    context.score.data = scoreData.getData()
-    context.score.filename = scoreFilename
-    context.score.contentType = scoreContenType
-    """
     try:
         scoreData = pt.convertTo('image/png', context.abc)
         scoreFilename = normalizedTitle + u'.png'
@@ -92,7 +80,7 @@ def makeFullTune(context):
 
     try:
         mp3Data = pt.convertTo('audio/mpeg', context.abc)
-        mp3Filename = normalizedTitle + u'.pdf'
+        mp3Filename = normalizedTitle + u'.mp3'
         mp3ContenType = 'audio/mpeg'
         context.mp3 = NamedBlobImage()
         context.mp3.data = mp3Data.getData()
@@ -100,6 +88,32 @@ def makeFullTune(context):
         context.mp3.contentType = mp3ContenType
     except Exception:
         logger.info('Failed to create MPEG sound')
+    updateOGG(context, normalizedTitle, pt)
+    """
+    try:
+        oggData = pt.convertTo('audio/x-ogg', context.abc)
+        oggFilename = normalizedTitle + u'.ogg'
+        oggContenType = 'audio/x-ogg'
+        context.ogg = NamedBlobImage()
+        context.ogg.data = oggData.getData()
+        context.ogg.filename = oggFilename
+        context.ogg.contentType = oggContenType
+    except Exception:
+        logger.info('Failed to create OGG sound')
+    """
+
+
+def updateOGG(context, normalizedTitle, pt):
+    try:
+        oggData = pt.convertTo('audio/x-ogg', context.abc)
+        oggFilename = normalizedTitle + u'.ogg'
+        oggContenType = 'audio/ogg'
+        context.ogg = NamedBlobImage()
+        context.ogg.data = oggData.getData()
+        context.ogg.filename = oggFilename
+        context.ogg.contentType = oggContenType
+    except Exception:
+        logger.info('Failed to create OGG sound')
 
 
 def newAbc(context, event):

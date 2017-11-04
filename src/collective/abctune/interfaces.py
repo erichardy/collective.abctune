@@ -139,6 +139,12 @@ class IABC(Interface):
         description=_(u'The mp3 sound of the tune'),
         required=False,
         )
+    form.omitted('ogg')
+    ogg = NamedBlobFile(
+        title=_(u'ogg'),
+        description=_(u'The ogg sound of the tune'),
+        required=False,
+        )
 
 
 # @form.default_value(field=IABCTune['abc'])

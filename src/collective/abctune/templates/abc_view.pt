@@ -39,6 +39,11 @@
 Your browser does not support the audio element.
 </audio>
 
+<audio controls>
+  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
+Your browser does not support the audio element.
+</audio>
+
 </metal:main>
 
 </body>
