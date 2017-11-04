@@ -34,11 +34,12 @@
  </a>
 </div>
 
+<h3>MP3</h3>
 <audio controls>
   <source tal:attributes="src string:${context/absolute_url}/@@download/mp3/${context/mp3/filename}" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
-
+<h3>OGG</h3>
 <audio controls>
   <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
 Your browser does not support the audio element.
