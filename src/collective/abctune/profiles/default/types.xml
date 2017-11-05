@@ -3,4 +3,5 @@
   <object name="tune" meta_type="Dexterity FTI"/>
   <object name="abc" meta_type="Dexterity FTI"/>
   <object name="abctune" meta_type="Dexterity FTI"/>
+  <object name="record" meta_type="Dexterity FTI"/>
 </object>

@@ -102,6 +102,30 @@
       />
 	
   <!-- END ABC -->
+  <!-- RECORD -->
+  <adapter
+        name="record"
+	    for="Products.CMFCore.interfaces.IFolderish
+	         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+	         plone.dexterity.interfaces.IDexterityFTI"
+	    provides="zope.publisher.interfaces.browser.IBrowserPage"
+	    factory=".record.AddView"
+    />
+	<class class=".record.AddView">
+	    <require
+	        permission="cmf.AddPortalContent"
+	        interface="zope.publisher.interfaces.browser.IBrowserPage"
+	        />
+	</class>
+	<browser:page
+      name="view"
+      for="collective.abctune.interfaces.IRecord"
+      class="collective.abctune.record.View"
+      template="templates/record_view.pt"
+      permission="zope2.View"
+      />
+	
+  <!-- END RECORD -->
 
   <!-- Events -->
   <!-- ABC Events -->

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collective.abctune import _
-from collective.abctune.interfaces import IABC
+from collective.abctune.interfaces import IRecord
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.content import Item
@@ -13,11 +13,11 @@ from zope.interface import implementer
 import logging
 
 
-logger = logging.getLogger('collective.abctune:abc')
+logger = logging.getLogger('collective.abctune:record')
 
 
-@implementer(IABC)
-class abc(Item):
+@implementer(IRecord)
+class record(Item):
     pass
 
 
@@ -61,9 +61,9 @@ class View(BrowserView):
 
 
 class AddForm(add.DefaultAddForm):
-    portal_type = 'abc'
+    portal_type = 'record'
     ignoreContext = True
-    label = _(u'Add a new tune !')
+    label = _(u'Add a new record !')
 
     def update(self):
         super(add.DefaultAddForm, self).update()
@@ -71,7 +71,7 @@ class AddForm(add.DefaultAddForm):
     def updateWidgets(self):
         super(add.DefaultAddForm, self).updateWidgets()
 
-    @button.buttonAndHandler(_(u'Save this abc'), name='save_this_abc')
+    @button.buttonAndHandler(_(u'Save this record'), name='save_this_record')
     def handleApply(self, action):
         data, errors = self.extractData()
         if errors:
@@ -85,7 +85,7 @@ class AddForm(add.DefaultAddForm):
         except Exception:
             raise
 
-    @button.buttonAndHandler(_(u'Cancel this abc'))
+    @button.buttonAndHandler(_(u'Cancel this record'))
     def handleCancel(self, action):
         data, errors = self.extractData()
         # context is the thesis repo

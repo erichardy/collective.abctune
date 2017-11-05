@@ -172,5 +172,14 @@ P:A
     return tune
 
 
+class IRecord(Interface):
+    dexteritytextindexer.searchable('title')
+    model.primary('title')
+    title = schema.TextLine(
+        title=_(u'recordname'),
+        description=_(u'The Record name'),
+        )
+
+
 class IABCTune(Interface):
     pass
