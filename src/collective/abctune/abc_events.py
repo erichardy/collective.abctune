@@ -89,23 +89,11 @@ def makeFullTune(context):
     except Exception:
         logger.info('Failed to create MPEG sound')
     updateOGG(context, normalizedTitle, pt)
-    """
-    try:
-        oggData = pt.convertTo('audio/x-ogg', context.abc)
-        oggFilename = normalizedTitle + u'.ogg'
-        oggContenType = 'audio/x-ogg'
-        context.ogg = NamedBlobImage()
-        context.ogg.data = oggData.getData()
-        context.ogg.filename = oggFilename
-        context.ogg.contentType = oggContenType
-    except Exception:
-        logger.info('Failed to create OGG sound')
-    """
 
 
 def updateOGG(context, normalizedTitle, pt):
     try:
-        oggData = pt.convertTo('audio/x-ogg', context.abc)
+        oggData = pt.convertTo('audio/ogg', context.abc)
         oggFilename = normalizedTitle + u'.ogg'
         oggContenType = 'audio/ogg'
         context.ogg = NamedBlobImage()
