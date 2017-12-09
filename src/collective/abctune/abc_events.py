@@ -36,7 +36,7 @@ def makeFullTune(context):
         logger.info('cannot get portal_transforms tool')
 
     try:
-        midiData = pt.convertTo('audio/x-midi', context.abc)
+        midiData = pt.convertTo('audio/x-midi', context.abc, context=context)
         midiFilename = normalizedTitle + u'.mid'
         midiContentType = u'audio/mid'
         context.midi = NamedBlobFile()
@@ -45,6 +45,7 @@ def makeFullTune(context):
         context.midi.filename = midiFilename
     except Exception:
         logger.info('Failed to create MIDI')
+    """
     try:
         scoreData = pt.convertTo('image/png', context.abc)
         scoreFilename = normalizedTitle + u'.png'
@@ -55,9 +56,9 @@ def makeFullTune(context):
         context.score.contentType = scoreContenType
     except Exception:
         logger.info('Failed to create PNG score')
-
+    """
     try:
-        svgData = pt.convertTo('image/svg+xml', context.abc)
+        svgData = pt.convertTo('image/svg+xml', context.abc, context=context)
         svgFilename = normalizedTitle + u'.svg'
         svgContenType = 'image/svg+xml'
         context.svgscore = NamedBlobImage()
@@ -68,7 +69,7 @@ def makeFullTune(context):
         logger.info('Failed to create SVG score')
 
     try:
-        pdfData = pt.convertTo('application/pdf', context.abc)
+        pdfData = pt.convertTo('application/pdf', context.abc, context=context)
         pdfFilename = normalizedTitle + u'.pdf'
         pdfContenType = 'application/pdf'
         context.pdfscore = NamedBlobImage()
@@ -77,7 +78,7 @@ def makeFullTune(context):
         context.pdfscore.contentType = pdfContenType
     except Exception:
         logger.info('Failed to create PDF score')
-
+    """
     try:
         mp3Data = pt.convertTo('audio/mpeg', context.abc)
         mp3Filename = normalizedTitle + u'.mp3'
@@ -88,12 +89,13 @@ def makeFullTune(context):
         context.mp3.contentType = mp3ContenType
     except Exception:
         logger.info('Failed to create MPEG sound')
+    """
     updateOGG(context, normalizedTitle, pt)
 
 
 def updateOGG(context, normalizedTitle, pt):
     try:
-        oggData = pt.convertTo('audio/ogg', context.abc)
+        oggData = pt.convertTo('audio/ogg', context.abc, context=context)
         oggFilename = normalizedTitle + u'.ogg'
         oggContenType = 'audio/ogg'
         context.ogg = NamedBlobImage()
