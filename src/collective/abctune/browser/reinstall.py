@@ -5,9 +5,16 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from Products.Five import BrowserView
 from zope.interface import alsoProvides
 
+import logging
+
+
+logger = logging.getLogger('collective.abctune:reinstall')
+
 
 class reinstall(BrowserView):
     def __call__(self):
+        context = self.context
+        logger.info(context)
         alsoProvides(self.request, IDisableCSRFProtection)
         site = api.portal.get()
         qi = site.restrictedTraverse('portal_quickinstaller')
