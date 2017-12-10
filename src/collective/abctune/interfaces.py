@@ -24,6 +24,30 @@ tunecountry_title = _(tunecountry_title)
 score_desc = _(u'The score of the tune as png image')
 
 
+def abcDefaultValue():
+    # http://docs.python.org/2.6/whatsnew/2.3.html#date-time-type
+    # To get hold of the folder, do: context = data.context
+    tune = u"""
+X:1
+T:Ashplant, The
+%%MIDI chordvol 30
+%%MIDI bassvol 30
+R:reel
+Q:180
+P:AAAAA
+D:Noel Hill & Tony McMahon: 'I gCnoc na Gra'i
+Z:id:hn-reel-285
+M:C|
+K:Edor
+P:A
+|:"Em"BE E2 "G"BAGA|"Em"BE E2  "G"G3A|1 "Em"BE E2 BABd|
+"G"gedB "D"A2GA:|2  "Em"B3A "Bm"Bd ef|"G"gedB "D"A2GA|
+|:"Em"B2eB "Bm"fBeB| "Em"B2ed BAGA|1 "Em"B2eB  "D"f3d|
+"Em"efdB "D"A2GA:|2 "Bm"Bd ef  "G"g3a|"G"gedB "D"A2GA||
+"""
+    return tune
+
+
 class ITune(Interface):
     dexteritytextindexer.searchable('title')
     model.primary('title')
@@ -72,6 +96,7 @@ class IABC(Interface):
     abc = schema.Text(
         title=_(u'Tune abc'),
         description=_(u'The tune in abc format'),
+        defaultFactory=abcDefaultValue,
         )
 
     dexteritytextindexer.searchable('tunekeys')
@@ -145,31 +170,6 @@ class IABC(Interface):
         description=_(u'The ogg sound of the tune'),
         required=False,
         )
-
-
-# @form.default_value(field=IABCTune['abc'])
-def abcDefaultValue(data):
-    # http://docs.python.org/2.6/whatsnew/2.3.html#date-time-type
-    # To get hold of the folder, do: context = data.context
-    tune = """
-X:1
-T:Ashplant, The
-%%MIDI chordvol 30
-%%MIDI bassvol 30
-R:reel
-Q:180
-P:AAAAA
-D:Noel Hill & Tony McMahon: 'I gCnoc na Gra'i
-Z:id:hn-reel-285
-M:C|
-K:Edor
-P:A
-|:"Em"BE E2 "G"BAGA|"Em"BE E2  "G"G3A|1 "Em"BE E2 BABd|
-"G"gedB "D"A2GA:|2  "Em"B3A "Bm"Bd ef|"G"gedB "D"A2GA|
-|:"Em"B2eB "Bm"fBeB| "Em"B2ed BAGA|1 "Em"B2eB  "D"f3d|
-"Em"efdB "D"A2GA:|2 "Bm"Bd ef  "G"g3a|"G"gedB "D"A2GA||
-"""
-    return tune
 
 
 class IRecord(Interface):

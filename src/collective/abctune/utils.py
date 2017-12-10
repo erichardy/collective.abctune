@@ -121,11 +121,13 @@ def annotateObject(context, msg=u'', key='TUNE_KEY', maxsize=5000):
     key = key
     annotations = annot.get(key)
     now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-    if not annotations:
+    if annotations is None:
         annot[key] = u'-- ' + now + u'\n' + msg
         return True
     msg = annotations + u'\n-- ' + now + u'\n' + msg
     if len(msg) > maxsize:
         msg = msg[len(msg) - maxsize:]
+        annot[key] = msg
+    else:
         annot[key] = msg
     return True
