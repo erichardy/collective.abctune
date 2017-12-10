@@ -33,6 +33,17 @@ def getCmdOutput(key, annot):
         return u''
 
 
+def clearAnnotation(key, annot):
+    try:
+        old_val = annot.get(key)
+        if old_val:
+            annot[key] = u''
+        return True
+    except Exception:
+        logger.info('Can not get annotation for key!' + key)
+        return False
+
+
 def removeNonAscii(s):
     return ''.join(i for i in s if ord(i) < 128)
 

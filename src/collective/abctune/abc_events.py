@@ -39,6 +39,7 @@ def makeFullTune(context):
         msg = u'cannot get portal_transforms tool'
         logger.info(msg)
         annotateObject(context, msg=msg, key='ABC_ERRORS')
+    # For now, we only make SVG, PDF and OGG !
     updateSVG(context, normalizedTitle, pt)
     updatePDF(context, normalizedTitle, pt)
     updateOGG(context, normalizedTitle, pt)
