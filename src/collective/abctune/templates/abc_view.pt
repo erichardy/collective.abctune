@@ -36,6 +36,15 @@
 Your browser does not support the audio element.
 </audio>
 
+<span tal:define="outputs context/getAbcAnnotations">
+  <span tal:repeat="k python:outputs.keys()">
+    <h2>${k}</h2>
+    <p tal:content="structure python:outputs[k]">output</p>
+  </span>
+
+</span>
+
+
 </metal:main>
 
 

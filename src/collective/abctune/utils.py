@@ -12,6 +12,18 @@ import logging
 
 logger = logging.getLogger('collective.abctune:utils')
 
+ABC_ANNOTATIONS_KEYS = [
+    'ABC_ERRORS',
+    'abc2midi_ERRORS',
+    'abc2midi_OUTPUT',
+    'abcm2ps_ERRORS',
+    'abcm2ps_OUTPUT',
+    'ps2pdf_ERRORS',
+    'ps2pdf_OUTPUT',
+    'timidity_ERRORS',
+    'timidity_OUTPUT',
+    ]
+
 
 def removeNonAscii(s):
     return ''.join(i for i in s if ord(i) < 128)
@@ -122,9 +134,9 @@ def annotateObject(context, msg=u'', key='TUNE_KEY', maxsize=5000):
     annotations = annot.get(key)
     now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     if annotations is None:
-        annot[key] = u'-- ' + now + u'\n' + msg
+        annot[key] = u'-- ' + now + u' : ' + msg
         return True
-    msg = annotations + u'\n-- ' + now + u'\n' + msg
+    msg = annotations + u'\n-- ' + now + u' : ' + msg
     if len(msg) > maxsize:
         msg = msg[len(msg) - maxsize:]
         annot[key] = msg
