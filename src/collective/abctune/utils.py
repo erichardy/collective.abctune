@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
 from plone import api
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
@@ -8,7 +10,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 import logging
 
 
-logger = logging.getLogger('collective.abctune')
+logger = logging.getLogger('collective.abctune:utils')
 
 
 def removeNonAscii(s):
@@ -96,3 +98,34 @@ def addKeys(context):
             if key not in keys:
                 keys.append(key)
     context.tunekeys = keys
+
+
+def annotateObject(context, msg=u'', key='TUNE_KEY', maxsize=5000):
+    """
+    :param context: the object which will receive annotation
+    :type context: an ABC object
+    :param msg: the content of the annotation
+    :type msg: string
+    :returns: True if success, False if object not annotable.
+        Create or update the annotation ``KEY``
+        for the object, with time and date of the annotation, and
+        ensure that the annotation has not max size than
+        5000 chars or maxsize (if given)
+    """
+    try:
+        annot = IAnnotations(context)
+    except Exception:
+        logger.info('Object cannot be annotable:')
+        logger.info(context)
+        return False
+    key = key
+    annotations = annot.get(key)
+    now = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    if not annotations:
+        annot[key] = u'-- ' + now + u'\n' + msg
+        return True
+    msg = annotations + u'\n-- ' + now + u'\n' + msg
+    if len(msg) > maxsize:
+        msg = msg[len(msg) - maxsize:]
+        annot[key] = msg
+    return True
