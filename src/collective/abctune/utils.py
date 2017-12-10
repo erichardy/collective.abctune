@@ -25,6 +25,14 @@ ABC_ANNOTATIONS_KEYS = [
     ]
 
 
+def getCmdOutput(key, annot):
+    out = annot.get(key)
+    if out:
+        return out.replace('\n', '<br />')
+    else:
+        return u''
+
+
 def removeNonAscii(s):
     return ''.join(i for i in s if ord(i) < 128)
 

@@ -3,6 +3,7 @@
 from collective.abctune import _
 from collective.abctune.interfaces import IABC
 from collective.abctune.utils import ABC_ANNOTATIONS_KEYS
+from collective.abctune.utils import getCmdOutput
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.content import Item
@@ -32,7 +33,7 @@ class abc(Item):
         annotations = IAnnotations(self)
         outputs = {}
         for k in ABC_ANNOTATIONS_KEYS:
-            outputs[k] = annotations.get(k).replace('\n', '<br />')
+            outputs[k] = getCmdOutput(k, annotations)
         return outputs
 
 
