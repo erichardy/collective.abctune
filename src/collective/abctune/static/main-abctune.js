@@ -6,17 +6,17 @@ if(window.jQuery){
   });
 }
 
-
 require([
-  'jquery'
-
+  'jquery',
+  'abctume-abcjs'
   ], function($){
-  'use strict';
-
-  $(document).ready(function(){
-    console.log("abctune bundle loading...");
-    window.onload = function () {
-    	console.log('main-abctune.js loaded')
-    };
+	  'use strict';
+	  $(document).ready(function(){
+	    console.log("abctune bundle loading...");
+	    console.log(ABCJS);
   });
+})
+
+define('main-abctune',['jquery'], function($){
+	console.log('ddefine : main-abctune');
 })

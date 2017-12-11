@@ -14,5 +14,9 @@
     "pixrem": "^3.0.2",
     "cssnano": "^3.7.7",
     "autoprefixer": "^6.5.1"
+  },
+  "dependencies": {
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-sed": "^0.1.1"
   }
 }

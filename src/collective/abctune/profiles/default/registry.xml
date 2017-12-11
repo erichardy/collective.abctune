@@ -4,11 +4,19 @@
   <records prefix="plone.resources/main-abctune"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++abctune/main-abctune.js</value>
+      <value key="url">++plone++abctune</value>
       <value key="css">
         <element>++plone++abctune/abctune.less</element>
       </value>
   </records>
 
+  <records prefix="plone.resources/abctume-abcjs"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++abctune/abcjs_editor_3.1.2-min.js</value>
+      <value key="css">
+        <element>++plone++abctune/abcjs_editor.less</element>
+      </value>
+  </records>
 
 
   <records prefix="plone.bundles/abctune"
@@ -16,6 +24,7 @@
     <value key="enabled">True</value>
     <value key="resources">
         <element>main-abctune</element>
+        <element>abctume-abcjs</element>
     </value>
     <value key="jscompilation">++plone++abctune/main-abctune-compiled.js</value>
     <value key="csscompilation">++plone++abctune/abctune-compiled.min.css</value>
