@@ -7,19 +7,25 @@
       i18n:domain="plone">
 
 <body>
-
 <metal:main fill-slot="main">
-  
+<style>
+textarea {
+	/* min-height: 20em; */
+}
+</style>
+
+  <span tal:replace="nothing">
     <h1 class="documentFirstHeading" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
     </h1>
 
-<h3>${view/gettTitle}</h3>
-<h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
+	<h3>${view/gettTitle}</h3>
+	<h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
+  </span>
 
-
-<textarea id="abc-text" cols="100" rows="18" tal:content="structure string:${here/abc}"/>
+<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
 <div id="abc-score"></div>
+<div id="abc-warnings"></div>
 
 <span tal:replace="nothing">
     <pre
