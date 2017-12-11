@@ -17,34 +17,41 @@
 <h3>${view/gettTitle}</h3>
 <h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
 
-    <pre class="documentDescription" tal:content="structure context/abc">
+
+<textarea id="abc-text" cols="100" rows="18" tal:content="structure string:${here/abc}"/>
+<div id="abc-score"></div>
+
+<span tal:replace="nothing">
+    <pre
+        class="documentDescription" tal:content="structure context/abc">
         abc
     </pre>
 
 
-<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
-<div>
- <a src=""
-    tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
-    PDF
- </a>
-</div>
+	<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
+	<div>
+	 <a src=""
+	    tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
+	    PDF
+	 </a>
+	</div>
 
-<h3>OGG</h3>
-<audio controls>
-  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
-Your browser does not support the audio element.
-</audio>
 
-<span tal:define="outputs context/getAbcAnnotations">
-  <span tal:repeat="k python:outputs.keys()">
-    <h2>${k}</h2>
-    <p tal:content="structure python:outputs[k]">output</p>
-  </span>
-
+	<h3>OGG</h3>
+	<audio controls>
+	  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
+	Your browser does not support the audio element.
+	</audio>
+	
+	<span tal:define="outputs context/getAbcAnnotations">
+	  <span tal:repeat="k python:outputs.keys()">
+	    <h2>${k}</h2>
+	    <p tal:content="structure python:outputs[k]">output</p>
+	  </span>
+	</span>
 </span>
 
-
+<script src="++plone++abctune/abcjs_edition.js"></script>
 </metal:main>
 
 

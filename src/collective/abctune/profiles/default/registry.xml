@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <registry>
-
-  <records prefix="plone.resources/main-abctune"
+  
+  <records prefix="plone.resources/abctune-main"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-      <value key="js">++plone++abctune/main-abctune.js</value>
+      <value key="js">++plone++abctune/abctune-main.js</value>
       <value key="url">++plone++abctune</value>
       <value key="css">
         <element>++plone++abctune/abctune.less</element>
       </value>
   </records>
 
-  <records prefix="plone.resources/abctume-abcjs"
+  <records prefix="plone.resources/abctune-abcjs"
             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
       <value key="js">++plone++abctune/abcjs_editor_3.1.2-min.js</value>
       <value key="css">
@@ -23,10 +23,10 @@
             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="enabled">True</value>
     <value key="resources">
-        <element>main-abctune</element>
-        <element>abctume-abcjs</element>
+        <element>abctune-abcjs</element>
+        <element>abctune-main</element>
     </value>
-    <value key="jscompilation">++plone++abctune/main-abctune-compiled.js</value>
+    <value key="jscompilation">++plone++abctune/abctune-compiled.js</value>
     <value key="csscompilation">++plone++abctune/abctune-compiled.min.css</value>
     <value key="last_compilation">2015-11-11 00:00:00</value>
     <value key="compile">True</value>
