@@ -58,20 +58,12 @@ var path = require('path');
 
 var lessfiles = ['src/collective/abctune/static/*.less'];
 
-gulp.task('build-css', shell.task('grunt compile', {cwd: '.'}))
+gulp.task('build-css', shell.task('grunt --gruntfile Gruntfile-less.js compile', {cwd: '.'}))
 gulp.task('notifingless', ['build-css'], function() {
-	notifier.notify({title: 'LESS/CSS',
+	notifier.notify({title: 'LESS/CSS!!!',
 			  message: 'build finished...'
 	})
 });
-
-gulp.task('lessss', function () {
-	  return gulp.src(lessfiles)
-	    .pipe(less({
-	      paths: [ '.' ]
-	    }))
-	    .pipe(gulp.dest('./src/collective/abctune/static'));
-	});
 
 gulp.task('less', function() {
 	gulp.watch(lessfiles , ['notifingless'])	

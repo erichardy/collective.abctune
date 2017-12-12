@@ -2,15 +2,10 @@
 .abctune-menu {
 	#dashboard {
 	  position: fixed;
-	    top: 180px;
+	    top: 200px;
 	    right: 0px;
 	}
-	/* */
-	#main-container {
-	    transition: margin-left .5s;
-	    padding: 16px;
-	}
-	/* */
+
 	.overlay-menu {
 	    height: 100%;
 	    width: 0;
@@ -26,7 +21,7 @@
 	    transition: opacity 1s;
 	}
 	
-	.abctune-actions {
+	.abctune-actions, .abctune-actions2 {
 	    height: 100%;
 	    width: 0;
 	    top: 0;
@@ -37,18 +32,23 @@
 	    overflow-x: hidden;
 	    transition: .5s;
 	    padding-top: 60px;
+	
+	    a {
+		    padding: 8px 8px 8px 32px;
+		    text-decoration: none !important;
+		    font-size: 25px;
+		    color: #818181;
+		    display: block;
+		    transition: .3s;
+		    &:hover {
+		    	color: #f1f1f1;
+		    }
+		    &:focus {
+		    	color: #f1f1f1;
+		    }
+		}
 	}
-	.abctune-actions a,.abctune-actions2 a {
-	    padding: 8px 8px 8px 32px;
-	    text-decoration: none !important;
-	    font-size: 25px;
-	    color: #818181;
-	    display: block;
-	    transition: .3s
-	}
-	.abctune-actions a:hover, .abctune-actions a:focus, .abctune-actions2 a:hover{
-	    color: #f1f1f1;
-	}
+
 	.closeMenu {
 	    position: absolute;
 	    top: 0;
@@ -56,9 +56,7 @@
 	    font-size: 36px !important;
 	    margin-left: 50px;
 	}
-	#mainContent {
-	    /* transition: margin-left .5s; */
-	}
+
 	@media screen and (max-height: 500px) {
 	  .abctune-actions {padding-top:15px;}
 	  .abctune-actions a {font-size: 18px;}

@@ -8,21 +8,18 @@
 
 <style>
 /*
-body {
-    transition: background-color .5s;
-}
-*/
+
 #dashboard {
   position: fixed;
     top: 180px;
     right: 0px;
 }
-/* */
+
 #main-container {
     transition: margin-left .5s;
     padding: 16px;
 }
-/* */
+
 .overlay-menu {
     height: 100%;
     width: 0;
@@ -68,14 +65,12 @@ body {
     font-size: 36px !important;
     margin-left: 50px;
 }
-#mainContent {
-    /* transition: margin-left .5s; */
-}
+
 @media screen and (max-height: 500px) {
   .abctune-actions {padding-top:15px;}
   .abctune-actions a {font-size: 18px;}
 }
-
+*/
 </style>
 
 <span id="dashboard" style="font-size:30px;cursor:pointer">&#9776; Menu</span>
