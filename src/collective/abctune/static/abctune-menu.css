@@ -1,0 +1,71 @@
+.abctune-menu {
+  /* */
+  /* */
+}
+.abctune-menu #dashboard {
+  position: fixed;
+  top: 180px;
+  right: 0px;
+}
+.abctune-menu #main-container {
+  transition: margin-left 0.5s;
+  padding: 16px;
+}
+.abctune-menu .overlay-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.abctune-menu .abctune-actions {
+  height: 100%;
+  width: 0;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  position: fixed;
+  z-index: 3;
+  overflow-x: hidden;
+  transition: .5s;
+  padding-top: 60px;
+}
+.abctune-menu .abctune-actions a,
+.abctune-menu .abctune-actions2 a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none !important;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.abctune-menu .abctune-actions a:hover,
+.abctune-menu .abctune-actions a:focus,
+.abctune-menu .abctune-actions2 a:hover {
+  color: #f1f1f1;
+}
+.abctune-menu .closeMenu {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+.abctune-menu #mainContent {
+  /* transition: margin-left .5s; */
+}
+@media screen and (max-height: 500px) {
+  .abctune-menu .abctune-actions {
+    padding-top: 15px;
+  }
+  .abctune-menu .abctune-actions a {
+    font-size: 18px;
+  }
+}

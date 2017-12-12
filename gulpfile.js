@@ -52,6 +52,10 @@ gulp.task('default', ['html']);
  * Pour construire les CSS a partir des fichiers LESS, utiliser :
  * # gulp less
  */
+
+var less = require('gulp-less');
+var path = require('path');
+
 var lessfiles = ['src/collective/abctune/static/*.less'];
 
 gulp.task('build-css', shell.task('grunt compile', {cwd: '.'}))
@@ -60,6 +64,14 @@ gulp.task('notifingless', ['build-css'], function() {
 			  message: 'build finished...'
 	})
 });
+
+gulp.task('lessss', function () {
+	  return gulp.src(lessfiles)
+	    .pipe(less({
+	      paths: [ '.' ]
+	    }))
+	    .pipe(gulp.dest('./src/collective/abctune/static'));
+	});
 
 gulp.task('less', function() {
 	gulp.watch(lessfiles , ['notifingless'])	
