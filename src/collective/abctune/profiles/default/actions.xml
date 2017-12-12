@@ -20,4 +20,11 @@
 
 </object>
 
+<object name="abc_music_actions" meta_type="CMF Action Category">
+  <property name="title"></property>
+
+</object>
+
+
+
 </object>

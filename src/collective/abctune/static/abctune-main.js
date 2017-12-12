@@ -15,11 +15,24 @@ require([
 	    console.log("abctune bundle loading...");
 	    console.log(ABCJS);
   });
-	  var scoreSize = .8 ;
-	  // ABCJS.renderAbc('abc-score', $("#abc-text").text() , {}, {scale: scoreSize},{});
-	  // ABCJS.renderAbc('abc-score', $("#abc-text").text() , {}, {scale: .8},{});
-})
+	  var maxTextareaLines = 17;
+		var updateABCTextArea = (function(){
+			var abc = $("#abc-text").val();
+			var lines = abc.split('\n');
+			if (lines < maxTextareaLines) {
+				$("textarea#abc-text").css("min-height", (lines.length * 1.5) + "em");
+			} else {
+				$("textarea#abc-text").css("min-height", (maxTextareaLines * 1.5) + "em");
+			}
+		})
+		updateABCTextArea();
+		/*
+		 for abcjs_editor params : https://github.com/paulrosen/abcjs/blob/master/api.md#abcjs-editor
+		 */
+		var abc_editor = new ABCJS.Editor("abc-text", { canvas_id: "abc-score", warnings_id: "abc-warnings"});
+		$("#abc-text").on("keyup",function(ev){
+			updateABCTextArea();
+		});
 
-define('main-abctune',['jquery'], function($){
-	console.log('ddefine : main-abctune');
+
 })

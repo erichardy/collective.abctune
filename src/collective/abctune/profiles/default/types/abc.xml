@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="abctune" meta_type="Dexterity FTI" i18n:domain="collective.abctune"
+<object name="abc" meta_type="Dexterity FTI" i18n:domain="collective.abctune"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <property name="title" i18n:translate="">abc</property>
   <property name="description"
@@ -46,5 +46,17 @@
     description="" icon_expr="" link_target=""
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content"/>
+  </action>
+  <action title="view-abc"
+          i18n:attributes="title"
+          action_id="view-abc"
+          category="abc_music_actions"
+          condition_expr=""
+          description=""
+          icon_expr=""
+          link_target=""
+          url_expr="string:${object_url}"
+          visible="True">
+    <permission value="View"/>
   </action>
 </object>

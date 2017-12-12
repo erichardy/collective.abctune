@@ -1,6 +1,7 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
+                 actions python:view.getActions('abc_music_actions');
                  ">
 
 <style>
@@ -73,12 +74,18 @@ body {
 
 </style>
 
-<span id="dashboard" style="font-size:30px;cursor:pointer">&#9776; open</span>
+<span id="dashboard" style="font-size:30px;cursor:pointer">&#9776; Menu</span>
 
 <div id="myCanvasNav" class="overlay3"></div>
 
 <div id="myOffcanvas" class="offcanvas">
     <a href="javascript:void(0)" class="closeOffcanvas">&times;</a>
+    <span tal:repeat="action actions">
+       <a href=""
+          tal:attributes="href string:${action/url}"
+          tal:content="string:${action/title}"
+          >action</a>
+    </span>
     <a href="javascript:void(0)">About</a>
     <a href="javascript:void(0)">Services</a>
     <a href="javascript:void(0)">Clients</a>
