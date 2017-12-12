@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.abctune">
+
+<!-- Viewlet manager pour la HOME Page et ses viewlets -->
+<browser:viewletManager
+    name="abctune-viewlet-manager"
+    for="*"
+    provides="collective.abctune.browser.viewlets.interfaces.IABCTuneViewlets"
+    class="plone.app.viewletmanager.manager.OrderedViewletManager"
+    permission="zope2.View"
+    />
+<!--     layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
+-->
+<browser:viewlet
+    name="abctune-menu"
+    manager="collective.abctune.browser.viewlets.interfaces.IABCTuneViewlets"
+    class=".abctune_menu.abctuneMenu"
+    layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
+    template="abctune_menu.pt"
+    permission="zope2.View"
+    />
+<!-- -->
+
+</configure>

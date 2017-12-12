@@ -4,93 +4,15 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="collective.abctune">
 
 <body>
 <metal:main fill-slot="main">
 <style>
-body {
-    transition: background-color .5s;
-}
-
-#dashboard {
-  position: fixed;
-    top: 180px;
-    right: 0px;
-}
-
-#main-container {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-.overlay3 {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    right:0;
-    background-color: rgba(0,0,0, 0.9);
-    overflow-y: auto;
-    overflow-x: hidden;
-    text-align: center;
-    opacity:0;
-    transition: opacity 1s;
-}
-
-.offcanvas {
-    height: 100%;
-    width: 0;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    position: fixed;
-    z-index: 3;
-    overflow-x: hidden;
-    transition: .5s;
-    padding-top: 60px;
-}
-.offcanvas a,.offcanvas2 a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none !important;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: .3s
-}
-.offcanvas a:hover, .offcanvas a:focus,.offcanvas2 a:hover{
-    color: #f1f1f1;
-}
-.closeOffcanvas {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
-}
-#mainContent {
-    transition: margin-left .5s;
-}
-@media screen and (max-height: 500px) {
-  .offcanvas {padding-top:15px;}
-  .offcanvas a {font-size: 18px;}
-}
 
 </style>
 
-<span id="dashboard" style="font-size:30px;cursor:pointer">&#9776; open</span>
-
-<div id="myCanvasNav" class="overlay3"></div>
-
-<div id="myOffcanvas" class="offcanvas">
-    <a href="javascript:void(0)" class="closeOffcanvas">&times;</a>
-    <a href="javascript:void(0)">About</a>
-    <a href="javascript:void(0)">Services</a>
-    <a href="javascript:void(0)">Clients</a>
-    <a href="javascript:void(0)">Contact</a>
-  </div>
-
-
+<section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
 
   <span tal:replace="nothing">
     <h1 class="documentFirstHeading" >
