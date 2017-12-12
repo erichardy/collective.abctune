@@ -2,24 +2,28 @@
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
                  actions python:view.getActions('abc_music_actions');
-                 ">
+                 "
+     class="abctune-menu"
+     >
 
 <style>
+/*
 body {
     transition: background-color .5s;
 }
-
+*/
 #dashboard {
   position: fixed;
     top: 180px;
     right: 0px;
 }
-
+/* */
 #main-container {
     transition: margin-left .5s;
     padding: 16px;
 }
-.overlay3 {
+/* */
+.overlay-menu {
     height: 100%;
     width: 0;
     position: fixed;
@@ -34,7 +38,7 @@ body {
     transition: opacity 1s;
 }
 
-.offcanvas {
+.abctune-actions {
     height: 100%;
     width: 0;
     top: 0;
@@ -46,7 +50,7 @@ body {
     transition: .5s;
     padding-top: 60px;
 }
-.offcanvas a,.offcanvas2 a {
+.abctune-actions a,.abctune-actions2 a {
     padding: 8px 8px 8px 32px;
     text-decoration: none !important;
     font-size: 25px;
@@ -54,10 +58,10 @@ body {
     display: block;
     transition: .3s
 }
-.offcanvas a:hover, .offcanvas a:focus,.offcanvas2 a:hover{
+.abctune-actions a:hover, .abctune-actions a:focus, .abctune-actions2 a:hover{
     color: #f1f1f1;
 }
-.closeOffcanvas {
+.closeMenu {
     position: absolute;
     top: 0;
     right: 25px;
@@ -65,21 +69,21 @@ body {
     margin-left: 50px;
 }
 #mainContent {
-    transition: margin-left .5s;
+    /* transition: margin-left .5s; */
 }
 @media screen and (max-height: 500px) {
-  .offcanvas {padding-top:15px;}
-  .offcanvas a {font-size: 18px;}
+  .abctune-actions {padding-top:15px;}
+  .abctune-actions a {font-size: 18px;}
 }
 
 </style>
 
 <span id="dashboard" style="font-size:30px;cursor:pointer">&#9776; Menu</span>
 
-<div id="myCanvasNav" class="overlay3"></div>
+<div id="menu-overlay" class="overlay-menu"></div>
 
-<div id="myOffcanvas" class="offcanvas">
-    <a href="javascript:void(0)" class="closeOffcanvas">&times;</a>
+<div id="actions-menu" class="abctune-actions">
+    <a href="javascript:void(0)" class="closeMenu">&times;</a>
     <span tal:repeat="action actions">
        <a href=""
           tal:attributes="href string:${action/url}"
