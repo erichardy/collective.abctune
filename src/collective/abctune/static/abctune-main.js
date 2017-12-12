@@ -26,6 +26,11 @@ require([
 			}
 		})
 		updateABCTextArea();
+		if (typeof Raphael == 'undefined') {
+			setTimeout(function(){
+				console.log('raphael... tu te fais attendre !');
+			}, 1000);
+		}
 		/*
 		 for abcjs_editor params : https://github.com/paulrosen/abcjs/blob/master/api.md#abcjs-editor
 		 */

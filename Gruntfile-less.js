@@ -14,9 +14,8 @@ module.exports = function (grunt) {
                     strictMath: false,
                     sourceMap: true,
                     outputSourceFiles: true,
-                    /* sourceMapURL: '++theme++plonetheme.iuem20/less/iuem20-compiled.css.map', */
                     sourceMapURL: 'abctune-compiled.min.css.map',
-                    sourceMapFilename: '++plone++abctune/abctune-compiled.min.css.map',
+                    sourceMapFilename: 'abctune-compiled.min.css.map',
                     modifyVars: {
                         "isPlone": "false"
                     }
