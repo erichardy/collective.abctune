@@ -19,7 +19,7 @@ import logging
 logger = logging.getLogger('collective.abctune:abc_events')
 
 
-def makeFullTune(context):
+def makeFullTune(context, updateSound=True):
     validMIMEType(context)
     normalizer = getUtility(INormalizer)
     normalizedTitle = normalizer.normalize(context.title, locale='fr')
@@ -42,7 +42,8 @@ def makeFullTune(context):
     # For now, we only make SVG, PDF and OGG !
     updateSVG(context, normalizedTitle, pt)
     updatePDF(context, normalizedTitle, pt)
-    updateOGG(context, normalizedTitle, pt)
+    if updateSound:
+        updateOGG(context, normalizedTitle, pt)
 
 
 def updateSVG(context, normalizedTitle, pt):

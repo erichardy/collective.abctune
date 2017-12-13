@@ -6,12 +6,17 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="collective.abctune">
 
+<head>
+<metal:js fill-slot="javascript_head_slot">
+	<script tal:omit-tag="" tal:replace="structure view/javascript" ></script>
+</metal:js>
+</head>
 <body>
 <metal:main fill-slot="main">
 <style>
 
 </style>
-
+<div id="retour"></div>
 <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
 <div id="abc-view"
      tal:define="can_edit view/abcAutorized"
@@ -23,7 +28,7 @@
 		<div id="abc-edition" >
 			<div id="abctune-message" i18n:translate="">
 			ABC modified<br />think to save your work !<br />
-			Use Menu above...
+			<button id="save-abc" type="button" class="btn btn-info" i18n:translate="">save ABC</button>
 			</div>
 			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
 			<div id="abc-score"></div>
@@ -31,20 +36,31 @@
 		</div>
 	</span>
 	<p />
-	<span>
-		<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
-		<div>
-		 <a src=""
-		    tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
-		    PDF
-		 </a>
-		</div>
-		<h3>OGG</h3>
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xs-6 col-sm-6">
+	    <span style="vertical-align: top;" i18n:translate="">son</span>
 		<audio controls>
 		  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
 		  Your browser does not support the audio element.
 		</audio>
-	 </span>
+	    </div>
+	    <div class="col-xs-6 col-sm-6">
+	      <span i18n:translate="">download pdf</span> :
+	      <a src=""
+		     tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
+		     <img src="" tal:attributes="src string:${context/absolute_url}/++plone++abctune/pdf-50x50.png" />
+		 </a>
+	    </div>
+
+	  </div>
+	  <div class="row">
+	    <div class="col-xs-12 col-sm-12">
+		<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename};
+		                     class string:img-responsive" />
+		</div>
+	  </div>
+	 </div>
      <div class="pat-autotoc autotabs"
           data-pat-autotoc="section:fieldset;levels:legend;"
           tal:condition="can_edit"

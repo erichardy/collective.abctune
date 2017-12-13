@@ -18,6 +18,12 @@
       name="collective.abctune"
       directory="static"
       />
+  <browser:page
+    for="*"
+    name="updateABC"
+    class=".update_abc.updateABC"
+    permission="cmf.ModifyPortalContent"
+  />
 
   <browser:page
       name="reinstall-abctune"
