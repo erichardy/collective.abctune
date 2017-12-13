@@ -97,4 +97,8 @@ div#abc-view div#abc-edition:hover {
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5);
 }
+.btn-danger {
+  background-color: #D9534F;
+  color: white;
+}
 /*# sourceMappingURL=abctune-compiled.min.css.map */
