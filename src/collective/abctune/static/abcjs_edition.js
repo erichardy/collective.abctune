@@ -36,13 +36,20 @@ $(document).ready(function(){
 	/* END https://www.w3schools.com/howto/howto_js_off-canvas.asp */
 
 	// var abc_editor = new ABCJS.Editor("abc-text", { canvas_id: "abc-score", warnings_id: "abc-warnings"});
+	
 	$("#abc-text").on("keyup",function(ev){
 		  var self=this;
 		  // $('#abctune-message').html('Content changed !');
 		  $("#abc-text").css('background-color', '#fff0f0');
 		  $('#abctune-message').show();
 		})
-	/*
+
+	$('#abc-edition').hide();
+	$("#edit-abc").click(function(){
+		console.log('active edition');
+		$('#abc-edition').toggle("slow");
+	})
+		/*
 	area = $('#abc-text');
 	area.change(function(){
 		console.log('Changements...');

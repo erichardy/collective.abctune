@@ -13,31 +13,21 @@
 </style>
 
 <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
-<div id="abctune-message" i18n:translate="">
-ABC modified<br />think to save your work !<br />
-Use Menu above...
+<h3>${view/gettTitle}</h3>
+
+<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
+
+<div id="abc-edition" >
+	<div id="abctune-message" i18n:translate="">
+	ABC modified<br />think to save your work !<br />
+	Use Menu above...
+	</div>
+	<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
+	<div id="abc-score"></div>
+	<div id="abc-warnings"></div>
 </div>
-
-  <span tal:replace="nothing">
-    <h1 class="documentFirstHeading" >
-        <span tal:omit-tag="" tal:content="context/Title">title</span>
-    </h1>
-
-	<h3>${view/gettTitle}</h3>
-	<h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
-  </span>
-
-<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
-<div id="abc-score"></div>
-<div id="abc-warnings"></div>
-
-<span tal:replace="nothing">
-    <pre
-        class="documentDescription" tal:content="structure context/abc">
-        abc
-    </pre>
-
-
+<p />
+<span>
 	<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
 	<div>
 	 <a src=""
@@ -45,14 +35,11 @@ Use Menu above...
 	    PDF
 	 </a>
 	</div>
-
-
 	<h3>OGG</h3>
 	<audio controls>
 	  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
-	Your browser does not support the audio element.
+	  Your browser does not support the audio element.
 	</audio>
-	
 	<span tal:define="outputs context/getAbcAnnotations">
 	  <span tal:repeat="k python:outputs.keys()">
 	    <h2>${k}</h2>
