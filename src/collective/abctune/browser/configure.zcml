@@ -24,6 +24,24 @@
     class=".update_abc.updateABC"
     permission="cmf.ModifyPortalContent"
   />
+  <browser:page
+    for="*"
+    name="getSVG"
+    class=".get_svg.getSVG"
+    permission="cmf.ModifyPortalContent"
+  />
+  <browser:page
+    for="*"
+    name="getOGG"
+    class=".get_ogg.getOGG"
+    permission="cmf.ModifyPortalContent"
+  />
+  <browser:page
+    for="*"
+    name="getPDF"
+    class=".get_pdf.getPDF"
+    permission="cmf.ModifyPortalContent"
+  />
 
   <browser:page
       name="reinstall-abctune"
