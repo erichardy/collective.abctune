@@ -13,41 +13,97 @@
 </style>
 
 <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
-<h3>${view/gettTitle}</h3>
-
-<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
-
-<div id="abc-edition" >
-	<div id="abctune-message" i18n:translate="">
-	ABC modified<br />think to save your work !<br />
-	Use Menu above...
-	</div>
-	<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
-	<div id="abc-score"></div>
-	<div id="abc-warnings"></div>
-</div>
-<p />
-<span>
-	<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
-	<div>
-	 <a src=""
-	    tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
-	    PDF
-	 </a>
-	</div>
-	<h3>OGG</h3>
-	<audio controls>
-	  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
-	  Your browser does not support the audio element.
-	</audio>
-	<span tal:define="outputs context/getAbcAnnotations">
-	  <span tal:repeat="k python:outputs.keys()">
-	    <h2>${k}</h2>
-	    <p tal:content="structure python:outputs[k]">output</p>
-	  </span>
+<div id="abc-view"
+     tal:define="can_edit view/abcAutorized"
+     q>
+	<h3>${view/gettTitle}</h3>
+	<span tal:condition="can_edit">
+		<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
+		
+		<div id="abc-edition" >
+			<div id="abctune-message" i18n:translate="">
+			ABC modified<br />think to save your work !<br />
+			Use Menu above...
+			</div>
+			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
+			<div id="abc-score"></div>
+			<div id="abc-warnings"></div>
+		</div>
 	</span>
-</span>
+	<p />
+	<span>
+		<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename}" />
+		<div>
+		 <a src=""
+		    tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
+		    PDF
+		 </a>
+		</div>
+		<h3>OGG</h3>
+		<audio controls>
+		  <source tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}" type="audio/ogg">
+		  Your browser does not support the audio element.
+		</audio>
+	 </span>
+     <div class="pat-autotoc autotabs"
+          data-pat-autotoc="section:fieldset;levels:legend;"
+          tal:condition="can_edit"
+          tal:define="outputs context/getAbcAnnotations">
+        <fieldset>
+          <legend>ABC errors</legend>
+          <div tal:content="structure python:outputs['ABC_ERRORS']">
+		       ABC_ERRORS
+		  </div>
+        </fieldset>
+        <fieldset>
+          <legend>abc2midi</legend>
+          <h3>abc2midi_ERRORS</h3>
+          <div tal:content="structure python:outputs['abc2midi_ERRORS']">
+            abc2midi_ERRORS
+          </div>
+          <h3>abc2midi_OUTPUT</h3>
+          <div tal:content="structure python:outputs['abc2midi_OUTPUT']">
+            abc2midi_OUTPUT
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>timidity</legend>
+          <h3>timidity_ERRORS</h3>
+          <div tal:content="structure python:outputs['timidity_ERRORS']">
+            timidity_ERRORS
+          </div>
+          <h3>timidity_OUTPUT</h3>
+          <div tal:content="structure python:outputs['timidity_OUTPUT']">
+            timidity_OUTPUT
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>abcm2ps</legend>
+          <h3>abcm2ps_ERRORS</h3>
+          <div tal:content="structure python:outputs['abcm2ps_ERRORS']">
+            abcm2ps_ERRORS
+          </div>
+          <h3>abcm2ps_OUTPUT</h3>
+          <div tal:content="structure python:outputs['abcm2ps_OUTPUT']">
+            abcm2ps_OUTPUT
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>ps2pdf</legend>
+          <h3>ps2pdf_ERRORS</h3>
+          <div tal:content="structure python:outputs['ps2pdf_ERRORS']">
+            ps2pdf_ERRORS
+          </div>
+          <h3>ps2pdf_OUTPUT</h3>
+          <div tal:content="structure python:outputs['ps2pdf_OUTPUT']">
+            ps2pdf_OUTPUT
+          </div>
+        </fieldset>
 
+    </div>
+
+	
+</div>
 <script src="++plone++abctune/abcjs_edition.js"></script>
 </metal:main>
 
