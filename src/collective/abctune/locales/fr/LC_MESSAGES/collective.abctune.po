@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,17 +12,11 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.abctune\n"
-
-#: ./abc.py:54
-#: ./abctune.py:44
-#: ./record.py:44
-msgid "\"The tune was modified... continue ?\""
-msgstr ""
+"Domain: DOMAIN\n"
 
 #: ./templates/abc_view.pt:29
 msgid "ABC modified<br />think to save your work !"
-msgstr ""
+msgstr "L'ABC a été modifié<br />il faut enregistrer !"
 
 #: ./record.py:66
 msgid "Add a new record !"
@@ -39,7 +30,7 @@ msgstr ""
 
 #: ./abc.py:98
 msgid "Cancel this abc"
-msgstr ""
+msgstr "Abandonner cet ABC"
 
 #: ./record.py:88
 msgid "Cancel this record"
@@ -52,7 +43,7 @@ msgstr ""
 
 #: ./templates/abc_view.pt:64
 msgid "Edit ABC"
-msgstr ""
+msgstr "Editer l'ABC..."
 
 #: ./configure.zcml:23
 msgid "Installs the collective.abctune add-on."
@@ -86,7 +77,7 @@ msgstr ""
 
 #: ./abc.py:84
 msgid "Save this abc"
-msgstr ""
+msgstr "enregistrer cet ABC"
 
 #: ./record.py:74
 msgid "Save this record"
@@ -103,7 +94,7 @@ msgstr ""
 
 #: ./templates/abc_view.pt:86
 msgid "Show/Hide logs"
-msgstr ""
+msgstr "Cacher/Voir les logs"
 
 #: ./interfaces.py:180
 msgid "The Record name"
@@ -165,6 +156,12 @@ msgstr ""
 msgid "Uninstalls the collective.abctune add-on."
 msgstr ""
 
+#: ./abc.py:54
+#: ./abctune.py:44
+#: ./record.py:44
+msgid "\"The tune was modified... continue ?\""
+msgstr ""
+
 #: ./profiles/default/types/abc.xml
 msgid "abc"
 msgstr ""
@@ -179,15 +176,15 @@ msgstr ""
 
 #: ./templates/abc_view.pt:34
 msgid "create new ogg"
-msgstr ""
+msgstr "Générer un nouveau son OGG"
 
 #: ./templates/abc_view.pt:66
 msgid "create soud ?"
-msgstr ""
+msgstr "Générer le son ?"
 
 #: ./templates/abc_view.pt:51
 msgid "download pdf"
-msgstr ""
+msgstr "Télécharger le PDF"
 
 #: ./interfaces.py:115
 msgid "from the field R:"
@@ -211,11 +208,11 @@ msgstr ""
 
 #: ./templates/abc_view.pt:31
 msgid "save ABC"
-msgstr ""
+msgstr "Enregistrer ABC"
 
 #: ./templates/abc_view.pt:42
 msgid "son"
-msgstr ""
+msgstr "Son"
 
 #: ./profiles/default/types/tune.xml
 msgid "tune"
