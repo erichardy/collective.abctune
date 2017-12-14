@@ -17,8 +17,9 @@
 
 </style>
 <div id="retour"></div>
-<section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
-<div id="abc-view"
+  <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
+
+  <div id="abc-view"
      tal:define="can_edit view/abcAutorized"
      q>
 	<h3>${view/gettTitle}</h3>
@@ -26,17 +27,7 @@
 			     ABC modified<br />think to save your work !<br />
 			     <button id="save-abc" type="button" class="btn btn-info" i18n:translate="">save ABC</button>
 			</div>
-	
-	<span tal:condition="can_edit">
-		<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
-		
-		<div id="abc-edition" >
-			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
-			<div id="abc-score"></div>
-			<div id="abc-warnings"></div>
-		</div>
-	</span>
-	<p />
+
 	<div class="container">
 	  <div class="row">
 	    <div class="col-xs-6 col-sm-6">
@@ -59,6 +50,22 @@
 	    </div>
 
 	  </div>
+	</div>
+
+	<span tal:condition="can_edit">
+		<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
+		<span>
+		  <span id="LabelcreateSound" i18n:translate="">create soud ?</span>
+		  <input id="checkboxCreateSound" type="checkbox" checked name="createSound" value="1">
+		</span>
+		<div id="abc-edition" >
+			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
+			<div id="abc-score"></div>
+			<div id="abc-warnings"></div>
+		</div>
+	</span>
+	<p />
+	<div class="container">
 	  <div class="row">
 	    <div class="col-xs-12 col-sm-12" id="svgscore">
 		<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename};
@@ -72,51 +79,51 @@
           tal:define="outputs context/getAbcAnnotations">
         <fieldset>
           <legend>ABC errors</legend>
-          <div tal:content="structure python:outputs['ABC_ERRORS']">
+          <div id="ABC_ERRORS" tal:content="structure python:outputs['ABC_ERRORS']">
 		       ABC_ERRORS
 		  </div>
         </fieldset>
         <fieldset>
           <legend>abc2midi</legend>
           <h3>abc2midi_ERRORS</h3>
-          <div tal:content="structure python:outputs['abc2midi_ERRORS']">
+          <div id="abc2midi_ERRORS" tal:content="structure python:outputs['abc2midi_ERRORS']">
             abc2midi_ERRORS
           </div>
           <h3>abc2midi_OUTPUT</h3>
-          <div tal:content="structure python:outputs['abc2midi_OUTPUT']">
+          <div id="abc2midi_OUTPUT" tal:content="structure python:outputs['abc2midi_OUTPUT']">
             abc2midi_OUTPUT
           </div>
         </fieldset>
         <fieldset>
           <legend>timidity</legend>
           <h3>timidity_ERRORS</h3>
-          <div tal:content="structure python:outputs['timidity_ERRORS']">
+          <div id="timidity_ERRORS" tal:content="structure python:outputs['timidity_ERRORS']">
             timidity_ERRORS
           </div>
           <h3>timidity_OUTPUT</h3>
-          <div tal:content="structure python:outputs['timidity_OUTPUT']">
+          <div id="timidity_OUTPUT" tal:content="structure python:outputs['timidity_OUTPUT']">
             timidity_OUTPUT
           </div>
         </fieldset>
         <fieldset>
           <legend>abcm2ps</legend>
           <h3>abcm2ps_ERRORS</h3>
-          <div tal:content="structure python:outputs['abcm2ps_ERRORS']">
+          <div id="abcm2ps_ERRORS" tal:content="structure python:outputs['abcm2ps_ERRORS']">
             abcm2ps_ERRORS
           </div>
           <h3>abcm2ps_OUTPUT</h3>
-          <div tal:content="structure python:outputs['abcm2ps_OUTPUT']">
+          <div id="abcm2ps_OUTPUT" tal:content="structure python:outputs['abcm2ps_OUTPUT']">
             abcm2ps_OUTPUT
           </div>
         </fieldset>
         <fieldset>
           <legend>ps2pdf</legend>
           <h3>ps2pdf_ERRORS</h3>
-          <div tal:content="structure python:outputs['ps2pdf_ERRORS']">
+          <div id="ps2pdf_ERRORS" tal:content="structure python:outputs['ps2pdf_ERRORS']">
             ps2pdf_ERRORS
           </div>
           <h3>ps2pdf_OUTPUT</h3>
-          <div tal:content="structure python:outputs['ps2pdf_OUTPUT']">
+          <div id="ps2pdf_OUTPUT" tal:content="structure python:outputs['ps2pdf_OUTPUT']">
             ps2pdf_OUTPUT
           </div>
         </fieldset>

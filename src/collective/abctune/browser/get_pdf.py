@@ -24,5 +24,5 @@ class getPDF(BrowserView):
         pdf += '<img src="'
         pdf += abc.absolute_url() + '/++plone++abctune/pdf-50x50.png">'
         pdf += '</a>'
-        logger.info(pdf)
+        # logger.info(pdf)
         return pdf

@@ -42,6 +42,12 @@
     class=".get_pdf.getPDF"
     permission="cmf.ModifyPortalContent"
   />
+  <browser:page
+    for="*"
+    name="getOUTPUTS"
+    class=".get_outputs.getOUTPUTS"
+    permission="cmf.ModifyPortalContent"
+  />
 
   <browser:page
       name="reinstall-abctune"

@@ -22,5 +22,5 @@ class getOGG(BrowserView):
         ogg += '">'
         ogg += u'Your browser does not support the audio element.'
         ogg += '</audio>'
-        logger.info(ogg)
+        # logger.info(ogg)
         return ogg

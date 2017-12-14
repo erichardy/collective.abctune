@@ -13,8 +13,11 @@ logger = logging.getLogger('collective.abctune:updateABC: ')
 class updateABC(BrowserView):
     """ AJAX method/view"""
     def __call__(self, abctext, uuid, makeSound):
+        make_sound = True
+        if makeSound == '0':
+            make_sound = False
         abc = uuidToObject(uuid)
         abc.abc = abctext
-        makeFullTune(abc, updateSound=True)
+        makeFullTune(abc, updateSound=make_sound)
         abc.reindexObject()
         return 1

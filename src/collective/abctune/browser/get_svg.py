@@ -20,5 +20,5 @@ class getSVG(BrowserView):
         svg = '<img src="' + abc.absolute_url() + '/@@download/svgscore/'
         svg += abc.svgscore.filename
         svg += '?' + str(microsecond) + '">'
-        logger.info(svg)
+        # logger.info(svg)
         return svg
