@@ -101,4 +101,10 @@ div#abc-view div#abc-edition:hover {
   background-color: #D9534F;
   color: white;
 }
+span#LabelcreateSound {
+  padding: 0px 4px 0 10px;
+}
+div#abc-outputs-logs {
+  display: none;
+}
 /*# sourceMappingURL=abctune-compiled.min.css.map */

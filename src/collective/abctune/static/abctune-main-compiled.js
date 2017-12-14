@@ -151,6 +151,9 @@ require([
 		$("#save-abc").click(function(){
 			updateTune();
 		});
+		$('#show-hide-logs').click(function(){
+			$('#abc-outputs-logs').toggle("slow");
+		})
 
 	  /* END $(document).ready(function(){... */
 	  });

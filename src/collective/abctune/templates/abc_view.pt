@@ -53,7 +53,7 @@
 	</div>
 
 	<span tal:condition="can_edit">
-		<button id="edit-abc" type="button" class="btn btn-info" >Edition ABC</button>
+		<button id="edit-abc" type="button" class="btn btn-info" >Edit ABC</button>
 		<span>
 		  <span id="LabelcreateSound" i18n:translate="">create soud ?</span>
 		  <input id="checkboxCreateSound" type="checkbox" checked name="createSound" value="1">
@@ -73,7 +73,10 @@
 		</div>
 	  </div>
 	 </div>
-     <div class="pat-autotoc autotabs"
+     <span tal:condition="can_edit">
+		<button id="show-hide-logs" type="button" class="btn btn-info" i18n:translate="">See/Hide logs</button>
+	 </span>
+     <div id="abc-outputs-logs" class="pat-autotoc autotabs"
           data-pat-autotoc="section:fieldset;levels:legend;"
           tal:condition="can_edit"
           tal:define="outputs context/getAbcAnnotations">
