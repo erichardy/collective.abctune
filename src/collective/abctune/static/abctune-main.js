@@ -14,8 +14,36 @@ require([
 	  $(document).ready(function(){
 	    console.log("abctune bundle loading...");
 	    console.log(ABCJS);
-	    
-  
+	    function openOverlay() {
+		    document.getElementById("menu-overlay").style.width = "100%";
+		    document.getElementById("menu-overlay").style.opacity = "0.8";  
+		};
+		function closeOverlay() {
+			document.getElementById("menu-overlay").style.width = "0%";
+		    document.getElementById("menu-overlay").style.opacity = "0"; 
+		};
+	    // we test if there has been changes in ABC edition
+	    // returns true is changes has been made
+	    function isAbcChanged() {
+	    	return ($('#hidden-abc-text').val() != $("#abc-text").val());
+	    };
+	    function alertSaveABCOn(){
+	    	$("#edit-abc").removeClass('btn-info');
+			$("#edit-abc").addClass('btn-danger');
+			$('#abctune-message').show();
+	    };
+	    function alertSaveABCOff(){
+	    	$("#edit-abc").removeClass('btn-danger');
+			$("#edit-abc").addClass('btn-info');
+			$('#abctune-message').hide();
+	    }
+		function showCreateOGGButton(){
+			$('#abctune-ogg-message').show();
+		};
+		function hideCreateOGGButton(){
+			$('#abctune-ogg-message').hide();
+		};
+
 	    var maxTextareaLines = 17;
 	    var abc_text = $("#abc-text");
 		var updateABCTextArea = (function(){
@@ -32,11 +60,12 @@ require([
 			// for abcjs_editor params : https://github.com/paulrosen/abcjs/blob/master/api.md#abcjs-editor
 			var abc_editor = new ABCJS.Editor("abc-text", { canvas_id: "abc-score", warnings_id: "abc-warnings"});
 			$("#abc-text").on("keyup",function(ev){
-				updateABCTextArea();
-				var self=this;
-				$("#edit-abc").removeClass('btn-info');
-				$("#edit-abc").addClass('btn-danger');
-				$('#abctune-message').show();
+				if (isAbcChanged()){
+					updateABCTextArea();
+					alertSaveABCOn();
+				} else {
+					alertSaveABCOff();
+				}
 			});
 			$('#abc-edition').hide();
 			$("#edit-abc").click(function(){
@@ -50,10 +79,6 @@ require([
 			function openAbctuneMenu() {
 			    document.getElementById("actions-menu").style.width = "250px";
 			    document.getElementById("main-container").style.marginRight = "250px";
-			};
-			function openOverlay() {
-			    document.getElementById("menu-overlay").style.width = "100%";
-			    document.getElementById("menu-overlay").style.opacity = "0.8";  
 			};
 			function closeAbctuneMenu() {
 			    document.getElementById("actions-menu").style.width = "0%";
@@ -83,12 +108,9 @@ require([
 				console.log('raphael... tu te fais attendre !');
 			}, 1000);
 		}
-	
-		
+
 		function updateTune() {
-			console.log('Save ABC');
-			document.getElementById("menu-overlay").style.width = "100%";
-		    document.getElementById("menu-overlay").style.opacity = "0.8";  
+			openOverlay();
 			$('#abctune-message').hide();
 			$("#edit-abc").removeClass('btn-danger');
 			$("#edit-abc").addClass('btn-info');
@@ -100,15 +122,27 @@ require([
 			}
 			var updatedABC = $.post("@@updateABC" , {'abctext':abctext, 'uuid':uuid, 'makeSound':makeSound} , function(data, status, xhr){
 				console.log("retour de updateABC");
+				/*
 				var svg = $.post("@@getSVG", {'uuid':uuid}, function(data){
 					$("#svgscore").html(data);
 				});
+				*/
+				$("#svgscore").load("@@getSVG", {'uuid':uuid});
+				/*
 				var pdf = $.post("@@getPDF", {'uuid':uuid}, function(data){
 					$("#pdf").html(data);
 				});
+				*/
+				$("#pdf").load("@@getPDF", {'uuid':uuid});
+				/*
 				var ogg = $.post("@@getOGG", {'uuid':uuid}, function(data){
 					$("#ogg").html(data);
 				});
+				*/
+				if (makeSound == 1){
+					$("#ogg").load("@@getOGG", {'uuid':uuid});
+				}
+				hideCreateOGGButton();
 				var ABC_ANNOTATIONS_KEYS = [
 				    'ABC_ERRORS',
 				    'abc2midi_ERRORS',
@@ -127,8 +161,9 @@ require([
 					$('#' + k_output).load('@@getOUTPUTS', {'uuid':uuid, 'key': k_output});
 				};
 				console.log('Fin des appels AJAX');
-				document.getElementById("menu-overlay").style.width = "0%";
-			    document.getElementById("menu-overlay").style.opacity = "0";  
+				closeOverlay();
+			    // on synchronise l'ancien abc avec le nouveau
+			    $('#hidden-abc-text').val($("#abc-text").val());
 			});
 		};
 		$("#save-abc").click(function(){
@@ -136,7 +171,25 @@ require([
 		});
 		$('#show-hide-logs').click(function(){
 			$('#abc-outputs-logs').toggle("slow");
+		});
+		$('#create-ogg').click(function(){
+			updateTune();
+			hideCreateOGGButton();
 		})
+		$('#checkboxCreateSound').change(function(){
+			if ($("#checkboxCreateSound").is(':checked')){
+				if (isAbcChanged()){
+					hideCreateOGGButton();
+					console.log('Il faut tout regenerer');
+					// on ne fait rien ici car le bouton #save-abc est apparu
+				} else {
+					console.log('Il faut regenerer seulement OGG et les logs');
+					showCreateOGGButton();
+				}
+			} else {
+				hideCreateOGGButton();
+			};
+		});
 
 	  /* END $(document).ready(function(){... */
 	  });

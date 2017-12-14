@@ -14,7 +14,9 @@
 <body>
 <metal:main fill-slot="main">
 <style>
-
+#hidden-abc-text {
+	display:none;
+}
 </style>
 <div id="retour"></div>
   <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
@@ -23,10 +25,14 @@
      tal:define="can_edit view/abcAutorized"
      q>
 	<h3>${view/gettTitle}</h3>
-				<div id="abctune-message" i18n:translate="">
-			     ABC modified<br />think to save your work !<br />
-			     <button id="save-abc" type="button" class="btn btn-info" i18n:translate="">save ABC</button>
-			</div>
+	<div id="abctune-message" i18n:translate="">
+	     ABC modified<br />think to save your work !<br />
+	     <button id="save-abc" type="button" class="btn btn-info" i18n:translate="">save ABC</button>
+	</div>
+	<div id="abctune-ogg-message" i18n:translate="">
+	     create new ogg<br />
+	     <button id="create-ogg" type="button" class="btn btn-info" i18n:translate="">create new ogg</button>
+	</div>
 
 	<div class="container">
 	  <div class="row">
@@ -60,6 +66,7 @@
 		</span>
 		<div id="abc-edition" >
 			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
+			<textarea id="hidden-abc-text" tal:content="structure string:${here/abc}"/>
 			<div id="abc-score"></div>
 			<div id="abc-warnings"></div>
 		</div>
@@ -74,7 +81,7 @@
 	  </div>
 	 </div>
      <span tal:condition="can_edit">
-		<button id="show-hide-logs" type="button" class="btn btn-info" i18n:translate="">See/Hide logs</button>
+		<button id="show-hide-logs" type="button" class="btn btn-info" i18n:translate="">Show/Hide logs</button>
 	 </span>
      <div id="abc-outputs-logs" class="pat-autotoc autotabs"
           data-pat-autotoc="section:fieldset;levels:legend;"

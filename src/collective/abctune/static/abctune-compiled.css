@@ -84,6 +84,16 @@ body {
   border-width: 5px;
   border-radius: 10px;
 }
+#abctune-ogg-message {
+  position: fixed;
+  top: 500px;
+  right: 0px;
+  display: none;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 5px;
+  border-radius: 10px;
+}
 /*
  * Edition de l'ABC
  */
