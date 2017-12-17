@@ -42,13 +42,14 @@ def makeFullTune(context, updateSound=True):
     # For now, we only make SVG, PDF and OGG !
     updateSVG(context, normalizedTitle, pt)
     updatePDF(context, normalizedTitle, pt)
+    # updatePNG(context, normalizedTitle, pt)
     if updateSound:
         updateOGG(context, normalizedTitle, pt)
 
 
 def updateSVG(context, normalizedTitle, pt):
     """
-    :param context: an object with a ``svgscore`` field
+    :param context: an object with ``abc`` and ``svgscore`` fields
     :type context: usualy a ABC object
     :param normalizedTitle: used for the blob filename
     :type normalizedTitle: string

@@ -82,6 +82,7 @@
 		</div>
 	  </div>
 	 </div>
+
      <span tal:condition="can_edit">
 		<button id="show-hide-logs" type="button" class="btn btn-info" i18n:translate="">Show/Hide logs</button>
 	 </span>
