@@ -4,12 +4,14 @@
 from collective.abctune import _
 from plone.autoform import directives as form
 from plone.namedfile.field import NamedBlobFile
+# this import Must be AFTER NamedBlobFile
+# if not, tests are broken !!!
+from collective import dexteritytextindexer
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from zope import schema
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from collective import dexteritytextindexer
 
 
 class ICollectiveAbctuneLayer(IDefaultBrowserLayer):
