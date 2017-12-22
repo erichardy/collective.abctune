@@ -44,7 +44,7 @@
       handler=".setuphandlers.uninstall">
   </genericsetup:importStep>
 
-   <!-- abctune -->
+   <!-- abctune
    <adapter
         name="abctune"
 	    for="Products.CMFCore.interfaces.IFolderish
@@ -60,7 +60,7 @@
 	        interface="zope.publisher.interfaces.browser.IBrowserPage"
 	        />
 	</class>
-
+ -->
   <!-- Tune -->
   <adapter
         name="tune"
@@ -153,7 +153,7 @@
     type="plone"
     name="abctune"
     />
-
+<!--
   <browser:page
       name="view"
       for="collective.abctune.interfaces.IABCTune"
@@ -161,5 +161,5 @@
       template="templates/abctune_view.pt"
       permission="zope2.View"
       />
-
+-->
 </configure>

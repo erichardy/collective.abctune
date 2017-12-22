@@ -15,6 +15,7 @@ class CollectiveAbctuneLayer(PloneSandboxLayer):
     defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
+        # import pdb;pdb.set_trace()
         self.loadZCML(package=collective.abctune)
 
     def setUpPloneSite(self, portal):
