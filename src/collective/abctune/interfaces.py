@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces live."""
 
-from collective import dexteritytextindexer
 from collective.abctune import _
 from plone.autoform import directives as form
 from plone.namedfile.field import NamedBlobFile
@@ -10,6 +9,7 @@ from plone.supermodel import model
 from zope import schema
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from collective import dexteritytextindexer
 
 
 class ICollectiveAbctuneLayer(IDefaultBrowserLayer):
@@ -49,7 +49,7 @@ P:A
 
 
 class ITune(Interface):
-    dexteritytextindexer.searchable('title')
+    # dexteritytextindexer.searchable('title')
     model.primary('title')
     title = schema.TextLine(
         title=_(u'Tune name'),
@@ -58,7 +58,6 @@ class ITune(Interface):
 
 
 class IABC(Interface):
-
     """
     A faire / réflexions :
     * ajouter champ pour liens vers des infos diverses
