@@ -29,6 +29,8 @@
     <element value="plone.app.relationfield.behavior.IRelatedItems"/>
     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
     <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+    <element value="plone.layoutaware" />
+    <element value="plone.draftable" />
   </property>
   <property name="schema">collective.abctune.interfaces.IABC</property>
   <property name="model_source"></property>

@@ -23,6 +23,7 @@
   <property name="default_view">view</property>
   <property name="view_methods">
     <element value="view"/>
+    <element value="layout_view" />
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>
@@ -35,6 +36,8 @@
     <element value="plone.app.relationfield.behavior.IRelatedItems"/>
     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
     <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+    <element value="plone.layoutaware" />
+    <element value="plone.draftable" />
   </property>
   <property name="schema">collective.abctune.interfaces.ITune</property>
   <property name="model_source"></property>

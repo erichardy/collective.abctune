@@ -50,6 +50,7 @@ setup(
         'plone.namedfile[blobs]',
         'collective.dexteritytextindexer',
         'collective.abctransforms',
+        'plone.app.mosaic',
     ],
     extras_require={
         'test': [

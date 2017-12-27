@@ -55,5 +55,11 @@
       class="collective.abctune.browser.reinstall.reinstall"
       permission="cmf.ManagePortal"
       />
+  <browser:page
+      name="createdataset"
+      for="*"
+      class="collective.abctune.browser.create_dataset.createDataSet"
+      permission="cmf.ManagePortal"
+      />
 
 </configure>
