@@ -15,7 +15,8 @@
 	    <a href="javascript:void(0)" class="closeMenu">&times;</a>
 	    <span tal:repeat="action actions">
 	       <a href=""
-	          tal:attributes="href string:${action/url}"
+	          tal:attributes="href string:${action/url};
+	                          title string:${action/description}"
 	          tal:content="string:${action/title}"
 	          >action</a>
 	    </span>

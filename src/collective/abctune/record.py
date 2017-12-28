@@ -67,6 +67,9 @@ class AddForm(add.DefaultAddForm):
 
     def update(self):
         super(add.DefaultAddForm, self).update()
+        title = self.request.form.get('title')
+        if title:
+            self.widgets['title'].value = title
 
     def updateWidgets(self):
         super(add.DefaultAddForm, self).updateWidgets()

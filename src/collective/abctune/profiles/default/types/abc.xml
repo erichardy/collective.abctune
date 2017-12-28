@@ -49,7 +49,7 @@
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content"/>
   </action>
-  <action title="view-abc"
+  <!-- <action title="view-abc"
           i18n:attributes="title"
           action_id="view-abc"
           category="abc_music_actions"
@@ -61,4 +61,5 @@
           visible="True">
     <permission value="View"/>
   </action>
+  -->
 </object>

@@ -50,7 +50,48 @@
 <object name="abc_music_actions" meta_type="CMF Action Category">
   <property name="title"></property>
 
-	  <object name="essai_action" meta_type="CMF Action" i18n:domain="plone">
+	  <object name="view_tune" meta_type="CMF Action" i18n:domain="plone">
+	   <property name="title" i18n:translate="">View_tune</property>
+	   <property name="description" i18n:translate="">View all the tune and associated objects</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()</property>
+	   <property name="link_target"></property>
+	   <property name="icon_expr"></property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="permissions">
+	    <element value="Add portal content"/>
+	   </property>
+	   <property name="visible">True</property>
+	  </object>
+
+	  <object name="add_abc" meta_type="CMF Action" i18n:domain="plone">
+	   <property name="title" i18n:translate="">Add ABC version</property>
+	   <property name="description" i18n:translate="">Add an abc</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++abc?title=**ABC**'+context.restrictedTraverse('@@tune-id')()</property>
+	   <property name="link_target"></property>
+	   <property name="icon_expr"></property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="permissions">
+	    <element value="Add portal content"/>
+	   </property>
+	   <property name="visible">True</property>
+	  </object>
+
+	  <object name="add_record" meta_type="CMF Action" i18n:domain="plone">
+	   <property name="title" i18n:translate="">Add Record</property>
+	   <property name="description" i18n:translate="">Add a record (audio file)</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++record?title=**RECORD**'+context.restrictedTraverse('@@tune-id')()</property>
+	   <property name="link_target"></property>
+	   <property name="icon_expr"></property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="permissions">
+	    <element value="Add portal content"/>
+	   </property>
+	   <property name="visible">True</property>
+	  </object>
+
+<!-- python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++abc?title='+context.restrictedTraverse('@@tune-id')() -->
+<!-- 	  
+      <object name="essai_action" meta_type="CMF Action" i18n:domain="plone">
 	   <property name="title" i18n:translate="">Essai Action</property>
 	   <property name="description" i18n:translate=""></property>
 	   <property name="url_expr"></property>
@@ -62,8 +103,7 @@
 	   </property>
 	   <property name="visible">True</property>
 	  </object>
-
-
+ -->
 
 </object>
 

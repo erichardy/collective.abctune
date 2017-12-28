@@ -36,7 +36,7 @@ T:Ashplant, The
 %%MIDI bassvol 30
 R:reel
 Q:180
-P:AAAAA
+P:A
 D:Noel Hill & Tony McMahon: 'I gCnoc na Gra'i
 Z:id:hn-reel-285
 M:C|

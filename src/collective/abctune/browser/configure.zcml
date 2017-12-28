@@ -18,6 +18,29 @@
       name="collective.abctune"
       directory="static"
       />
+
+<!-- util view for menu -->
+  <browser:page
+    for="*"
+    name="in-tune"
+    class=".utils_views.inTune"
+    permission="cmf.ModifyPortalContent"
+  />
+  <browser:page
+    for="*"
+    name="parent-tune-url"
+    class=".utils_views.tuneParentUrl"
+    permission="cmf.ModifyPortalContent"
+  />
+  <browser:page
+    for="*"
+    name="tune-id"
+    class=".utils_views.tuneID"
+    permission="cmf.ModifyPortalContent"
+  />
+
+
+  <!-- views for ABC -->
   <browser:page
     for="*"
     name="updateABC"
