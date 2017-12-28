@@ -41,7 +41,12 @@ class View(BrowserView):
 
     def abcAutorized(self):
         context = self.context
-        perm = api.user.has_permission('Modify Portal Content', obj=context)
+        current = api.user.get_current()
+        username = current.get('username')
+        perm = api.user.has_permission(
+            'Modify portal content',
+            username=username,
+            obj=context)
         return perm
 
     def javascript(self):

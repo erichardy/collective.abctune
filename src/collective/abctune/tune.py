@@ -26,13 +26,12 @@ class View(BrowserView):
     def abcAutorized(self):
         context = self.context
         current = api.user.get_current()
+        username = current.get('username')
         perm = api.user.has_permission(
-            'ModifyPortalContent',
-            username=current.getProperty('username'),
+            'Modify portal content',
+            username=username,
             obj=context)
-        logger.info(u'Methode a verifier !!!!!!! : ' + str(perm))
-        logger.info(u'Donc elle retourne TJRS FALSE')
-        return False
+        return perm
 
     def javascript(self):
         auth = self.abcAutorized()

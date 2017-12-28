@@ -24,19 +24,19 @@
     for="*"
     name="in-tune"
     class=".utils_views.inTune"
-    permission="cmf.ModifyPortalContent"
+    permission="zope2.View"
   />
   <browser:page
     for="*"
     name="parent-tune-url"
     class=".utils_views.tuneParentUrl"
-    permission="cmf.ModifyPortalContent"
+    permission="zope2.View"
   />
   <browser:page
     for="*"
     name="tune-id"
     class=".utils_views.tuneID"
-    permission="cmf.ModifyPortalContent"
+    permission="zope2.View"
   />
 
 

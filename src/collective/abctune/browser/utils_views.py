@@ -46,6 +46,15 @@ class tuneParentUrl(BrowserView):
     :return: URL of the tune or the parent tune
     """
     def __call__(self):
+        """
+        current = api.user.get_current()
+        username = current.get('username')
+        perm = api.user.has_permission(
+            'Modify portal content',
+            username=username,
+            obj=self.context)
+        logger.info(self.context.getId() + ' ' + str(perm))
+        """
         if self.context.portal_type == 'Plone Site':
             return None
         if self.context.portal_type == 'tune':

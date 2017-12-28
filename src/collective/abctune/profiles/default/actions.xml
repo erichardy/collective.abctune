@@ -56,9 +56,9 @@
 	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()</property>
 	   <property name="link_target"></property>
 	   <property name="icon_expr"></property>
-	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Modify portal content", object)</property>
 	   <property name="permissions">
-	    <element value="Add portal content"/>
+	    <element value="View"/>
 	   </property>
 	   <property name="visible">True</property>
 	  </object>
@@ -69,9 +69,9 @@
 	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++abc?title=**ABC**'+context.restrictedTraverse('@@tune-id')()</property>
 	   <property name="link_target"></property>
 	   <property name="icon_expr"></property>
-	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Add portal content", object)</property>
 	   <property name="permissions">
-	    <element value="Add portal content"/>
+	    <element value="View"/>
 	   </property>
 	   <property name="visible">True</property>
 	  </object>
@@ -82,9 +82,9 @@
 	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++record?title=**RECORD**'+context.restrictedTraverse('@@tune-id')()</property>
 	   <property name="link_target"></property>
 	   <property name="icon_expr"></property>
-	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')()</property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Add portal content", object)</property>
 	   <property name="permissions">
-	    <element value="Add portal content"/>
+	    <element value="View"/>
 	   </property>
 	   <property name="visible">True</property>
 	  </object>
