@@ -179,6 +179,12 @@ class IRecord(Interface):
     title = schema.TextLine(
         title=_(u'recordname'),
         description=_(u'The Record name'),
+        required=False
+        )
+    sound = NamedBlobFile(
+        title=_(u'sound file'),
+        description=_(u'a sound file related to this tune'),
+        required=False,
         )
 
 

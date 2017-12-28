@@ -61,7 +61,4 @@ class tuneID(BrowserView):
     """
     def __call__(self):
         tune = parentTune(self.context)
-        # logger.info(self.context.restrictedTraverse('@@parent-tune-url')()+'/++add++abc?title='+self.context.restrictedTraverse('@@tune-id')())
-        # +'/++add++abc?title='+context.restrictedTraverse('@@tune-id')()
-        logger.info(tune.getId())
         return tune.getId()
