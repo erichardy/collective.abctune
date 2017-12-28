@@ -51,7 +51,7 @@ P:A
 
 
 class ITune(Interface):
-    # dexteritytextindexer.searchable('title')
+    dexteritytextindexer.searchable('title')
     model.primary('title')
     title = schema.TextLine(
         title=_(u'Tune name'),
@@ -89,7 +89,7 @@ class IABC(Interface):
     dexteritytextindexer.searchable('title')
     model.primary('title')
     title = schema.TextLine(
-        title=_(u'Tune name'),
+        title=_(u'ABC Tune name'),
         description=_(u'The name as you know this tune'),
         )
     dexteritytextindexer.searchable('abc')

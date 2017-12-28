@@ -13,7 +13,7 @@
     permission="zope2.View"
     />
 <!--     layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
--->
+
 <browser:viewlet
     name="abctune-menu"
     manager="collective.abctune.browser.viewlets.interfaces.IABCTuneViewlets"
@@ -22,6 +22,17 @@
     template="abctune_menu.pt"
     permission="zope2.View"
     />
-<!-- -->
+    -->
+<!-- plone.app.layout.viewlets.interfaces.IAboveContent -->
+
+<browser:viewlet
+    name="abctune-menu"
+    manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+    class=".abctune_menu.abctuneMenu"
+    layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
+    template="abctune_menu.pt"
+    permission="zope2.View"
+    />
+
 
 </configure>

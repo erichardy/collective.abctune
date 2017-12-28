@@ -73,10 +73,14 @@ class View(BrowserView):
 class AddForm(add.DefaultAddForm):
     portal_type = 'abc'
     ignoreContext = True
-    label = _(u'Add a new tune !')
+    label = _(u'Add a new ABC !')
 
     def update(self):
         super(add.DefaultAddForm, self).update()
+        title = self.request.form.get('title')
+        if title:
+            self.widgets['title'].value = title
+        # import pdb;pdb.set_trace()
 
     def updateWidgets(self):
         super(add.DefaultAddForm, self).updateWidgets()
@@ -91,6 +95,7 @@ class AddForm(add.DefaultAddForm):
             obj = self.createAndAdd(data)
             logger.info(obj.absolute_url())
             contextURL = self.context.absolute_url()
+            contextURL += '/' + obj.getId()
             self.request.response.redirect(contextURL)
         except Exception:
             raise

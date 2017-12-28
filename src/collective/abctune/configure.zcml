@@ -76,6 +76,14 @@
 	        interface="zope.publisher.interfaces.browser.IBrowserPage"
 	        />
 	</class>
+	<browser:page
+      name="view"
+      for="collective.abctune.interfaces.ITune"
+      class="collective.abctune.tune.View"
+      template="templates/tune_view.pt"
+      permission="zope2.View"
+      />
+	
   <!-- EBD Tune -->
 
   <!-- ABC -->

@@ -9,7 +9,8 @@
 <body>
 
 <metal:main fill-slot="main">
-  
+  <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
+
     <h1 class="documentFirstHeading" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
     </h1>
@@ -17,8 +18,8 @@
 <h3>${view/gettTitle}</h3>
 <h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
 
-    <pre class="documentDescription" tal:content="structure context/abc">
-        abc
+    <pre class="documentDescription" tal:content="structure context/description">
+        desc
     </pre>
 
 

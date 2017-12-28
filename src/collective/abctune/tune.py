@@ -71,26 +71,53 @@ class AddForm(add.DefaultAddForm):
     def updateWidgets(self):
         super(add.DefaultAddForm, self).updateWidgets()
 
+    def handleApply(self, data):
+        try:
+            tune = self.createAndAdd(data)
+            logger.info('ajout 1 tune')
+            return tune
+        except Exception:
+            raise
+
     @button.buttonAndHandler(_(u'Save this tune'), name='save_this_tune')
-    def handleApply(self, action):
+    def handleSave(self, action):
         data, errors = self.extractData()
         if errors:
             self.status = _('Please correct errors')
             return
-        try:
-            obj = self.createAndAdd(data)
-            logger.info(obj.absolute_url())
-            contextURL = self.context.absolute_url()
-            self.request.response.redirect(contextURL)
-        except Exception:
-            raise
+        self.handleApply(data)
+        contextURL = self.context.absolute_url()
+        self.request.response.redirect(contextURL)
 
     @button.buttonAndHandler(_(u'Cancel this tune'))
     def handleCancel(self, action):
         data, errors = self.extractData()
-        # context is the thesis repo
         contextURL = self.context.absolute_url()
         self.request.response.redirect(contextURL)
+
+    @button.buttonAndHandler(_(u'save and add abc'))
+    def handleAddABC(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = _('Please correct errors')
+            return
+        tune = self.handleApply(data)
+        tuneId = tune.getId()
+        addAbc = self.context.absolute_url()
+        addAbc += '/' + tuneId + '/++add++abc?title=' + tune.title
+        self.request.response.redirect(addAbc)
+
+    @button.buttonAndHandler(_(u'save and add record'))
+    def handleRecord(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = _('Please correct errors')
+            return
+        tune = self.handleApply(data)
+        tuneId = tune.getId()
+        addRecordd = self.context.absolute_url()
+        addRecordd += '/' + tuneId + '/++add++record'
+        self.request.response.redirect(addRecordd)
 
 
 class AddView(add.DefaultAddView):

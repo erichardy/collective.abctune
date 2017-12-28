@@ -120,7 +120,7 @@ class createDataSet(BrowserView):
             tune = self.portal.get('my-tune')
             api.content.delete(obj=tune)
         except Exception:
-            logger.info('No dataset to purge !!!')
+            logger.info('No tune to purge !!!')
             pass
         try:
             fold = self.portal.get('folder1')
