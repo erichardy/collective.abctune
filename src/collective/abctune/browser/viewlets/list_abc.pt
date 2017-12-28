@@ -6,6 +6,38 @@
      >
 
   <div tal:condition="objs">
-    LIST les ABXs ${objs}
+    <span tal:repeat="obj objs">
+      <h3>${obj/title}</h3>
+      <div tal:define="number string:${repeat/obj/number}"
+           tal:attributes="class string:container abctune-list-abc-${number}">
+		  <div class="row">
+		    <div class="col-xs-6 col-sm-6">
+		    <span style="vertical-align: top;" i18n:translate="">son</span>
+		      <span  id="ogg">
+			  <audio controls="controls"
+			         tal:attributes="src string:${obj/absolute_url}/@@download/ogg/${obj/ogg/filename}; type string:audio/ogg">
+			    Your browser does not support the audio element.
+			  </audio>
+			  </span>
+		    </div>
+		    <div class="col-xs-6 col-sm-6">
+		      <span i18n:translate="">download pdf</span> :
+		        <span id="pdf">
+		         <a src=""
+			        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
+			        <img src="" tal:attributes="src string:${obj/absolute_url}/++plone++abctune/pdf-50x50.png" />
+			     </a>
+			    </span>
+		    </div>
+		  </div>
+      
+		  <div tal:attributes="class string:row abctune-list-abc-${number}">
+		    <div class="col-xs-12 col-sm-12" id="svgscore">
+			<img tal:attributes="src string:${obj/absolute_url}/@@download/svgscore/${obj/svgscore/filename};
+			                     class string:img-responsive" />
+			</div>
+		  </div>
+	 </div>
+    </span>
   </div>
 </div>
