@@ -7,7 +7,7 @@
      >
 
   <div tal:condition="actions">
-	<span id="dashboard" style="font-size:30px;cursor:pointer;background-color: #D3D3D3;">Actions...<br/>&#9776;</span>
+	<div id="dashboard" style="font-size:30px;cursor:pointer;background-color: #D3D3D3;z-index:2">Actions...<br/>&#9776;</div>
 	
 	<div id="menu-overlay" class="overlay-menu"></div>
 	
