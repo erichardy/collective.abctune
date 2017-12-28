@@ -9,22 +9,14 @@
 <body>
 
 <metal:main fill-slot="main">
-  <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
 
+  <div tal:define="tune_obj_types context/getTuneObjectsTypes;
+                   global objs context/getTuneObjects">
     <h1 class="documentFirstHeading" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
     </h1>
-
-<h3>${view/gettTitle}</h3>
-<h3 tal:define="tti python:view.gettTitle()">${tti}</h3>
-
-    <pre class="documentDescription" tal:content="structure context/description">
-        desc
-    </pre>
-
-
-<span>
-
+    <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
+  </div>
 </metal:main>
 
 </body>

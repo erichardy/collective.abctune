@@ -63,6 +63,19 @@
 	   <property name="visible">True</property>
 	  </object>
 
+	  <object name="organize_tune" meta_type="CMF Action" i18n:domain="plone">
+	   <property name="title" i18n:translate="">Organize_tune</property>
+	   <property name="description" i18n:translate="">organize associated tune objects</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/folder_contents'</property>
+	   <property name="link_target"></property>
+	   <property name="icon_expr"></property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Modify portal content", object)</property>
+	   <property name="permissions">
+	    <element value="View"/>
+	   </property>
+	   <property name="visible">True</property>
+	  </object>
+
 	  <object name="add_abc" meta_type="CMF Action" i18n:domain="plone">
 	   <property name="title" i18n:translate="">Add ABC version</property>
 	   <property name="description" i18n:translate="">Add an abc</property>

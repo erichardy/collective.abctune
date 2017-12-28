@@ -1,0 +1,11 @@
+
+<div tal:define="portal_state context/@@plone_portal_state;
+                 portal_url portal_state/portal_url;
+                 objs python:context.getTuneObjectsByType('abc');"
+     class="abctune-list-abc"
+     >
+
+  <div tal:condition="objs">
+    LIST les ABXs ${objs}
+  </div>
+</div>

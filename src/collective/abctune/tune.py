@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collective.abctune import _
+from collective.abctune.utils import sort_by_position
 from collective.abctune.interfaces import ITune
 from plone import api
 from plone.dexterity.browser import add
@@ -15,10 +16,61 @@ import logging
 
 logger = logging.getLogger('collective.abctune:tune')
 
+tune_obj_types = ['abc', 'record', 'Link']
+tune_obj_types.append('Document')
+tune_obj_types.append('Image')
+tune_obj_types.append('File')
+
 
 @implementer(ITune)
 class tune(Container):
-    pass
+
+    def getTuneObjectsTypes(self):
+        """
+        Il serait plus élégant d'obtenir cette liste à partir de celle définie
+        dans ``allowed_content_types`` de ``tune.xml`` !
+        Mais, la méthode ``allowedContentTypes()`` ne retourne pas les
+        éléments dans l'ordre donné dans ``tune.xml``, elle les retourne
+        par ordre alphabétique, mais ce n'est pas ce que l'on veut.
+        """
+        return tune_obj_types
+
+    def getTuneObjects(self):
+        """
+        :returns: un dictionnaire ayant pour clés les content_types
+            de la liste ``tune_obj_types`` s'il y en a qui sont trouvés,
+            pour valeur de chaque clé, la liste des éléments du type
+            correspondant triée par ordre de positionnement dans le
+            container.
+        """
+        TuneObjects = {}
+        for t in tune_obj_types:
+            objs = api.content.find(
+                portal_type=t,
+                context=self,
+                )
+            TuneObjects[t] = sorted(
+                [obj.getObject() for obj in objs],
+                sort_by_position
+                )
+        return TuneObjects
+
+    def getTuneObjectsByType(self, portal_type):
+        """
+        :returns: un dictionnaire ayant pour clés les content_types
+            de la liste ``tune_obj_types`` s'il y en a qui sont trouvés,
+            pour valeur de chaque clé, la liste des éléments du type
+            correspondant triée par ordre de positionnement dans le
+            container.
+        """
+        objs = api.content.find(
+            portal_type=portal_type,
+            context=self,
+            )
+        return sorted(
+            [obj.getObject() for obj in objs],
+            sort_by_position
+            )
 
 
 class View(BrowserView):
@@ -54,9 +106,6 @@ class View(BrowserView):
         for s in subjects:
             subject_str += s + ', '
         return subject_str.strip(', ')
-
-    def gettTitle(self):
-        return self.context.title
 
 
 class AddForm(add.DefaultAddForm):

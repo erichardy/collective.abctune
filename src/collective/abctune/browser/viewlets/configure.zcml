@@ -12,6 +12,16 @@
     class="plone.app.viewletmanager.manager.OrderedViewletManager"
     permission="zope2.View"
     />
+<browser:viewlet
+    name="abc-list"
+    manager="collective.abctune.browser.viewlets.interfaces.IABCTuneViewlets"
+    class=".abctune_viewlets.abcList"
+    layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
+    template="list_abc.pt"
+    permission="zope2.View"
+    />
+
+
 <!--     layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
 
 <browser:viewlet

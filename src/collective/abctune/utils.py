@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from OFS.interfaces import IOrderedContainer
 from datetime import datetime
 from plone import api
 from zope.annotation.interfaces import IAnnotations
@@ -162,3 +163,20 @@ def annotateObject(context, msg=u'', key='TUNE_KEY', maxsize=5000):
     else:
         annot[key] = msg
     return True
+
+
+# from http://docs.plone.org/develop/plone/content/listing.html
+def get_position_in_parent(obj):
+    parent = obj.aq_inner.aq_parent
+    ordered = IOrderedContainer(parent, None)
+    if ordered is not None:
+        return ordered.getObjectPosition(obj.getId())
+    return 0
+
+
+def sort_by_position(a, b):
+    """
+    Usage :
+    sortedMyList = sorted(myList, sort_by_position)
+    """
+    return get_position_in_parent(a) - get_position_in_parent(b)
