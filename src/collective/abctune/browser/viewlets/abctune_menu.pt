@@ -7,12 +7,14 @@
      >
 
   <div tal:condition="actions">
+    
 	<div id="dashboard" style="font-size:30px;cursor:pointer;background-color: #D3D3D3;z-index:2">Actions...<br/>&#9776;</div>
 	
 	<div id="menu-overlay" class="overlay-menu"></div>
 	
 	<div id="actions-menu" class="abctune-actions">
 	    <a href="javascript:void(0)" class="closeMenu">&times;</a>
+	    <h3 class="object-name">${context/title}</h3>
 	    <span tal:repeat="action actions">
 	       <a href=""
 	          tal:attributes="href string:${action/url};

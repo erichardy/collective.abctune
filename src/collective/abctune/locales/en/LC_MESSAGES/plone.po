@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-29 12:25+0000\n"
+"POT-Creation-Date: 2017-12-29 12:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,6 @@ msgstr ""
 msgid "Add a new record !"
 msgstr ""
 
-#: ./abctune.py:66
 #: ./tune.py:114
 msgid "Add a new tune !"
 msgstr ""
@@ -55,7 +54,6 @@ msgstr ""
 msgid "Cancel this record"
 msgstr ""
 
-#: ./abctune.py:88
 #: ./tune.py:140
 msgid "Cancel this tune"
 msgstr ""
@@ -81,8 +79,8 @@ msgid "PDF Score"
 msgstr ""
 
 #: ./abc.py:106
-#: ./abctune.py:78
 #: ./record.py:81
+#: ./tune.py:134
 msgid "Please correct errors"
 msgstr ""
 
@@ -98,7 +96,6 @@ msgstr ""
 msgid "Save this record"
 msgstr ""
 
-#: ./abctune.py:74
 #: ./tune.py:130
 msgid "Save this tune"
 msgstr ""
@@ -172,8 +169,8 @@ msgid "View_tune"
 msgstr ""
 
 #: ./abc.py:68
-#: ./abctune.py:44
 #: ./record.py:44
+#: ./tune.py:95
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 

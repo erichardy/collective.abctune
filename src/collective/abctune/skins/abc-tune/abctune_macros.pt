@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="plonetheme.iuem20">
+      i18n:domain="collective.abctune">
 <body>
 
 <metal:row define-macro="abctune-abc">
@@ -31,7 +31,7 @@ https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
 <metal:row define-macro="abc-ogg-pdf">
 	  <div class="row">
 	    <div class="col-xs-5 col-sm-5">
-	    <span style="vertical-align: top;" i18n:translate="">son</span>
+	    <span style="vertical-align: top;" i18n:translate="">sound</span>
 	      <span>
 		  <audio controls="controls"
 		         tal:attributes="src string:${obj/absolute_url}/@@download/ogg/${obj/ogg/filename}; type string:audio/ogg">
