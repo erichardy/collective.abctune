@@ -25,6 +25,7 @@
   </span>
 </div>
 
+</div>
 
 <span tal:replace="nothing">
 Version possible avec des boutons qui montrent/cachent...

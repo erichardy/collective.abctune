@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-14 23:44+0000\n"
+"POT-Creation-Date: 2017-12-29 12:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,152 +17,163 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.abctune\n"
 
-#: ./abc.py:54
+#: ./abc.py:68
 #: ./abctune.py:44
 #: ./record.py:44
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 
-#: ./templates/abc_view.pt:29
+#: ./interfaces.py:92
+msgid "ABC Tune name"
+msgstr ""
+
+#: ./templates/abc_view.pt:28
 msgid "ABC modified<br />think to save your work !"
+msgstr ""
+
+#: ./abc.py:90
+msgid "Add a new ABC !"
 msgstr ""
 
 #: ./record.py:66
 msgid "Add a new record !"
 msgstr ""
 
-#: ./abc.py:76
 #: ./abctune.py:66
-#: ./tune.py:66
+#: ./tune.py:114
 msgid "Add a new tune !"
 msgstr ""
 
-#: ./abc.py:98
+#: ./abc.py:117
 msgid "Cancel this abc"
 msgstr ""
 
-#: ./record.py:88
+#: ./record.py:91
 msgid "Cancel this record"
 msgstr ""
 
 #: ./abctune.py:88
-#: ./tune.py:88
+#: ./tune.py:140
 msgid "Cancel this tune"
 msgstr ""
 
-#: ./templates/abc_view.pt:64
+#: ./templates/abc_view.pt:43
 msgid "Edit ABC"
 msgstr ""
 
-#: ./configure.zcml:23
+#: ./configure.zcml:25
 msgid "Installs the collective.abctune add-on."
 msgstr ""
 
-#: ./interfaces.py:157
+#: ./interfaces.py:158
 msgid "Midi"
 msgstr ""
 
-#: ./interfaces.py:158
+#: ./interfaces.py:159
 msgid "Midi sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:20
+#: ./interfaces.py:22
 msgid "More detailed origin of the tune, from O: field"
 msgstr ""
 
-#: ./interfaces.py:150
+#: ./interfaces.py:151
 msgid "PDF Score"
 msgstr ""
 
-#: ./abc.py:88
+#: ./abc.py:106
 #: ./abctune.py:78
-#: ./record.py:78
+#: ./record.py:81
 msgid "Please correct errors"
 msgstr ""
 
-#: ./interfaces.py:144
+#: ./interfaces.py:145
 msgid "SVG Score"
 msgstr ""
 
-#: ./abc.py:84
+#: ./abc.py:102
 msgid "Save this abc"
 msgstr ""
 
-#: ./record.py:74
+#: ./record.py:77
 msgid "Save this record"
 msgstr ""
 
 #: ./abctune.py:74
-#: ./tune.py:74
+#: ./tune.py:130
 msgid "Save this tune"
 msgstr ""
 
-#: ./interfaces.py:138
+#: ./interfaces.py:139
 msgid "Score"
 msgstr ""
 
-#: ./templates/abc_view.pt:86
+#: ./templates/abc_view.pt:61
 msgid "Show/Hide logs"
 msgstr ""
 
-#: ./interfaces.py:180
+#: ./interfaces.py:181
 msgid "The Record name"
 msgstr ""
 
-#: ./interfaces.py:19
+#: ./interfaces.py:21
 msgid "The area from which the tune is from"
 msgstr ""
 
-#: ./interfaces.py:132
+#: ./interfaces.py:133
 msgid "The country"
 msgstr ""
 
-#: ./interfaces.py:56
+#: ./interfaces.py:58
 msgid "The main name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:164
+#: ./interfaces.py:165
 msgid "The mp3 sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:92
+#: ./interfaces.py:93
 msgid "The name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:170
+#: ./interfaces.py:171
 msgid "The ogg sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:151
+#: ./interfaces.py:152
 msgid "The score of the tune as PDF"
 msgstr ""
 
-#: ./interfaces.py:145
+#: ./interfaces.py:146
 msgid "The score of the tune as SVG"
 msgstr ""
 
-#: ./interfaces.py:24
+#: ./interfaces.py:26
 msgid "The score of the tune as png image"
 msgstr ""
 
-#: ./interfaces.py:98
+#: ./interfaces.py:99
 msgid "The tune in abc format"
 msgstr ""
 
-#: ./interfaces.py:114
+#: ./interfaces.py:115
 msgid "The type of the tune"
 msgstr ""
 
-#: ./interfaces.py:97
+#: ./interfaces.py:98
 msgid "Tune abc"
 msgstr ""
 
-#: ./interfaces.py:55
+#: ./interfaces.py:57
 msgid "Tune name"
 msgstr ""
 
-#: ./configure.zcml:38
+#: ./configure.zcml:40
 msgid "Uninstalls the collective.abctune add-on."
+msgstr ""
+
+#: ./interfaces.py:186
+msgid "a sound file related to this tune"
 msgstr ""
 
 #: ./profiles/default/types/abc.xml
@@ -173,31 +184,27 @@ msgstr ""
 msgid "abctune"
 msgstr ""
 
-#: ./configure.zcml:23
+#: ./configure.zcml:25
 msgid "collective.abctune"
 msgstr ""
 
-#: ./templates/abc_view.pt:34
+#: ./templates/abc_view.pt:33
 msgid "create new ogg"
 msgstr ""
 
-#: ./templates/abc_view.pt:66
+#: ./templates/abc_view.pt:45
 msgid "create soud ?"
 msgstr ""
 
-#: ./templates/abc_view.pt:51
-msgid "download pdf"
-msgstr ""
-
-#: ./interfaces.py:115
+#: ./interfaces.py:116
 msgid "from the field R:"
 msgstr ""
 
-#: ./interfaces.py:163
+#: ./interfaces.py:164
 msgid "mp3"
 msgstr ""
 
-#: ./interfaces.py:169
+#: ./interfaces.py:170
 msgid "ogg"
 msgstr ""
 
@@ -205,22 +212,26 @@ msgstr ""
 msgid "record"
 msgstr ""
 
-#: ./interfaces.py:179
+#: ./interfaces.py:180
 msgid "recordname"
 msgstr ""
 
-#: ./templates/abc_view.pt:31
+#: ./templates/abc_view.pt:30
 msgid "save ABC"
 msgstr ""
 
-#: ./templates/abc_view.pt:42
-msgid "son"
+#: ./tune.py:146
+msgid "save and add abc"
+msgstr ""
+
+#: ./tune.py:158
+msgid "save and add record"
+msgstr ""
+
+#: ./interfaces.py:185
+msgid "sound file"
 msgstr ""
 
 #: ./profiles/default/types/tune.xml
 msgid "tune"
-msgstr ""
-
-#: ./profiles/default/types/abc.xml
-msgid "view-abc"
 msgstr ""
