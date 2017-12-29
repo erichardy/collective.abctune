@@ -14,6 +14,49 @@
  </div>
 </metal:row>
 
+<!-- Rendre un SVG responsive : ??? mais le SVG fait avec abcm2ps
+est il capable d'etre reponsive ?
+https://la-cascade.io/rendre-svg-responsif/
+https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
+ -->
+<metal:row define-macro="abc-svg">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+	<img tal:attributes="src string:${obj/absolute_url}/@@download/svgscore/${obj/svgscore/filename};
+	                     class string:img-responsive" />
+	</div>
+  </div>
+</metal:row>
+
+<metal:row define-macro="abc-ogg-pdf">
+	  <div class="row">
+	    <div class="col-xs-5 col-sm-5">
+	    <span style="vertical-align: top;" i18n:translate="">son</span>
+	      <span>
+		  <audio controls="controls"
+		         tal:attributes="src string:${obj/absolute_url}/@@download/ogg/${obj/ogg/filename}; type string:audio/ogg">
+		    Your browser does not support the audio element.
+		  </audio>
+		  </span>
+	    </div>
+	    <div class="col-xs-5 col-sm-5">
+	      <span i18n:translate="">download pdf</span> :
+	        <span>
+	         <a src=""
+		        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
+		        <img src="" tal:attributes="src string:${context/absolute_url}/++plone++abctune/pdf-50x50.png" />
+		     </a>
+		    </span>
+	    </div>
+	    <div class="col-xs-2 col-sm-2">
+	    <span tal:condition="python:obj.abcEditor() and (context != obj)">
+	      <a href="" tal:attributes="href string:${obj/absolute_url}">
+	        Edit <span class="glyphicon glyphicon-pencil"></span>
+	      </a>
+	    </span>
+	    </div>
+	  </div>
+</metal:row>
 
 </body>
 </html>

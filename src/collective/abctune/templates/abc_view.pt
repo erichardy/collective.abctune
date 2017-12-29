@@ -19,7 +19,6 @@
 }
 </style>
 <div id="retour"></div>
-  <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
 
   <div id="abc-view"
      tal:define="can_edit view/abcAutorized"
@@ -36,28 +35,8 @@
 	     <button id="create-ogg" type="button" class="btn btn-info" i18n:translate="">create new ogg</button>
 	</div>
 
-	<div class="container">
-	  <div class="row">
-	    <div class="col-xs-6 col-sm-6">
-	    <span style="vertical-align: top;" i18n:translate="">son</span>
-	      <span  id="ogg">
-		  <audio controls="controls"
-		         tal:attributes="src string:${context/absolute_url}/@@download/ogg/${context/ogg/filename}; type string:audio/ogg">
-		    Your browser does not support the audio element.
-		  </audio>
-		  </span>
-	    </div>
-	    <div class="col-xs-6 col-sm-6">
-	      <span i18n:translate="">download pdf</span> :
-	        <span id="pdf">
-	         <a src=""
-		        tal:attributes="href string:${context/absolute_url}/@@download/pdfscore/${context/pdfscore/filename}">
-		        <img src="" tal:attributes="src string:${context/absolute_url}/++plone++abctune/pdf-50x50.png" />
-		     </a>
-		    </span>
-	    </div>
-
-	  </div>
+	<div class="container" tal:define="obj python:context">
+		<metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
 	</div>
 
 	<span tal:condition="can_edit">
@@ -74,14 +53,9 @@
 		</div>
 	</span>
 	<p />
-	<div class="container">
-	  <div class="row">
-	    <div class="col-xs-12 col-sm-12" id="svgscore">
-		<img tal:attributes="src string:${context/absolute_url}/@@download/svgscore/${context/svgscore/filename};
-		                     class string:img-responsive" />
-		</div>
-	  </div>
-	 </div>
+	<div class="container" tal:define="obj python:context">
+		<metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
+	</div>
 
      <span tal:condition="can_edit">
 		<button id="show-hide-logs" type="button" class="btn btn-info" i18n:translate="">Show/Hide logs</button>

@@ -1,43 +1,45 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
-                 objs python:context.getTuneObjectsByType('abc');"
-     class="abctune-list-abc"
+                 objs python:context.getTuneObjectsByType('abc');
+                 "
+     class="abctune-list-abc-viewlet"
      >
 
-  <div tal:condition="objs">
+
+<div id="abc-abc" class="pat-autotoc autotabs"
+          data-pat-autotoc="section:fieldset;levels:legend;"
+          tal:define="objs python:context.getTuneObjectsByType('abc');">
+  <span tal:repeat="obj objs" tal:omit-tag="">
+   <fieldset>
+     <legend tal:content="string:${obj/title}"></legend>
+	     <div tal:attributes="id string:${obj/getId}">
+	       <div class="container">
+	         <metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
+	       </div>
+	       <div class="container">
+	         <metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
+	       </div>
+	     </div>
+   </fieldset>
+  </span>
+</div>
+
+
+<span tal:replace="nothing">
+Version possible avec des boutons qui montrent/cachent...
+<div tal:condition="objs">
     <span tal:repeat="obj objs">
-      <h3>${obj/title}</h3>
+      <button tal:attributes="id string:${obj/getId}" tal:content="string:${obj/title}" type="button" class="btn btn-info" i18n:translate="">ABC title</button>
       <div tal:define="number string:${repeat/obj/number}"
-           tal:attributes="class string:container abctune-list-abc-${number}">
-		  <div class="row">
-		    <div class="col-xs-6 col-sm-6">
-		    <span style="vertical-align: top;" i18n:translate="">son</span>
-		      <span  id="ogg">
-			  <audio controls="controls"
-			         tal:attributes="src string:${obj/absolute_url}/@@download/ogg/${obj/ogg/filename}; type string:audio/ogg">
-			    Your browser does not support the audio element.
-			  </audio>
-			  </span>
-		    </div>
-		    <div class="col-xs-6 col-sm-6">
-		      <span i18n:translate="">download pdf</span> :
-		        <span id="pdf">
-		         <a src=""
-			        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
-			        <img src="" tal:attributes="src string:${obj/absolute_url}/++plone++abctune/pdf-50x50.png" />
-			     </a>
-			    </span>
-		    </div>
-		  </div>
-      
-		  <div tal:attributes="class string:row abctune-list-abc-${number}">
-		    <div class="col-xs-12 col-sm-12" id="svgscore">
-			<img tal:attributes="src string:${obj/absolute_url}/@@download/svgscore/${obj/svgscore/filename};
-			                     class string:img-responsive" />
-			</div>
-		  </div>
+           tal:attributes="class string:container abctune-list-abc abctune-list-abc-${number}">
+        <div class="container">
+		  <metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
+	    </div>
+        <div class="container">
+		  <metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
+	    </div>
 	 </div>
     </span>
   </div>
-</div>
+</span>

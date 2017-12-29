@@ -36,6 +36,15 @@ class abc(Item):
             outputs[k] = getCmdOutput(k, annotations)
         return outputs
 
+    def abcEditor(self):
+        current = api.user.get_current()
+        username = current.get('username')
+        perm = api.user.has_permission(
+            'Modify portal content',
+            username=username,
+            obj=self)
+        return perm
+
 
 class View(BrowserView):
 
