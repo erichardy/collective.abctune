@@ -51,19 +51,39 @@ gulp.task('html', function() {
 
 gulp.task('default', ['html']);
 
+/* ***********  LESS  ********** */
 /*
+ * Pour construire les CSS a partir des fichiers LESS, utiliser :
+ * # gulp less
+ */
+var lessfiles = ['src/collective/abctune/static/*.less'];
 
-docs = gulp.task(
-    'docs',
-    function() {
-        return gulp.src(docsfiles)
-        .pipe(shell(['bin/sphinx-build -W docs docs/html']))
-        .pipe(notify({message: 'Styles task complete'}))
-    });
 
-gulp.task('default', ['styles']);
-gulp.task('watch', function() {
-  gulp.watch(docsfiles, ['docs']);
+gulp.task('build-css', shell.task('grunt --gruntfile Gruntfile-less.js', {cwd: '.'}))
+gulp.task('notifingless', ['build-css'], function() {
+	notifier.notify({title: 'LESS/CSS',
+			  message: 'build finished...'
+	})
 });
-*/
+
+gulp.task('less', function() {
+	gulp.watch(lessfiles , ['notifingless'])
+});
+
+/* ***********  Javascvript  ********** */
+/*
+ * Pour compiler les JS :
+ * # gulp js
+ */
+var jsfiles = ['src/collective/abctune/static/abctune-main.js'];
+gulp.task('build-js', shell.task('bin/plone-compile-resources --bundle=abctune', {cwd: '.'}))
+gulp.task('notifingjs', ['build-js'], function() {
+	notifier.notify({title: 'Javascript Compile',
+			  message: 'build finished...'
+	})
+});
+gulp.task('js', function() {
+	gulp.watch(jsfiles , ['notifingjs'])
+});
+
 /* vim:set ft=javascript : */

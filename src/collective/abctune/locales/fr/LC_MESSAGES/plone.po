@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-29 12:59+0000\n"
+"POT-Creation-Date: 2018-01-01 13:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,7 +179,7 @@ msgid "a sound file related to this tune"
 msgstr ""
 
 #: ./profiles/default/actions.xml
-msgid "create dataset"
+msgid "create dataset ABC"
 msgstr ""
 
 #: ./interfaces.py:116
@@ -199,7 +199,7 @@ msgid "organize associated tune objects"
 msgstr "Organiser les éléments associés à ce morceau"
 
 #: ./profiles/default/actions.xml
-msgid "purge dataset"
+msgid "purge dataset ABC"
 msgstr ""
 
 #: ./interfaces.py:180

@@ -27,6 +27,11 @@
 	<div id="abctune-message">
 	     <span i18n:translate="">ABC modified<br />think to save your work !</span>
 	     <br />
+	     <span id="createSound-checkbox">
+			  <span id="LabelcreateSound" i18n:translate="">create sound ?</span>
+			  <input id="checkboxCreateSound" type="checkbox" checked name="createSound" value="1">
+		</span>
+	     <br />
 	     <button id="save-abc" type="button" class="btn btn-info" i18n:translate="">save ABC</button>
 	</div>
 	<div id="abctune-ogg-message">
@@ -40,17 +45,27 @@
 	</div>
 
 	<span tal:condition="can_edit">
-		<button id="edit-abc" type="button" class="btn btn-info" i18n:translate="">Edit ABC</button>
-		<span>
-		  <span id="LabelcreateSound" i18n:translate="">create soud ?</span>
-		  <input id="checkboxCreateSound" type="checkbox" checked name="createSound" value="1">
-		</span>
-		<div id="abc-edition" >
-			<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
-			<textarea id="hidden-abc-text" tal:content="structure string:${here/abc}"/>
-			<div id="abc-score"></div>
-			<div id="abc-warnings"></div>
+	  <div class="container">
+	    <div class="row">
+		    <div class="col-md-2">
+				<button id="edit-abc" type="button" class="btn btn-info" i18n:translate="">Edit ABC</button>
+			</div>
+			
+			
+			<div class="col-md-2">
+				<button id="re-ogg-score" type="button" class="btn btn-info" i18n:translate="">re-create score and sound</button>
+			</div>
 		</div>
+		<div class="row">
+			<div id="abc-edition" class="col-xs-12">
+				<textarea id="abc-text" tal:content="structure string:${here/abc}"/>
+				<textarea id="hidden-abc-text" tal:content="structure string:${here/abc}"/>
+				<div id="abc-score"></div>
+				<div id="abc-warnings"></div>
+			</div>
+		</div>
+		
+	  </div>
 	</span>
 	<p />
 	<div class="container" tal:define="obj python:context">
@@ -120,6 +135,8 @@
 	
 </div>
 
+<script type="text/javascript" src="++plone++abctune/abcjs_edition.js"> 
+</script>
 </metal:main>
 
 

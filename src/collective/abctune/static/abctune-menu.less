@@ -1,9 +1,16 @@
+@dashboard-bg: #DDDDDD; /* #D3D3D3; */
+@abctune-menu-color1: #FFFFFF;
+@abctune-menu-bg: #111111;
 
 .abctune-menu {
 	#dashboard {
-	  position: fixed;
-	  top: 200px;
-	  right: 0px;
+		position: fixed;
+		top: 200px;
+		right: 0px;
+		font-size: 30px;
+		cursor: pointer;
+		background-color: @dashboard-bg;
+		z-index: 2;
 	}
 	.overlay-menu {
 	    height: 100%;
@@ -19,13 +26,16 @@
 	    opacity:0;
 	    transition: opacity 1s;
 	}
-	
-	.abctune-actions, .abctune-actions2 {
+	.object-name {
+		font-size: 30px;
+		color: @abctune-menu-color1;
+	}
+	.abctune-actions {
 	    height: 100%;
 	    width: 0;
 	    top: 0;
 	    right: 0;
-	    background-color: #111;
+	    background-color: @abctune-menu-bg;
 	    position: fixed;
 	    z-index: 3;
 	    overflow-x: hidden;
@@ -33,9 +43,9 @@
 	    padding-top: 60px;
 	
 	    a {
-		    padding: 8px 8px 8px 32px;
-		    text-decoration: none !important;
-		    font-size: 25px;
+		    padding: 6px 0px 6px 15px;
+		    text-decoration: none;
+		    font-size: 22px;
 		    color: #818181;
 		    display: block;
 		    transition: .3s;

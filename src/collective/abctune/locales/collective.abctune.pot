@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-29 12:59+0000\n"
+"POT-Creation-Date: 2018-01-01 13:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Cancel this tune"
 msgstr ""
 
-#: ./templates/abc_view.pt:43
+#: ./templates/abc_view.pt:51
 msgid "Edit ABC"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: ./templates/abc_view.pt:61
+#: ./templates/abc_view.pt:76
 msgid "Show/Hide logs"
 msgstr ""
 
@@ -181,12 +181,12 @@ msgstr ""
 msgid "collective.abctune"
 msgstr ""
 
-#: ./templates/abc_view.pt:33
+#: ./templates/abc_view.pt:38
 msgid "create new ogg"
 msgstr ""
 
-#: ./templates/abc_view.pt:45
-msgid "create soud ?"
+#: ./templates/abc_view.pt:31
+msgid "create sound ?"
 msgstr ""
 
 #: ./skins/abc-tune/abctune_macros.pt:43
@@ -205,6 +205,10 @@ msgstr ""
 msgid "ogg"
 msgstr ""
 
+#: ./templates/abc_view.pt:56
+msgid "re-create score and sound"
+msgstr ""
+
 #: ./profiles/default/types/record.xml
 msgid "record"
 msgstr ""
@@ -213,7 +217,7 @@ msgstr ""
 msgid "recordname"
 msgstr ""
 
-#: ./templates/abc_view.pt:30
+#: ./templates/abc_view.pt:35
 msgid "save ABC"
 msgstr ""
 

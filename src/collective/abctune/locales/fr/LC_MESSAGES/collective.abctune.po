@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-29 12:59+0000\n"
+"POT-Creation-Date: 2018-01-01 13:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "Abandonner cet enregistrement"
 msgid "Cancel this tune"
 msgstr "Abandonner ce morceau"
 
-#: ./templates/abc_view.pt:43
+#: ./templates/abc_view.pt:51
 msgid "Edit ABC"
 msgstr "Editer l'ABC..."
 
@@ -96,7 +96,7 @@ msgstr "Enregistrer le morceau"
 msgid "Score"
 msgstr "Partition"
 
-#: ./templates/abc_view.pt:61
+#: ./templates/abc_view.pt:76
 msgid "Show/Hide logs"
 msgstr "Cacher/Voir les logs"
 
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ./interfaces.py:93
 msgid "The name as you know this tune"
-msgstr ""
+msgstr "Le nom de la version ABC"
 
 #: ./interfaces.py:171
 msgid "The ogg sound of the tune"
@@ -178,13 +178,13 @@ msgstr "Version ABC"
 msgid "collective.abctune"
 msgstr ""
 
-#: ./templates/abc_view.pt:33
+#: ./templates/abc_view.pt:38
 msgid "create new ogg"
 msgstr "Générer un nouveau son OGG"
 
-#: ./templates/abc_view.pt:45
-msgid "create soud ?"
-msgstr "Générer le son ?"
+#: ./templates/abc_view.pt:31
+msgid "create sound ?"
+msgstr "Créer le son ?"
 
 #: ./skins/abc-tune/abctune_macros.pt:43
 msgid "download pdf"
@@ -202,6 +202,10 @@ msgstr ""
 msgid "ogg"
 msgstr ""
 
+#: ./templates/abc_view.pt:56
+msgid "re-create score and sound"
+msgstr "Re-générer la partition et le son"
+
 #: ./profiles/default/types/record.xml
 msgid "record"
 msgstr "Enregistrement audio"
@@ -210,7 +214,7 @@ msgstr "Enregistrement audio"
 msgid "recordname"
 msgstr "Nome de l'enregistrement"
 
-#: ./templates/abc_view.pt:30
+#: ./templates/abc_view.pt:35
 msgid "save ABC"
 msgstr "Enregistrer ABC"
 

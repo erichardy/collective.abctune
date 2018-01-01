@@ -18,10 +18,10 @@
    <property name="visible">True</property>
   </object>
 
-  <object name="create_dataset" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title" i18n:translate="">create dataset</property>
+  <object name="create_dataset_abc" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">create dataset ABC</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:${object_url}/@@createdataset</property>
+   <property name="url_expr">string:${object_url}/@@createdataset-abc</property>
    <property name="link_target"></property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
@@ -31,10 +31,10 @@
    <property name="visible">True</property>
   </object>
 
-  <object name="purge_dataset" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title" i18n:translate="">purge dataset</property>
+  <object name="purge_dataset_abc" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">purge dataset ABC</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:${object_url}/@@createdataset?purge=1</property>
+   <property name="url_expr">string:${object_url}/@@createdataset-abc?purge=1</property>
    <property name="link_target"></property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>

@@ -38,13 +38,14 @@ require([
 			$('#abctune-message').hide();
 	    }
 		function showCreateOGGButton(){
-			$('#abctune-ogg-message').show();
+			$('#createSound-checkbox').show();
 		};
 		function hideCreateOGGButton(){
-			$('#abctune-ogg-message').hide();
+			$('#createSound-checkbox').hide();
 		};
 
-	    var maxTextareaLines = 17;
+	    /* re-compute the size of the Textatrea */
+		var maxTextareaLines = 17;
 	    var abc_text = $("#abc-text");
 		var updateABCTextArea = (function(){
 			var abc = $("#abc-text").val();
@@ -55,6 +56,8 @@ require([
 				$("textarea#abc-text").css("min-height", (maxTextareaLines * 1.5) + "em");
 			}
 		})
+		/* END re-compute the size of the Textatrea */
+
 		if (typeof abc_text.val() !== 'undefined') {
 			updateABCTextArea();
 			// for abcjs_editor params : https://github.com/paulrosen/abcjs/blob/master/api.md#abcjs-editor
@@ -63,11 +66,14 @@ require([
 				if (isAbcChanged()){
 					updateABCTextArea();
 					alertSaveABCOn();
+					showCreateOGGButton();
 				} else {
 					alertSaveABCOff();
+					hideCreateOGGButton();
 				}
 			});
 			$('#abc-edition').hide();
+			hideCreateOGGButton();
 			$("#edit-abc").click(function(){
 				$('#abc-edition').toggle("slow");
 			})
@@ -103,6 +109,8 @@ require([
 			});
 			/* END https://www.w3schools.com/howto/howto_js_off-canvas.asp */
 		}
+		/* END Menu at right */
+
 		if (typeof Raphael == 'undefined') {
 			setTimeout(function(){
 				console.log('raphael... tu te fais attendre !');
@@ -122,23 +130,9 @@ require([
 			}
 			var updatedABC = $.post("@@updateABC" , {'abctext':abctext, 'uuid':uuid, 'makeSound':makeSound} , function(data, status, xhr){
 				console.log("retour de updateABC");
-				/*
-				var svg = $.post("@@getSVG", {'uuid':uuid}, function(data){
-					$("#svgscore").html(data);
-				});
-				*/
+				
 				$("#svgscore").load("@@getSVG", {'uuid':uuid});
-				/*
-				var pdf = $.post("@@getPDF", {'uuid':uuid}, function(data){
-					$("#pdf").html(data);
-				});
-				*/
 				$("#pdf").load("@@getPDF", {'uuid':uuid});
-				/*
-				var ogg = $.post("@@getOGG", {'uuid':uuid}, function(data){
-					$("#ogg").html(data);
-				});
-				*/
 				if (makeSound == 1){
 					$("#ogg").load("@@getOGG", {'uuid':uuid});
 				}
@@ -166,31 +160,16 @@ require([
 			    $('#hidden-abc-text').val($("#abc-text").val());
 			});
 		};
+
 		$("#save-abc").click(function(){
+			updateTune();
+		});
+		$("#re-ogg-score").click(function(){
 			updateTune();
 		});
 		$('#show-hide-logs').click(function(){
 			$('#abc-outputs-logs').toggle("slow");
 		});
-		$('#create-ogg').click(function(){
-			updateTune();
-			hideCreateOGGButton();
-		})
-		$('#checkboxCreateSound').change(function(){
-			if ($("#checkboxCreateSound").is(':checked')){
-				if (isAbcChanged()){
-					hideCreateOGGButton();
-					console.log('Il faut tout regenerer');
-					// on ne fait rien ici car le bouton #save-abc est apparu
-				} else {
-					console.log('Il faut regenerer seulement OGG et les logs');
-					showCreateOGGButton();
-				}
-			} else {
-				hideCreateOGGButton();
-			};
-		});
-
-	  /* END $(document).ready(function(){... */
 	  });
 })
+

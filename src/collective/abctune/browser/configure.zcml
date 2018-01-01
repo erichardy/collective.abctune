@@ -79,7 +79,7 @@
       permission="cmf.ManagePortal"
       />
   <browser:page
-      name="createdataset"
+      name="createdataset-abc"
       for="*"
       class="collective.abctune.browser.create_dataset.createDataSet"
       permission="cmf.ManagePortal"
