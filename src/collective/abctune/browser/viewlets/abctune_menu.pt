@@ -1,6 +1,7 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
+                 tune view/getTuneObject;
                  actions python:view.getActions('abc_music_actions');
                  "
      class="abctune-menu"
@@ -14,7 +15,7 @@
 	
 	<div id="actions-menu" class="abctune-actions">
 	    <a href="javascript:void(0)" class="closeMenu">&times;</a>
-	    <h3 class="object-name">${context/title}</h3>
+	    <h3 class="object-name">${tune/title}</h3>
 	    <span tal:repeat="action actions">
 	      <a href=""
 	          tal:attributes="href string:${action/url};

@@ -31,3 +31,13 @@ class abctuneMenu(base.ViewletBase):
         acts = actions.listFilteredActionsFor(
             self.context).get(action_category)
         return acts
+
+    def getTuneObject(self):
+        """
+        :returns: the tune where we are. If the context is an ABC or so...,
+            returns the parent tune
+        """
+        co = self.context
+        if co.portal_type == 'tune':
+            return co
+        return co.aq_parent
