@@ -117,7 +117,7 @@ require([
 			}, 1000);
 		}
 
-		function updateTune() {
+		function updateTune(forceSound) {
 			openOverlay();
 			$('#abctune-message').hide();
 			$("#edit-abc").removeClass('btn-danger');
@@ -128,12 +128,14 @@ require([
 			if ($("#checkboxCreateSound").is(':checked')){
 				makeSound = 1;
 			}
+			if (forceSound == 1) {
+				makeSound = 1;
+			}
 			var updatedABC = $.post("@@updateABC" , {'abctext':abctext, 'uuid':uuid, 'makeSound':makeSound} , function(data, status, xhr){
-				console.log("retour de updateABC");
-				
+
 				$("#svgscore").load("@@getSVG", {'uuid':uuid});
 				$("#pdf").load("@@getPDF", {'uuid':uuid});
-				if (makeSound == 1){
+				if ((makeSound == 1) || (forceSound == 1)) {
 					$("#ogg").load("@@getOGG", {'uuid':uuid});
 				}
 				hideCreateOGGButton();
@@ -154,7 +156,6 @@ require([
 					var k_output = ABC_ANNOTATIONS_KEYS[i];
 					$('#' + k_output).load('@@getOUTPUTS', {'uuid':uuid, 'key': k_output});
 				};
-				console.log('Fin des appels AJAX');
 				closeOverlay();
 			    // on synchronise l'ancien abc avec le nouveau
 			    $('#hidden-abc-text').val($("#abc-text").val());
@@ -162,14 +163,15 @@ require([
 		};
 
 		$("#save-abc").click(function(){
-			updateTune();
+			updateTune(0);
 		});
 		$("#re-ogg-score").click(function(){
-			updateTune();
+			updateTune(1);
 		});
 		$('#show-hide-logs').click(function(){
 			$('#abc-outputs-logs').toggle("slow");
 		});
 	  });
 })
+
 

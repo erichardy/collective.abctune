@@ -9,7 +9,11 @@
 
   <div tal:condition="actions">
     
-	<div id="dashboard">Actions...<br/>&#9776;</div>
+	<div id="dashboard">Actions...
+		<br />
+		<img src="++plone++abctune/notes.png" />
+	
+	</div>
 	
 	<div id="menu-overlay" class="overlay-menu"></div>
 	

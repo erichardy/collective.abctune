@@ -40,12 +40,12 @@
 	     <button id="create-ogg" type="button" class="btn btn-info" i18n:translate="">create new ogg</button>
 	</div>
 
-	<div class="container" tal:define="obj python:context">
+	<div tal:define="obj python:context">
 		<metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
 	</div>
 
 	<span tal:condition="can_edit">
-	  <div class="container">
+	  <div>
 	    <div class="row">
 		    <div class="col-md-2">
 				<button id="edit-abc" type="button" class="btn btn-info" i18n:translate="">Edit ABC</button>
@@ -68,7 +68,7 @@
 	  </div>
 	</span>
 	<p />
-	<div class="container" tal:define="obj python:context">
+	<div tal:define="obj python:context">
 		<metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
 	</div>
 

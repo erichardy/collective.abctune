@@ -75,13 +75,16 @@ body {
   /* */
   /* color: red; */
 }
+.abctune-list-abc-viewlet {
+  width: 75%;
+}
 /*
  * div qui contient le message d'avertissement de modification de
  * l'ABC
  */
 #abctune-message {
   position: fixed;
-  top: 250px;
+  top: 300px;
   right: 0px;
   display: none;
   border-style: solid;
@@ -102,6 +105,12 @@ body {
 /*
  * Edition de l'ABC
  */
+div#abc-view {
+  width: 75%;
+}
+div#abc-view #abc-text {
+  font-size: 16px;
+}
 div#abc-view div#abc-edition {
   -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
