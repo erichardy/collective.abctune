@@ -19,8 +19,10 @@ class reinstall(BrowserView):
         site = api.portal.get()
         qi = site.restrictedTraverse('portal_quickinstaller')
         # qi.reinstallProducts('collective.abctransforms')
-        qi.uninstallProducts(['collective.abctune'])
+        qi.uninstallProducts(
+            ['collective.abctune',
+             'collective.abctransforms'])
         qi.installProduct('collective.abctune')
-        qi.reinstallProducts('collective.abctransforms')
+        # qi.reinstallProducts('collective.abctransforms')
         url = self.context.absolute_url()
         self.request.response.redirect(url)

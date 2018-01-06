@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-01 13:20+0000\n"
+"POT-Creation-Date: 2018-01-06 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Domain: plone\n"
 
 #: ./abc.py:68
-#: ./record.py:44
 #: ./tune.py:95
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
@@ -39,7 +38,7 @@ msgstr ""
 msgid "Add a new ABC !"
 msgstr ""
 
-#: ./record.py:66
+#: ./record.py:54
 msgid "Add a new record !"
 msgstr ""
 
@@ -59,7 +58,7 @@ msgstr ""
 msgid "Cancel this abc"
 msgstr ""
 
-#: ./record.py:91
+#: ./record.py:79
 msgid "Cancel this record"
 msgstr ""
 
@@ -88,7 +87,7 @@ msgid "PDF Score"
 msgstr ""
 
 #: ./abc.py:106
-#: ./record.py:81
+#: ./record.py:69
 #: ./tune.py:134
 msgid "Please correct errors"
 msgstr ""
@@ -101,7 +100,7 @@ msgstr ""
 msgid "Save this abc"
 msgstr ""
 
-#: ./record.py:77
+#: ./record.py:65
 msgid "Save this record"
 msgstr ""
 
@@ -111,10 +110,6 @@ msgstr ""
 
 #: ./interfaces.py:139
 msgid "Score"
-msgstr ""
-
-#: ./interfaces.py:181
-msgid "The Record name"
 msgstr ""
 
 #: ./interfaces.py:21
@@ -177,10 +172,6 @@ msgstr ""
 msgid "View_tune"
 msgstr ""
 
-#: ./interfaces.py:186
-msgid "a sound file related to this tune"
-msgstr ""
-
 #: ./profiles/default/actions.xml
 msgid "create dataset ABC"
 msgstr ""
@@ -205,10 +196,6 @@ msgstr ""
 msgid "purge dataset ABC"
 msgstr ""
 
-#: ./interfaces.py:180
-msgid "recordname"
-msgstr ""
-
 #: ./profiles/default/actions.xml
 msgid "reinstall abctune"
 msgstr ""
@@ -219,8 +206,4 @@ msgstr ""
 
 #: ./tune.py:158
 msgid "save and add record"
-msgstr ""
-
-#: ./interfaces.py:185
-msgid "sound file"
 msgstr ""

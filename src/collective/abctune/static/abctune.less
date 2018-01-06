@@ -1,15 +1,22 @@
 @import "abcjs_editor.less";
 @import "abctune-menu.less";
 
+@abctune-width: 75%;
+
 body {
 	/* */
 	/* color: red; */
 }
 
-.abctune-list-abc-viewlet {
-	width: 75%;
+div.abctune-list-abc-viewlet,
+div.abctune-list-records-viewlet {
+	width: @abctune-width;
 }
-
+div.abctune-list-records-viewlet {
+	h4 {
+		margin-top: 10px;
+	}
+}
 /*
  * div qui contient le message d'avertissement de modification de
  * l'ABC
@@ -39,7 +46,7 @@ body {
  * Edition de l'ABC
  */
 div#abc-view {
-	width: 75%;
+	width: @abctune-width;
 	#abc-text {
 		font-size: 16px;
 	}

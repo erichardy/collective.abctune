@@ -9,9 +9,10 @@
                  portal_url portal_state/portal_url;
                  objs python:context.getTuneObjectsByType('abc');
                  "
-     class="abctune-list-records-viewlet" style="width: 75%"
+     class="abctune-list-records-viewlet"
      >
 
+<h2 i18n:translate="">audio records</h2>
 
 <div id="abc-abc" class="pat-autotoc autotabs"
           data-pat-autotoc="section:fieldset;levels:legend;"
@@ -21,6 +22,7 @@
                          ct python:view.getAudioAttrs(record)[1]">
      <legend tal:content="string:${record/title}"></legend>
 	     <div tal:attributes="id string:${record/getId}">
+	       <h4 tal:content="string:${record/title}">title</h4>
 	       <audio controls="controls" preload="none" class="active pat-media"
                tal:attributes="src string:${audio_url}; type string:${ct}">
            </audio>

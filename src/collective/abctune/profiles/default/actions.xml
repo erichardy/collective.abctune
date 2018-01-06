@@ -92,7 +92,7 @@
 	  <object name="add_record" meta_type="CMF Action" i18n:domain="plone">
 	   <property name="title" i18n:translate="">Add Record</property>
 	   <property name="description" i18n:translate="">Add a record (audio file)</property>
-	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++record?title=**RECORD**'+context.restrictedTraverse('@@tune-id')()</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++WildcardAudio?title=**RECORD**'+context.restrictedTraverse('@@tune-id')()</property>
 	   <property name="link_target"></property>
 	   <property name="icon_expr"></property>
 	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Add portal content", object)</property>

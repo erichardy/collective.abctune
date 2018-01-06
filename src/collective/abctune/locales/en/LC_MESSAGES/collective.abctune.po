@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-01 13:20+0000\n"
+"POT-Creation-Date: 2018-01-06 11:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Add a new ABC !"
 msgstr ""
 
-#: ./record.py:66
+#: ./record.py:54
 msgid "Add a new record !"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Cancel this abc"
 msgstr ""
 
-#: ./record.py:91
+#: ./record.py:79
 msgid "Cancel this record"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgid "PDF Score"
 msgstr ""
 
 #: ./abc.py:106
-#: ./record.py:81
+#: ./record.py:69
 #: ./tune.py:134
 msgid "Please correct errors"
 msgstr ""
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Save this abc"
 msgstr ""
 
-#: ./record.py:77
+#: ./record.py:65
 msgid "Save this record"
 msgstr ""
 
@@ -98,10 +98,6 @@ msgstr ""
 
 #: ./templates/abc_view.pt:76
 msgid "Show/Hide logs"
-msgstr ""
-
-#: ./interfaces.py:181
-msgid "The Record name"
 msgstr ""
 
 #: ./interfaces.py:21
@@ -161,17 +157,16 @@ msgid "Uninstalls the collective.abctune add-on."
 msgstr ""
 
 #: ./abc.py:68
-#: ./record.py:44
 #: ./tune.py:95
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 
-#: ./interfaces.py:186
-msgid "a sound file related to this tune"
-msgstr ""
-
 #: ./profiles/default/types/abc.xml
 msgid "abc"
+msgstr ""
+
+#: ./browser/viewlets/list_records.pt:15
+msgid "audio records"
 msgstr ""
 
 #: ./configure.zcml:25
@@ -186,7 +181,7 @@ msgstr ""
 msgid "create sound ?"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:43
+#: ./skins/abc-tune/abctune_macros.pt:29
 msgid "download pdf"
 msgstr ""
 
@@ -206,14 +201,6 @@ msgstr ""
 msgid "re-create score and sound"
 msgstr ""
 
-#: ./profiles/default/types/record.xml
-msgid "record"
-msgstr ""
-
-#: ./interfaces.py:180
-msgid "recordname"
-msgstr ""
-
 #: ./templates/abc_view.pt:35
 msgid "save ABC"
 msgstr ""
@@ -226,12 +213,8 @@ msgstr ""
 msgid "save and add record"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:34
+#: ./skins/abc-tune/abctune_macros.pt:20
 msgid "sound"
-msgstr ""
-
-#: ./interfaces.py:185
-msgid "sound file"
 msgstr ""
 
 #: ./profiles/default/types/tune.xml

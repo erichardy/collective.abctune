@@ -75,8 +75,12 @@ body {
   /* */
   /* color: red; */
 }
-.abctune-list-abc-viewlet {
+div.abctune-list-abc-viewlet,
+div.abctune-list-records-viewlet {
   width: 75%;
+}
+div.abctune-list-records-viewlet h4 {
+  margin-top: 10px;
 }
 /*
  * div qui contient le message d'avertissement de modification de
