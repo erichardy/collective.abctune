@@ -7,10 +7,10 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
-                 objs python:context.getTuneObjectsByType('abc');
+                 records python:context.getTuneObjectsByType('WildcardAudio');
                  "
      class="abctune-list-records-viewlet"
-     >
+     tal:condition="python:len(records)">
 
 <h2 i18n:translate="">audio records</h2>
 
