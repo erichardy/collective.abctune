@@ -51,6 +51,7 @@ setup(
         'collective.dexteritytextindexer',
         'collective.abctransforms',
         'plone.app.mosaic',
+        'wildcard.media',
     ],
     extras_require={
         'test': [

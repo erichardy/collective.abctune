@@ -21,6 +21,15 @@
     permission="zope2.View"
     />
 
+<browser:viewlet
+    name="records-list"
+    manager="collective.abctune.browser.viewlets.interfaces.IABCTuneViewlets"
+    class=".abctune_viewlets.recordsList"
+    layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
+    template="list_records.pt"
+    permission="zope2.View"
+    />
+
 
 <!--     layer="collective.abctune.interfaces.ICollectiveAbctuneLayer"
 

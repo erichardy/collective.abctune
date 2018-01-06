@@ -2,5 +2,4 @@
 <object name="portal_types" meta_type="Plone Types Tool">
   <object name="tune" meta_type="Dexterity FTI"/>
   <object name="abc" meta_type="Dexterity FTI"/>
-  <object name="record" meta_type="Dexterity FTI"/>
 </object>

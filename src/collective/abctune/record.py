@@ -34,21 +34,6 @@ class View(BrowserView):
         logger.info(u'Donc elle retourne TJRS FALSE')
         return False
 
-    def javascript(self):
-        auth = self.abcAutorized()
-        authjs = u'true'
-        if not auth:
-            authjs = u'false'
-
-        js = u'<script type="text/javascript">\n'
-        js += u'tuneModified = ' + _(u'"The tune was modified... continue ?"')
-        js += u';\n'
-        js += u'var uuid = "' + api.content.get_uuid(self.context) + '";\n'
-        js += u'var auth = ' + authjs + ';\n'
-        js += u'</script>'
-        # import pdb;pdb.set_trace()
-        return js
-
     def sujbectsStr(self):
         subjects = self.context.subject
         subject_str = ''
@@ -58,6 +43,9 @@ class View(BrowserView):
 
     def gettTitle(self):
         return self.context.title
+
+    def tags(self):
+        return u''
 
 
 class AddForm(add.DefaultAddForm):

@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 import logging
-from os.path import abspath, dirname
-
+from os.path import join, abspath, dirname
+from plone.namedfile.file import NamedBlobFile
 from Products.Five import BrowserView
 from plone import api
 
 PREFIX = abspath(dirname(__file__))
 logger = logging.getLogger('collective.abctune:create_dataset')
+
+
+def input_files_path(f):
+    return join(PREFIX, '../tests/files',  f)
+
 
 congress = """X:1
 T: The Congress
@@ -46,6 +51,11 @@ d2 A2 B>c|B>A G>B A>B|A>G F>E D^C|1 D4 (3DFA:|2 D6|
 A2 F3 A|G2 E3 F|G2 GF EF|1 D6:|2 D4 (3DFA|
 """
 
+recordFiles = [u'MT-17_Andro_ Maitre_de_Maison.mp3',
+               u'MT-17_Ridee_1312.mp3',
+               u'MT-17_Gavotte_Ton_Doubl_6L123.mp3',
+               u'MT-17_Valse_Petit_Matelot.mp3']
+
 
 class createDataSet(BrowserView):
 
@@ -64,14 +74,17 @@ class createDataSet(BrowserView):
             self.tune,
             title=u'Congress',
             abc=congress)
+        logger.info('abc1: Congress')
         self.abc2 = self.createAbc(
             self.tune,
             title=u'Einars\'s Mazurka',
             abc=einars_mazurka)
+        logger.info('abc2: Einars\'s Mazurka')
         objs = [self.tune, self.abc1, self.abc2,
                 self.fold, self.sfold1, self.sfold2, self.ssfold1]
         for obj in objs:
             self.publish(obj)
+        self.createRecords()
         self.request.response.redirect(self.tune.absolute_url())
 
     def createTune(self, loc):
@@ -88,6 +101,28 @@ class createDataSet(BrowserView):
             type='abc',
             title=title,
             abc=abc)
+
+    def createRecords(self):
+        for rec in recordFiles:
+            title = rec.split('.')[0].replace('_', ' ')
+            # input_files_path
+            record = api.content.create(
+                container=self.tune,
+                type='WildcardAudio',
+                title=title,
+                description=rec + ' ' + rec)
+            fich = input_files_path(rec)
+            f = open(fich, 'r')
+            data = f.read()
+            filename = rec
+            sound = NamedBlobFile()
+            sound.filename = filename
+            sound.data = data
+            sound.contentType = u'audio/mp3'
+            record.audio_file = sound
+            self.publish(record)
+            self.tune.reindexObject()
+            logger.info(rec + ': ' + title)
 
     def publish(self, obj):
         api.content.transition(obj=obj, transition='publish')

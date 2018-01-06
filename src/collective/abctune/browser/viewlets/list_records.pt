@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="collective.abctune">
+
+<div tal:define="portal_state context/@@plone_portal_state;
+                 portal_url portal_state/portal_url;
+                 objs python:context.getTuneObjectsByType('abc');
+                 "
+     class="abctune-list-records-viewlet" style="width: 75%"
+     >
+
+
+<div id="abc-abc" class="pat-autotoc autotabs"
+          data-pat-autotoc="section:fieldset;levels:legend;"
+          tal:define="records python:context.getTuneObjectsByType('WildcardAudio');">
+  <span tal:repeat="record records" tal:omit-tag="">
+   <fieldset tal:define="audio_url python:view.getAudioAttrs(record)[0];
+                         ct python:view.getAudioAttrs(record)[1]">
+     <legend tal:content="string:${record/title}"></legend>
+	     <div tal:attributes="id string:${record/getId}">
+	       <audio controls="controls" preload="none" class="active pat-media"
+               tal:attributes="src string:${audio_url}; type string:${ct}">
+           </audio>
+        <div class="transcript-text" tal:content="structure record/transcript/output|nothing" />
+	     </div>
+   </fieldset>
+  </span>
+</div>
+
+</div>
+
+</html>

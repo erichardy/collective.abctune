@@ -59,6 +59,15 @@ https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
   </div>
 </metal:row>
 
+<!-- record object must be defined as ``record`` in caller template -->
+<metal:row define-macro="display-record">
+  <h3>${record/title}</h3>
+  <audio controls="controls" preload="none" class="active pat-media"
+               tal:attributes="src view/audio_url; type view/ct">
+        </audio>
+  <div class="transcript-text" tal:content="structure context/transcript/output|nothing" />
+  
+</metal:row>
 
 </body>
 </html>

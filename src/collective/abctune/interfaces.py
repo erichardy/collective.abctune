@@ -181,12 +181,13 @@ class IRecord(Interface):
         description=_(u'The Record name'),
         required=False
         )
+    dexteritytextindexer.searchable('description')
+    description = schema.Text(
+        title=_(u'Short Record description'),
+        description=_(u'all useful information about this record'),
+        )
     sound = NamedBlobFile(
         title=_(u'sound file'),
         description=_(u'a sound file related to this tune'),
         required=False,
         )
-
-
-class IABCTune(Interface):
-    pass

@@ -5,5 +5,6 @@
     <dependency>profile-plone.app.dexterity:default</dependency>
     <dependency>profile-plone.app.mosaic:default</dependency>
     <dependency>profile-collective.abctransforms:default</dependency>
+    <dependency>profile-wildcard.media:default</dependency>
   </dependencies>
 </metadata>
