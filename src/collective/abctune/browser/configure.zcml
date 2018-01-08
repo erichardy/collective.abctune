@@ -39,6 +39,14 @@
     permission="zope2.View"
   />
 
+  <!-- Imports -->
+  <browser:page
+      name="import-abc-file"
+      for="plone.app.contenttypes.interfaces.IFolder"
+      class=".import_abc.importAbcFile"
+      permission="cmf.ModifyPortalContent"
+      />
+
 
   <!-- views for ABC -->
   <browser:page
