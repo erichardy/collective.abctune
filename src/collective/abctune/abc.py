@@ -45,6 +45,21 @@ class abc(Item):
             obj=self)
         return perm
 
+    def getElements(self):
+        try:
+            ogg = self.ogg.filename
+        except Exception:
+            ogg = None
+        try:
+            svgscore = self.svgscore.filename
+        except Exception:
+            svgscore = None
+        try:
+            pdfscore = self.pdfscore.filename
+        except Exception:
+            pdfscore = None
+        return (ogg, pdfscore, svgscore)
+
 
 class View(BrowserView):
 

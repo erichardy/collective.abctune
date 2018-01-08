@@ -15,12 +15,13 @@
 </metal:row>
 
 <metal:row define-macro="abc-ogg-pdf">
-   <div tal:define="fogg nocall:obj/ogg/filename;
-	                fpdfscore nocall:obj/pdfscore/filename"
+   <div tal:define="elems python:obj.getElements();
+                    ogg python:elems[0];
+	                pdfscore python:elems[1];"
 	                >
 	  <div class="row">
 	    <div class="col-xs-12 col-sm-12 col-md-5"
-	         tal:condition="python:fogg">
+	         tal:condition="python:ogg">
 	    <span style="vertical-align: top;" i18n:translate="">sound</span>
 	      <span  id="ogg">
 		  <audio controls="controls"
@@ -30,7 +31,7 @@
 		  </span>
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-5"
-	         tal:condition="python:not fogg">
+	         tal:condition="python:not ogg">
 	         <span style="vertical-align: top;" i18n:translate="">sound</span>
 	         <span  id="ogg">
 	         	<span i18n:translate="">ABC not valid, no sound !</span>
@@ -38,7 +39,7 @@
 	    </div>
 
 	    <div class="col-xs-12 col-sm-12 col-md-4"
-	         tal:condition="python:fpdfscore">
+	         tal:condition="python:pdfscore">
 	      <span i18n:translate="">download pdf</span> :
 	        <span id="pdf">
 	         <a src=""
@@ -48,14 +49,13 @@
 		    </span>
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-4"
-	         tal:condition="python:not fpdfscore">
+	         tal:condition="python:not pdfscore">
 	       <span i18n:translate="">download pdf</span> :
 	         <span id="pdf">
 	         	<span i18n:translate="">ABC not valid, no PDF !</span>
 	         </span>
 	    </div>
-	    
-	    
+
 	    <div class="col-xs-2 col-sm-2">
 	    <span tal:condition="python:obj.abcEditor() and (context != obj)">
 	      <a href="" tal:attributes="href string:${obj/absolute_url}">
@@ -74,16 +74,17 @@ https://la-cascade.io/rendre-svg-responsif/
 https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
  -->
 <metal:row define-macro="abc-svg">
-   <div tal:define="fsvgscore nocall:obj/svgscore/filename;">
+   <div tal:define="elems python:obj.getElements();
+                    svgscore python:elems[2];">
 	  <div class="row"
-	       tal:condition="nocall:fsvgscore">
+	       tal:condition="nocall:svgscore">
 	    <div class="col-xs-12 col-sm-12" id="svgscore" >
 		<img tal:attributes="src string:${obj/absolute_url}/@@download/svgscore/${obj/svgscore/filename};
 		                     class string:img-responsive" />
 		</div>
 	  </div>
 	  <div class="row"
-	       tal:condition="python:not fsvgscore">
+	       tal:condition="python:not svgscore">
 	    <div class="col-xs-12 col-sm-12" id="svgscore" >
 	       <span i18n:translate="">invalid abc !!! No score !</span>
 	   </div>
