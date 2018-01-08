@@ -19,7 +19,7 @@ logger = logging.getLogger('collective.abctune:IMPORT')
 
 
 class IImportABC(interface.Interface):
-    data = NamedFile(title=u'file containing ABC tunes to import')
+    data = NamedFile(title=_(u'file containing ABC tunes to import'))
 
 
 class importAbcFile(form.Form):
@@ -108,7 +108,7 @@ class importAbcFile(form.Form):
                                 tuneTitle=tuneTitle,
                                 tuneSubject=tuneSubject)
 
-    @button.buttonAndHandler(u'Ok')
+    @button.buttonAndHandler(_(u'import tunes from this file'))
     def handleApply(self, action):
         data, errors = self.extractData()
         if errors:
@@ -120,7 +120,7 @@ class importAbcFile(form.Form):
         self.status = 'Thank you very much!'
         self.request.response.redirect(self.context.absolute_url())
 
-    @button.buttonAndHandler(u'Cancel')
+    @button.buttonAndHandler(_(u'Cancel import'))
     def handleCancel(self, action):
         """User cancelled. Redirect back to the front page.
         """

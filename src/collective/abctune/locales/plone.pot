@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-06 11:20+0000\n"
+"POT-Creation-Date: 2018-01-08 12:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,10 @@ msgstr ""
 
 #: ./interfaces.py:92
 msgid "ABC Tune name"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "ABC file import"
 msgstr ""
 
 #: ./profiles/default/actions.xml
@@ -52,6 +56,10 @@ msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Add an abc"
+msgstr ""
+
+#: ./browser/import_abc.py:123
+msgid "Cancel import"
 msgstr ""
 
 #: ./abc.py:117
@@ -176,8 +184,24 @@ msgstr ""
 msgid "create dataset ABC"
 msgstr ""
 
+#: ./browser/import_abc.py:22
+msgid "file containing ABC tunes to import"
+msgstr ""
+
 #: ./interfaces.py:116
 msgid "from the field R:"
+msgstr ""
+
+#: ./browser/import_abc.py:29
+msgid "import ABC file..."
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "import abc file"
+msgstr ""
+
+#: ./browser/import_abc.py:111
+msgid "import tunes from this file"
 msgstr ""
 
 #: ./interfaces.py:164
@@ -206,4 +230,8 @@ msgstr ""
 
 #: ./tune.py:158
 msgid "save and add record"
+msgstr ""
+
+#: ./browser/import_abc.py:30
+msgid "the file must contain only abc tunes well formated"
 msgstr ""
