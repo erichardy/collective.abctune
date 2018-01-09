@@ -10,8 +10,7 @@
 
 <metal:main fill-slot="main">
 
-  <div tal:define="tune_obj_types context/getTuneObjectsTypes;
-                   global objs context/getTuneObjects">
+  <div>
     <h1 class="documentFirstHeading" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
     </h1>

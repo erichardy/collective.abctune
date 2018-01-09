@@ -9,13 +9,10 @@
                  portal_url portal_state/portal_url;
                  objs python:context.getTuneObjectsByType('abc');
                  "
-     class="abctune-list-abc-viewlet"
-     >
-
+     class="abctune-list-abc-viewlet">
 
 <div id="abc-abc" class="pat-autotoc autotabs"
-          data-pat-autotoc="section:fieldset;levels:legend;"
-          tal:define="objs python:context.getTuneObjectsByType('abc');">
+          data-pat-autotoc="section:fieldset;levels:legend;">
   <span tal:repeat="obj objs" tal:omit-tag="">
    <fieldset>
      <legend tal:content="string:${obj/title}"></legend>
