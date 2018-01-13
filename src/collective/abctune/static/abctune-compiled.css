@@ -83,6 +83,20 @@ div.document-in-tune {
 div.abctune-list-records-viewlet h4 {
   margin-top: 10px;
 }
+/* see https://www.w3schools.com/charsets/ref_utf_symbols.asp */
+a.contenttype-tune:before {
+  content: "\266B";
+}
+a.contenttype-abc:before {
+  /*content: "\266A";*/
+  content: "a\266A c";
+  font-size: 12px;
+  /* color: red; */
+}
+a.contenttype-wildcardaudio:before {
+  content: "\266C";
+  /* color: black; */
+}
 /*
  * div qui contient le message d'avertissement de modification de
  * l'ABC
