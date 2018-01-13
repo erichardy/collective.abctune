@@ -52,6 +52,7 @@ setup(
         'collective.abctransforms',
         'plone.app.mosaic',
         'wildcard.media',
+        'eh.behaviors',
     ],
     extras_require={
         'test': [

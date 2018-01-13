@@ -102,5 +102,16 @@ https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
   
 </metal:row>
 
+<!-- the document must be present in the variable ``doc`` -->
+<metal:row define-macro="display-document">
+	<div class="document-in-tune">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12">
+			<span tal:content="structure python:doc.text.output">document</span>
+		</div>
+	</div>
+	</div>
+</metal:row>
+
 </body>
 </html>

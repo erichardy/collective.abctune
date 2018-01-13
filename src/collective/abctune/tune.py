@@ -72,6 +72,25 @@ class tune(Container):
             sort_by_position
             )
 
+    def getDocumentAndPosition(self):
+        """
+        :returns: a tuple : first element is a document, second, its position
+            in the folder. Returns ``(None, None)`` if no document
+        """
+        brains = api.content.find(
+            context=self,)
+        objs = sorted(
+            [obj.getObject() for obj in brains],
+            sort_by_position
+            )
+        # import pdb;pdb.set_trace()
+        docs = [doc for doc in objs
+                if doc.portal_type == 'Document']
+        if not docs:
+            # no document
+            return (None, None)
+        return (docs[0], objs.index(docs[0]))
+
 
 class View(BrowserView):
 

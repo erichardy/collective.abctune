@@ -76,7 +76,8 @@ body {
   /* color: red; */
 }
 div.abctune-list-abc-viewlet,
-div.abctune-list-records-viewlet {
+div.abctune-list-records-viewlet,
+div.document-in-tune {
   width: 75%;
 }
 div.abctune-list-records-viewlet h4 {

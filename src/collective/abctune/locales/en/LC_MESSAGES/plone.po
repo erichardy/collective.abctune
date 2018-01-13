@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-08 12:23+0000\n"
+"POT-Creation-Date: 2018-01-13 16:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./interfaces.py:92
+#: ./interfaces.py:69
 msgid "ABC Tune name"
 msgstr ""
 
@@ -27,10 +27,18 @@ msgid "Add ABC version"
 msgstr ""
 
 #: ./profiles/default/actions.xml
+msgid "Add Document"
+msgstr ""
+
+#: ./profiles/default/actions.xml
 msgid "Add Record"
 msgstr ""
 
-#: ./abc.py:90
+#: ./profiles/default/actions.xml
+msgid "Add a document text"
+msgstr ""
+
+#: ./abc.py:105
 msgid "Add a new ABC !"
 msgstr ""
 
@@ -38,7 +46,7 @@ msgstr ""
 msgid "Add a new record !"
 msgstr ""
 
-#: ./tune.py:114
+#: ./tune.py:133
 msgid "Add a new tune !"
 msgstr ""
 
@@ -54,7 +62,7 @@ msgstr ""
 msgid "Cancel import"
 msgstr ""
 
-#: ./abc.py:117
+#: ./abc.py:132
 msgid "Cancel this abc"
 msgstr ""
 
@@ -62,15 +70,15 @@ msgstr ""
 msgid "Cancel this record"
 msgstr ""
 
-#: ./tune.py:140
+#: ./tune.py:159
 msgid "Cancel this tune"
 msgstr ""
 
-#: ./interfaces.py:158
+#: ./interfaces.py:135
 msgid "Midi"
 msgstr ""
 
-#: ./interfaces.py:159
+#: ./interfaces.py:136
 msgid "Midi sound of the tune"
 msgstr ""
 
@@ -82,21 +90,21 @@ msgstr ""
 msgid "Organize_tune"
 msgstr ""
 
-#: ./interfaces.py:151
+#: ./interfaces.py:128
 msgid "PDF Score"
 msgstr ""
 
-#: ./abc.py:106
+#: ./abc.py:121
 #: ./record.py:69
-#: ./tune.py:134
+#: ./tune.py:153
 msgid "Please correct errors"
 msgstr ""
 
-#: ./interfaces.py:145
+#: ./interfaces.py:122
 msgid "SVG Score"
 msgstr ""
 
-#: ./abc.py:102
+#: ./abc.py:117
 msgid "Save this abc"
 msgstr ""
 
@@ -104,11 +112,11 @@ msgstr ""
 msgid "Save this record"
 msgstr ""
 
-#: ./tune.py:130
+#: ./tune.py:149
 msgid "Save this tune"
 msgstr ""
 
-#: ./interfaces.py:139
+#: ./interfaces.py:116
 msgid "Score"
 msgstr ""
 
@@ -116,7 +124,7 @@ msgstr ""
 msgid "The area from which the tune is from"
 msgstr ""
 
-#: ./interfaces.py:133
+#: ./interfaces.py:110
 msgid "The country"
 msgstr ""
 
@@ -124,23 +132,23 @@ msgstr ""
 msgid "The main name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:165
+#: ./interfaces.py:142
 msgid "The mp3 sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:93
+#: ./interfaces.py:70
 msgid "The name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:171
+#: ./interfaces.py:148
 msgid "The ogg sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:152
+#: ./interfaces.py:129
 msgid "The score of the tune as PDF"
 msgstr ""
 
-#: ./interfaces.py:146
+#: ./interfaces.py:123
 msgid "The score of the tune as SVG"
 msgstr ""
 
@@ -148,15 +156,15 @@ msgstr ""
 msgid "The score of the tune as png image"
 msgstr ""
 
-#: ./interfaces.py:99
+#: ./interfaces.py:76
 msgid "The tune in abc format"
 msgstr ""
 
-#: ./interfaces.py:115
+#: ./interfaces.py:92
 msgid "The type of the tune"
 msgstr ""
 
-#: ./interfaces.py:98
+#: ./interfaces.py:75
 msgid "Tune abc"
 msgstr ""
 
@@ -172,8 +180,8 @@ msgstr ""
 msgid "View_tune"
 msgstr ""
 
-#: ./abc.py:68
-#: ./tune.py:95
+#: ./abc.py:83
+#: ./tune.py:114
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 
@@ -185,7 +193,7 @@ msgstr ""
 msgid "file containing ABC tunes to import"
 msgstr ""
 
-#: ./interfaces.py:116
+#: ./interfaces.py:93
 msgid "from the field R:"
 msgstr ""
 
@@ -201,11 +209,11 @@ msgstr ""
 msgid "import tunes from this file"
 msgstr ""
 
-#: ./interfaces.py:164
+#: ./interfaces.py:141
 msgid "mp3"
 msgstr ""
 
-#: ./interfaces.py:170
+#: ./interfaces.py:147
 msgid "ogg"
 msgstr ""
 
@@ -221,11 +229,11 @@ msgstr ""
 msgid "reinstall abctune"
 msgstr ""
 
-#: ./tune.py:146
+#: ./tune.py:165
 msgid "save and add abc"
 msgstr ""
 
-#: ./tune.py:158
+#: ./tune.py:177
 msgid "save and add record"
 msgstr ""
 

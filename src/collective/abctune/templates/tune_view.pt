@@ -10,11 +10,20 @@
 
 <metal:main fill-slot="main">
 
-  <div>
+  <div tal:define="docObj context/getDocumentAndPosition;
+                   doc python:docObj[0];
+                   pos python:docObj[1]">
     <h1 class="documentFirstHeading" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
     </h1>
+    <span tal:condition="python:(pos == 0) and (pos is not None)">
+    	<metal:macro use-macro="context/abctune_macros/macros/display-document" />
+    </span>
     <section id="abctune-viewlets" tal:content="structure provider:abctune-viewlet-manager" />
+    <span tal:condition="python:(pos != 0) and (pos is not None)">
+    	<metal:macro use-macro="context/abctune_macros/macros/display-document" />
+    </span>
+
   </div>
 </metal:main>
 

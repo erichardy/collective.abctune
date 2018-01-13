@@ -115,6 +115,19 @@
 	   <property name="visible">True</property>
 	  </object>
 
+	  <object name="add_record" meta_type="CMF Action" i18n:domain="plone">
+	   <property name="title" i18n:translate="">Add Document</property>
+	   <property name="description" i18n:translate="">Add a document text</property>
+	   <property name="url_expr">python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++Document?title=**Document**'+context.restrictedTraverse('@@tune-id')()</property>
+	   <property name="link_target"></property>
+	   <property name="icon_expr"></property>
+	   <property name="available_expr">python:context.restrictedTraverse('@@in-tune')() and checkPermission("Add portal content", object)</property>
+	   <property name="permissions">
+	    <element value="View"/>
+	   </property>
+	   <property name="visible">True</property>
+	  </object>
+
 <!-- python:context.restrictedTraverse('@@parent-tune-url')()+'/++add++abc?title='+context.restrictedTraverse('@@tune-id')() -->
 <!-- 	  
       <object name="essai_action" meta_type="CMF Action" i18n:domain="plone">

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="Document" meta_type="Factory-based Type Information"
+   i18n:domain="cmf_default" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+   <property name="behaviors" purge="false">
+     <element value="eh.behaviors.misc_attributes.IMiscAttributes" />     
+   </property>
+
+</object>
