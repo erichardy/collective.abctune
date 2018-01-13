@@ -23,7 +23,8 @@
 	    <span tal:repeat="action actions">
 	      <a href=""
 	          tal:attributes="href string:${action/url};
-	                          title string:${action/description}"
+	                          title string:${action/description};
+	                          class string:abctune-menu-action_${action/id}"
 	          tal:content="string:${action/title}"
 	          class="abctune-menu-action"
 	          >action</a>
