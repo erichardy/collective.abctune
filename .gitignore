@@ -1,3 +1,6 @@
+include
+pip-selfcheck.json
+lib/
 .project
 .settings
 .pydevproject

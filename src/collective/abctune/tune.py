@@ -10,6 +10,7 @@ from Products.Five import BrowserView
 from z3c.form import button
 # from plone.directives import dexterity
 from zope.interface import implementer
+import base64
 
 import logging
 
@@ -170,8 +171,11 @@ class AddForm(add.DefaultAddForm):
             return
         tune = self.handleApply(data)
         tuneId = tune.getId()
+        # import pdb;pdb.set_trace()
+        abcTitle = tune.title.encode('utf-8')
         addAbc = self.context.absolute_url()
-        addAbc += '/' + tuneId + '/++add++abc?title=' + tune.title
+        addAbc += '/' + tuneId + '/++add++abc?title='
+        addAbc += base64.b64encode(abcTitle)
         self.request.response.redirect(addAbc)
 
     @button.buttonAndHandler(_(u'save and add record'))
