@@ -13,7 +13,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
 # from plone.directives import dexterity
 from zope.interface import implementer
-import base64
+# import base64
 
 import logging
 
@@ -107,9 +107,8 @@ class AddForm(add.DefaultAddForm):
 
     def update(self):
         super(add.DefaultAddForm, self).update()
-        xtitle = self.request.form.get('title')
-        if xtitle:
-            title = base64.b64decode(xtitle)
+        title = self.request.form.get('title')
+        if title:
             self.widgets['title'].value = u'**ABC**' + title.decode('utf-8')
         # import pdb;pdb.set_trace()
 
