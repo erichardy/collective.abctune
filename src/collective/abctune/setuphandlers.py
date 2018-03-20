@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from plone import api
+# from plone import api
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
 
@@ -19,9 +19,9 @@ def post_install(context):
     if context.readDataFile('collectiveabctune_default.txt') is None:
         return
     # Do something during the installation of this package
-    site = api.portal.get()
-    qi = site.restrictedTraverse('portal_quickinstaller')
-    qi.reinstallProducts('collective.abctransforms')
+    # site = api.portal.get()
+    # qi = site.restrictedTraverse('portal_quickinstaller')
+    # qi.reinstallProducts('collective.abctransforms')
 
 
 def uninstall(context):
