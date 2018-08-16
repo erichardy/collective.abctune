@@ -122,6 +122,12 @@ class AddForm(add.DefaultAddForm):
             self.status = _('Please correct errors')
             return
         try:
+            # par defaut, les commentaires sont de-actives
+            # ils peuvent etre re-actives par element
+            data['IAllowDiscussion.allow_discussion'] = False
+        except Exception:
+            pass
+        try:
             obj = self.createAndAdd(data)
             logger.info(obj.absolute_url())
             contextURL = self.context.absolute_url()

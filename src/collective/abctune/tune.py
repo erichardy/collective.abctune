@@ -139,10 +139,16 @@ class AddForm(add.DefaultAddForm):
     def updateWidgets(self):
         super(add.DefaultAddForm, self).updateWidgets()
 
-    def handleApply(self, data):
+    def _handleApply(self, data):
+        try:
+            # par defaut, les commentaires sont de-actives
+            # ils peuvent etre re-actives par element
+            data['IAllowDiscussion.allow_discussion'] = False
+        except Exception:
+            pass
         try:
             tune = self.createAndAdd(data)
-            logger.info('ajout 1 tune')
+            # logger.info('ajout 1 tune')
             return tune
         except Exception:
             raise
@@ -153,7 +159,7 @@ class AddForm(add.DefaultAddForm):
         if errors:
             self.status = _('Please correct errors')
             return
-        self.handleApply(data)
+        self._handleApply(data)
         contextURL = self.context.absolute_url()
         self.request.response.redirect(contextURL)
 
@@ -169,7 +175,7 @@ class AddForm(add.DefaultAddForm):
         if errors:
             self.status = _('Please correct errors')
             return
-        tune = self.handleApply(data)
+        tune = self._handleApply(data)
         tuneId = tune.getId()
         # import pdb;pdb.set_trace()
         abcTitle = tune.title.encode('utf-8')
@@ -184,7 +190,7 @@ class AddForm(add.DefaultAddForm):
         if errors:
             self.status = _('Please correct errors')
             return
-        tune = self.handleApply(data)
+        tune = self._handleApply(data)
         tuneId = tune.getId()
         addRecordd = self.context.absolute_url()
         addRecordd += '/' + tuneId + '/++add++record'
