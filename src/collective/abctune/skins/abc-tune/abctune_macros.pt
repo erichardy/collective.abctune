@@ -44,7 +44,7 @@
 	        <span id="pdf">
 	         <a src=""
 		        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
-		        <img src="" tal:attributes="src string:${context/absolute_url}/++plone++abctune/pdf-50x50.png" />
+		        <img src="" tal:attributes="src string:${portal_url}/++plone++abctune/pdf-50x50.png" />
 		     </a>
 		    </span>
 	    </div>
