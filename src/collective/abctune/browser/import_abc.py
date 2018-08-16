@@ -79,6 +79,10 @@ class importAbcFile(form.Form):
             type='tune',
             title=tuneTitle,
             subject=tuneSubject)
+        try:
+            tune.allow_discussion = False
+        except Exception:
+            pass
         tune.reindexObject()
         logger.info('Tune created: ' + tune.title)
         abc = api.content.create(
@@ -86,6 +90,10 @@ class importAbcFile(form.Form):
             type='abc',
             title=tuneTitle,
             abc=newtune)
+        try:
+            abc.allow_discussion = False
+        except Exception:
+            pass
         abc.reindexObject()
         logger.info('ABC created: ' + abc.title)
         return (tune, abc)
