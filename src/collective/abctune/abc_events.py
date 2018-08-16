@@ -226,12 +226,12 @@ def newAbc(context, event):
     :param context: the object for which the fields will be completed
     :type context: an ABC object
     """
-    makeFullTune(context)
+    makeFullTune(context, updateSound=False)
     context.reindexObject()
 
 
 def updateAbc(context, event):
     """A FAIRE : see newAbcTune
     """
-    makeFullTune(context)
+    makeFullTune(context, updateSound=False)
     context.reindexObject()
