@@ -34,7 +34,7 @@
 	         tal:condition="python:not ogg">
 	         <span style="vertical-align: top;" i18n:translate="">sound</span>
 	         <span  id="ogg">
-	         	<span i18n:translate="">ABC not valid, no sound !</span>
+	         	<span i18n:translate="">ABC not valid or no sound !</span>
 	         </span>
 	    </div>
 
@@ -44,15 +44,22 @@
 	        <span id="pdf">
 	         <a src=""
 		        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
-		        <img src="" tal:attributes="src string:${portal_url}/++plone++abctune/pdf-50x50.png" />
+		        <img src="" tal:attributes="src string:${portal_url}/++plone++abctune/pdf-25x25.png" />
 		     </a>
+		    </span>
+		    <br />
+		    <span i18n:translate="">Voir l'ABC</span> :
+	        <span id="raw-abc">
+	          <a class="pat-plone-modal" data-pat-plone-modal="height: 150px; position: center top"
+	             href="#" tal:attributes="href string:${obj/absolute_url}/@@only-abc"
+	             i18n:translate="">ABC</a>
 		    </span>
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-4"
 	         tal:condition="python:not pdfscore">
 	       <span i18n:translate="">download pdf</span> :
 	         <span id="pdf">
-	         	<span i18n:translate="">ABC not valid, no PDF !</span>
+	         	<span i18n:translate="">ABC not valid or no PDF !</span>
 	         </span>
 	    </div>
 

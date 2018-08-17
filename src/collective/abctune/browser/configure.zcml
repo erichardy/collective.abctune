@@ -51,6 +51,14 @@
   <!-- views for ABC -->
   <browser:page
     for="*"
+    name="only-abc"
+    class=".abc.onlyABC"
+    template="abc.pt"
+    permission="zope2.View"
+  />
+
+  <browser:page
+    for="*"
     name="updateABC"
     class=".update_abc.updateABC"
     permission="cmf.ModifyPortalContent"
