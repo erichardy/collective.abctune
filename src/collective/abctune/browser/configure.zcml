@@ -101,4 +101,21 @@
       permission="cmf.ManagePortal"
       />
 
+<!-- Misc views -->
+  <browser:page
+      name="tunes_list_folder"
+      for="plone.app.contenttypes.interfaces.IFolder"
+      class=".tunes_list_folder.tunesListFolder"
+      template="tunes_list_folder.pt"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      name="tunes_list_collection"
+      for="plone.app.contenttypes.interfaces.ICollection"
+      class=".tunes_list_collection.tunesListCollection"
+      template="tunes_list_collection.pt"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>

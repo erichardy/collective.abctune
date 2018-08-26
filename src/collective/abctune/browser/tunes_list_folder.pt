@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.abctune">
+
+<body>
+
+  <div metal:fill-slot="content-core">
+    <metal:block define-macro="content-core">
+    <div tal:define="tunes view/getTunes">
+		<p tal:repeat="tune tunes">
+		  <span tal:define="records python:tune.getTuneObjectsByType('WildcardAudio');
+		                    abcs python:tune.getTuneObjectsByType('abc')">
+            
+            <div class="pat-autotoc autotabs"
+                 data-pat-autotoc="section:fieldset;levels:legend;">
+            <span tal:repeat="obj abcs">
+            <fieldset>
+		     <legend tal:content="string:${obj/title}"></legend>
+			     <div tal:attributes="id string:${obj/getId}">
+			       <div class="no-container">
+			         <metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
+			       </div>
+			       <div class="no-container">
+			         <metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
+			       </div>
+			     </div>
+   			</fieldset>
+            </span>
+            </div>
+          </span>
+		</p>
+	</div>
+    </metal:block>
+  </div>
+
+</body>
+</html>

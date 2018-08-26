@@ -180,3 +180,10 @@ def sort_by_position(a, b):
     sortedMyList = sorted(myList, sort_by_position)
     """
     return get_position_in_parent(a) - get_position_in_parent(b)
+
+
+def sort_by_title(a, b):
+    try:
+        return a.title < b.title
+    except Exception:
+        return 0

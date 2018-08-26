@@ -23,7 +23,6 @@
     <span tal:condition="python:(pos != 0) and (pos is not None)">
     	<metal:macro use-macro="context/abctune_macros/macros/display-document" />
     </span>
-
   </div>
 </metal:main>
 
