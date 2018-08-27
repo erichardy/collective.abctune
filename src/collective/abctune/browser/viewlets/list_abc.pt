@@ -7,26 +7,11 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
-                 objs python:context.getTuneObjectsByType('abc');
+                 abcs python:context.getTuneObjectsByType('abc');
                  "
      class="abctune-list-abc-viewlet">
 
-<div id="abc-abc" class="pat-autotoc autotabs"
-          data-pat-autotoc="section:fieldset;levels:legend;">
-  <span tal:repeat="obj objs" tal:omit-tag="">
-   <fieldset>
-     <legend tal:content="string:${obj/title}"></legend>
-	     <div tal:attributes="id string:${obj/getId}">
-	       <div class="no-container">
-	         <metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
-	       </div>
-	       <div class="no-container">
-	         <metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
-	       </div>
-	     </div>
-   </fieldset>
-  </span>
-</div>
+     <metal:macro use-macro="context/abctune_macros/macros/tabs-abc-ogg-pdf" />
 
 </div>
 

@@ -86,7 +86,7 @@
       permission="zope2.View"
       />
 	
-  <!-- EBD Tune -->
+  <!-- END Tune -->
 
   <!-- ABC -->
   <adapter

@@ -14,8 +14,74 @@
  </div>
 </metal:row>
 
+<span tal:replace="nothing">
+Macros a revoir car il y a potentiellement presence de plusieurs id="xxx" identiques
+dans une meme page
+etant donne que ces macros peuvent etre appelees plusieurs fois dans une
+meme vue. Cf les viewlets list_abc.pt et list_records.pt
+NB: ces id ne sont pas utilises pour les CSS et il devrait etre possible de simplement
+les supprimer sans consequences
+
+
+FAIT: De plus, il serait plus judicieux que la variable d'appel pour les abc soit ``abc``
+et non ``obj``
+
+Enfin, il faudrait que ces macros puissent etre appelees aussi bien dans la vue 
+d'un tune que dans le listing d'un folder ou d'une collection. Il faut cond qu'elles
+soient le plus generiques que possible.
+</span>
+
+<span tal:replace="nothing">
+call variables : abcs
+</span>
+<metal:row define-macro="tabs-abc-ogg-pdf">
+<div class="pat-autotoc autotabs"
+          data-pat-autotoc="section:fieldset;levels:legend;">
+  <span tal:repeat="abc abcs" tal:omit-tag="">
+   <fieldset>
+     <legend tal:content="string:${abc/title}"></legend>
+	     <div tal:attributes="id string:${abc/getId}">
+	       <div class="no-container">
+	         <metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
+	       </div>
+	       <div class="no-container">
+	         <metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
+	       </div>
+	     </div>
+   </fieldset>
+  </span>
+</div>
+</metal:row>
+
+
+<span tal:replace="nothing">
+call variables : tune, records
+</span>
+<metal:row define-macro="tabs-records">
+<h2 i18n:translate="">audio records</h2>
+<div class="pat-autotoc autotabs"
+          data-pat-autotoc="section:fieldset;levels:legend;">
+  <span tal:repeat="record records" tal:omit-tag="">
+   <fieldset tal:define="audio_url python:tune.getAudioAttrs(record)[0];
+                         ct python:tune.getAudioAttrs(record)[1]">
+     <legend tal:content="string:${record/title}"></legend>
+	     <div tal:attributes="id string:${record/getId}">
+	       <h4 tal:content="string:${record/title}">title</h4>
+	       <audio controls="controls" preload="none" class="active pat-media"
+               tal:attributes="src string:${audio_url}; type string:${ct}">
+           </audio>
+        <div class="transcript-text" tal:content="structure record/transcript/output|nothing" />
+	     </div>
+   </fieldset>
+  </span>
+</div>
+</metal:row>
+
+<span tal:replace="nothing">
+call variables : abc
+</span>
 <metal:row define-macro="abc-ogg-pdf">
-   <div tal:define="elems python:obj.getElements();
+   <div tal:define="elems python:abc.getElements();
                     ogg python:elems[0];
 	                pdfscore python:elems[1];"
 	                >
@@ -23,9 +89,9 @@
 	    <div class="col-xs-12 col-sm-12 col-md-5"
 	         tal:condition="python:ogg">
 	    <span style="vertical-align: top;" i18n:translate="">sound</span>
-	      <span  id="ogg">
+	      <span>
 		  <audio controls="controls"
-		         tal:attributes="src string:${obj/absolute_url}/@@download/ogg/${obj/ogg/filename}; type string:audio/ogg">
+		         tal:attributes="src string:${abc/absolute_url}/@@download/ogg/${abc/ogg/filename}; type string:audio/ogg">
 		    Your browser does not support the audio element.
 		  </audio>
 		  </span>
@@ -33,7 +99,7 @@
 	    <div class="col-xs-12 col-sm-12 col-md-5"
 	         tal:condition="python:not ogg">
 	         <span style="vertical-align: top;" i18n:translate="">sound</span>
-	         <span  id="ogg">
+	         <span>
 	         	<span i18n:translate="">ABC not valid or no sound !</span>
 	         </span>
 	    </div>
@@ -41,31 +107,31 @@
 	    <div class="col-xs-12 col-sm-12 col-md-4"
 	         tal:condition="python:pdfscore">
 	      <span i18n:translate="">download pdf</span> :
-	        <span id="pdf">
+	        <span>
 	         <a src=""
-		        tal:attributes="href string:${obj/absolute_url}/@@download/pdfscore/${obj/pdfscore/filename}">
+		        tal:attributes="href string:${abc/absolute_url}/@@download/pdfscore/${abc/pdfscore/filename}">
 		        <img src="" tal:attributes="src string:${portal_url}/++plone++abctune/pdf-25x25.png" />
 		     </a>
 		    </span>
 		    <br />
 		    <span i18n:translate="">Voir l'ABC</span> :
-	        <span id="raw-abc">
+	        <span>
 	          <a class="pat-plone-modal" data-pat-plone-modal="height: 150px; position: center top"
-	             href="#" tal:attributes="href string:${obj/absolute_url}/@@only-abc"
+	             href="#" tal:attributes="href string:${abc/absolute_url}/@@only-abc"
 	             i18n:translate="">ABC</a>
 		    </span>
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-4"
 	         tal:condition="python:not pdfscore">
 	       <span i18n:translate="">download pdf</span> :
-	         <span id="pdf">
+	         <span>
 	         	<span i18n:translate="">ABC not valid or no PDF !</span>
 	         </span>
 	    </div>
 
 	    <div class="col-xs-2 col-sm-2">
-	    <span tal:condition="python:obj.abcEditor() and (context != obj)">
-	      <a href="" tal:attributes="href string:${obj/absolute_url}">
+	    <span tal:condition="python:abc.abcEditor() and (context != abc)">
+	      <a href="" tal:attributes="href string:${abc/absolute_url}">
 	        Edit <span class="glyphicon glyphicon-pencil"></span>
 	      </a>
 	    </span>
@@ -80,19 +146,22 @@ est il capable d'etre reponsive ?
 https://la-cascade.io/rendre-svg-responsif/
 https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
  -->
+ <span tal:replace="nothing">
+call variables : abc
+</span>
 <metal:row define-macro="abc-svg">
-   <div tal:define="elems python:obj.getElements();
+   <div tal:define="elems python:abc.getElements();
                     svgscore python:elems[2];">
 	  <div class="row"
 	       tal:condition="nocall:svgscore">
-	    <div class="col-xs-12 col-sm-12" id="svgscore" >
-		<img tal:attributes="src string:${obj/absolute_url}/@@download/svgscore/${obj/svgscore/filename};
+	    <div class="col-xs-12 col-sm-12">
+		<img tal:attributes="src string:${abc/absolute_url}/@@download/svgscore/${abc/svgscore/filename};
 		                     class string:img-responsive" />
 		</div>
 	  </div>
 	  <div class="row"
 	       tal:condition="python:not svgscore">
-	    <div class="col-xs-12 col-sm-12" id="svgscore" >
+	    <div class="col-xs-12 col-sm-12">
 	       <span i18n:translate="">invalid abc !!! No score !</span>
 	   </div>
 	  </div>

@@ -40,7 +40,7 @@
 	     <button id="create-ogg" type="button" class="btn btn-info" i18n:translate="">create new ogg</button>
 	</div>
 
-	<div tal:define="obj python:context">
+	<div tal:define="abc python:context">
 		<metal:macro use-macro="context/abctune_macros/macros/abc-ogg-pdf" />
 	</div>
 
@@ -68,7 +68,7 @@
 	  </div>
 	</span>
 	<p />
-	<div tal:define="obj python:context">
+	<div tal:define="abc python:context">
 		<metal:macro use-macro="context/abctune_macros/macros/abc-svg" />
 	</div>
 

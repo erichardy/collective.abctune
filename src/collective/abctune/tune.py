@@ -92,6 +92,18 @@ class tune(Container):
             return (None, None)
         return (docs[0], objs.index(docs[0]))
 
+    def getAudioAttrs(self, record):
+        """
+        code from wildcard/media/browser/views.py: class AudioView(MediaView):
+        """
+        base_url = record.absolute_url()
+        base_wurl = base_url + '/@@view/++widget++form.widgets.'
+        self.audio_url = '%sIAudio.audio_file/@@stream' % (
+            base_wurl
+        )
+        self.ct = record.audio_file.contentType
+        return (self.audio_url, self.ct)
+
 
 class View(BrowserView):
 

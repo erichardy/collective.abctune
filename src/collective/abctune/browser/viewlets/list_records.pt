@@ -7,17 +7,22 @@
 
 <div tal:define="portal_state context/@@plone_portal_state;
                  portal_url portal_state/portal_url;
-                 records python:context.getTuneObjectsByType('WildcardAudio');"
+                 tune python:context;
+                 records python:tune.getTuneObjectsByType('WildcardAudio');"
      class="abctune-list-records-viewlet"
      tal:condition="python:len(records)">
 
-<h2 i18n:translate="">audio records</h2>
 
-<div id="abc-abc" class="pat-autotoc autotabs"
+<metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
+
+
+<span tal:replace="nothing">
+  <h2 i18n:translate="">audio records</h2>
+  <div class="pat-autotoc autotabs"
           data-pat-autotoc="section:fieldset;levels:legend;">
   <span tal:repeat="record records" tal:omit-tag="">
-   <fieldset tal:define="audio_url python:view.getAudioAttrs(record)[0];
-                         ct python:view.getAudioAttrs(record)[1]">
+   <fieldset tal:define="audio_url python:tune.getAudioAttrs(record)[0];
+                         ct python:tune.getAudioAttrs(record)[1]">
      <legend tal:content="string:${record/title}"></legend>
 	     <div tal:attributes="id string:${record/getId}">
 	       <h4 tal:content="string:${record/title}">title</h4>
@@ -29,6 +34,7 @@
    </fieldset>
   </span>
 </div>
+</span>
 
 </div>
 
