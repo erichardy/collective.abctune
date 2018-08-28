@@ -23,6 +23,7 @@
 }
 </style>
 
+<h1>${context/title}</h1>
 
     <div tal:define="results view/results">
     	<span tal:repeat="tune results">
