@@ -107,7 +107,7 @@
       for="plone.app.contenttypes.interfaces.IFolder"
       class=".tunes_list_folder.tunesListFolder"
       template="tunes_list_folder.pt"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       />
 
   <browser:page
@@ -115,7 +115,7 @@
       for="plone.app.contenttypes.interfaces.ICollection"
       class=".tunes_list_collection.tunesListCollection"
       template="tunes_list_collection.pt"
-      permission="cmf.ModifyPortalContent"
+      permission="zope2.View"
       />
 
 </configure>

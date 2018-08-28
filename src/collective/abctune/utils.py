@@ -184,6 +184,9 @@ def sort_by_position(a, b):
 
 def sort_by_title(a, b):
     try:
-        return a.title < b.title
+        if a.title > b.title:
+            return 1
+        else:
+            return -1
     except Exception:
         return 0

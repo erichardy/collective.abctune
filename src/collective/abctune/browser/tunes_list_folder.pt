@@ -10,36 +10,40 @@
 
   <div metal:fill-slot="content-core">
     <metal:block define-macro="content-core">
+
+<style>
+.accordeon-title {
+  color: #555555;
+  cursor: -webkit-grab;
+  cursor: grab;
+  padding: 5px 3px 5px 10px;
+  border: 1px solid #AAAAAA;
+  background-color: #DDDDDD;
+  width: 728px;
+}
+</style>
+
     <div tal:define="tunes view/getTunes;
                      portal_state context/@@plone_portal_state;
                      portal_url portal_state/portal_url;">
-		<p tal:repeat="tune tunes">
-		  <span tal:define="records python:tune.getTuneObjectsByType('WildcardAudio');
-		                    abcs python:tune.getTuneObjectsByType('abc')">
-            
-              <span tal:condition="abcs">
-                <metal:macro use-macro="context/abctune_macros/macros/tabs-abc-ogg-pdf" />
-              </span>
-              <span tal:condition="records">
-                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
-              </span>
+		<span tal:repeat="tune tunes">
+		  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number}">
+		  	<p tal:attributes="class string:accordeon-title; id string:${tuneClass}">${tune/title}</p>
+		  	<span tal:attributes="class string:${tuneClass} accordeon-content">
+			  <span tal:define="records python:tune.getTuneObjectsByType('WildcardAudio');
+			                    abcs python:tune.getTuneObjectsByType('abc')">
+	            
+	              <span tal:condition="abcs">
+	                <metal:macro use-macro="context/abctune_macros/macros/tabs-abc-ogg-pdf" />
+	              </span>
+	              <span tal:condition="records">
+	                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
+	              </span>
+			  </span>
+			</span>  
 		  </span>
-		</p>
+		</span>
 	</div>
-
-
-<span tal:replace="nothing">
-exemple d'accordeon avec jquery
-<ul id="accordeon">			
-		<li><a href="#" class="titre">Section 1</a></li>		
-		<li class="contenuTitre">Contenu 1</li>			
-
-		<li><a href="#" class="titre">Section 2</a></li>		
-		<li class="contenuTitre">Contenu 2</li>			
-
-		<li><a href="#" class="titre">Section 3</a></li>		
-		<li class="contenuTitre">Contenu 3</li>					
-	</ul>
 
 
 <script type="text/javascript">
@@ -47,38 +51,25 @@ exemple d'accordeon avec jquery
 		$(document).ready(function() {
 
 			// On déclare des variables		
-			var accordion_head = $('#accordeon li a.titre');
-			var accordion_body = $('#accordeon li.contenuTitre');
+			var accordion_head = $('.accordeon-title');
+			var accordion_body = $('.accordeon-content');
 
-			$('#accordeon li.contenuTitre').each(function(){$(this).hide()});
-			//On attribut la classe "active" au premier .titre de la liste et on ouvre par effet de slide .contenuTitre qui suit .active :
-			// accordion_head.first().addClass('active').parent().next().slideDown('normal');
+			$(accordion_body).each(function(){$(this).hide()});
 
-			// Lorsqu'on clique sur .titre
+			// Lorsqu'on clique sur un titre
 			accordion_head.on('click', function(event) {
-
-				// On annule l'effet naturel du lien
 				event.preventDefault();
-
-				// On vérifie la présence de la classe "active"
-				if ($(this).attr('class') != 'titre active'){
-
-					// On ferme par effet de slide tous les li qui contiennent la classe .contenuTitre
-					accordion_body.slideUp('normal');
-
-					// On ouvre celui qui suit directement le lien (.titre) sur lequel on a cliqué
-					$(this).parent().next().stop(true,true).slideToggle('normal');
-
-					// On enlève la classe .active de tous les liens
-					accordion_head.removeClass('active');
-
-					// On rajoute la classe .active au lien sur lequel on a cliqué
-					$(this).addClass('active');
+				title = $(this).attr('id');
+				toShow = 'span.' + title;
+				if ($(toShow).css("display") != "none") {
+					$(toShow).hide(500, "swing");
+				} else {
+					$(accordion_body).each(function(){$(this).hide(500, "swing")});
+				    $(toShow).show(500, "swing");
 				}
 			});
 		});
 	</script>
-</span>
 
     </metal:block>
   </div>
