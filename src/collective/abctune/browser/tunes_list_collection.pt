@@ -10,8 +10,65 @@
 
   <div metal:fill-slot="content-core">
     <metal:block define-macro="content-core">
-    
-    <pre class="abcText" tal:content="python:view.getABC()">abc</pre>
+
+<style>
+.accordeon-title {
+  color: #555555;
+  cursor: -webkit-grab;
+  cursor: grab;
+  padding: 5px 3px 5px 10px;
+  border: 1px solid #AAAAAA;
+  background-color: #DDDDDD;
+  width: 728px;
+}
+</style>
+
+
+    <div tal:define="results view/results">
+    	<span tal:repeat="tune results">
+    	  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number}">
+		  	<p tal:attributes="class string:accordeon-title; id string:${tuneClass}">${tune/title}</p>
+		  	<span tal:attributes="class string:${tuneClass} accordeon-content">
+			  <span tal:define="records python:tune.getTuneObjectsByType('WildcardAudio');
+			                    abcs python:tune.getTuneObjectsByType('abc')">
+	            
+	              <span tal:condition="abcs">
+	                <metal:macro use-macro="context/abctune_macros/macros/tabs-abc-ogg-pdf" />
+	              </span>
+	              <span tal:condition="records">
+	                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
+	              </span>
+			  </span>
+			</span>  
+		  </span>
+	    </span>
+    </div>
+
+<script type="text/javascript">
+
+		$(document).ready(function() {
+
+			// On déclare des variables		
+			var accordion_head = $('.accordeon-title');
+			var accordion_body = $('.accordeon-content');
+
+			$(accordion_body).each(function(){$(this).hide()});
+
+			// Lorsqu'on clique sur un titre
+			accordion_head.on('click', function(event) {
+				event.preventDefault();
+				title = $(this).attr('id');
+				toShow = 'span.' + title;
+				if ($(toShow).css("display") != "none") {
+					$(toShow).hide(500, "swing");
+				} else {
+					$(accordion_body).each(function(){$(this).hide(500, "swing")});
+				    $(toShow).show(500, "swing");
+				}
+			});
+		});
+</script>
+
 
     </metal:block>
   </div>
