@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-13 16:12+0000\n"
+"POT-Creation-Date: 2018-09-10 23:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,6 +14,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./skins/abc-tune/abctune_macros.pt:119
+msgid "ABC"
+msgstr ""
+
 #: ./interfaces.py:69
 msgid "ABC Tune name"
 msgstr "Nom de la version ABC du morceau"
@@ -22,15 +26,15 @@ msgstr "Nom de la version ABC du morceau"
 msgid "ABC modified<br />think to save your work !"
 msgstr "L'ABC a été modifié<br />il faut enregistrer !"
 
-#: ./skins/abc-tune/abctune_macros.pt:55
-msgid "ABC not valid, no PDF !"
-msgstr ""
+#: ./skins/abc-tune/abctune_macros.pt:128
+msgid "ABC not valid or no PDF !"
+msgstr "ABC non valide ou pas de PDF"
 
-#: ./skins/abc-tune/abctune_macros.pt:37
-msgid "ABC not valid, no sound !"
-msgstr ""
+#: ./skins/abc-tune/abctune_macros.pt:103
+msgid "ABC not valid or no sound !"
+msgstr "ABC non valide ou pas de son"
 
-#: ./abc.py:105
+#: ./abc.py:106
 msgid "Add a new ABC !"
 msgstr "Ajouter une version ABC de ce morceau"
 
@@ -38,15 +42,15 @@ msgstr "Ajouter une version ABC de ce morceau"
 msgid "Add a new record !"
 msgstr "Ajouter une enregistrement"
 
-#: ./tune.py:133
+#: ./tune.py:146
 msgid "Add a new tune !"
 msgstr "Ajouter un nouveau morceau"
 
-#: ./browser/import_abc.py:123
+#: ./browser/import_abc.py:131
 msgid "Cancel import"
 msgstr "Abandonner cet import"
 
-#: ./abc.py:132
+#: ./abc.py:139
 msgid "Cancel this abc"
 msgstr "Abandonner cet ABC"
 
@@ -54,7 +58,7 @@ msgstr "Abandonner cet ABC"
 msgid "Cancel this record"
 msgstr "Abandonner cet enregistrement"
 
-#: ./tune.py:159
+#: ./tune.py:178
 msgid "Cancel this tune"
 msgstr "Abandonner ce morceau"
 
@@ -65,6 +69,10 @@ msgstr "Editer l'ABC..."
 #: ./configure.zcml:25
 msgid "Installs the collective.abctune add-on."
 msgstr ""
+
+#: ./browser/configure.zcml:113
+msgid "List of tunes"
+msgstr "Liste de morceaux"
 
 #: ./interfaces.py:135
 msgid "Midi"
@@ -82,9 +90,9 @@ msgstr ""
 msgid "PDF Score"
 msgstr "Partition en PDF"
 
-#: ./abc.py:121
+#: ./abc.py:122
 #: ./record.py:69
-#: ./tune.py:153
+#: ./tune.py:172
 msgid "Please correct errors"
 msgstr "Merci de corriger les erreurs"
 
@@ -92,7 +100,7 @@ msgstr "Merci de corriger les erreurs"
 msgid "SVG Score"
 msgstr "Partition en SVG"
 
-#: ./abc.py:117
+#: ./abc.py:118
 msgid "Save this abc"
 msgstr "Enregistrer cet ABC"
 
@@ -100,7 +108,7 @@ msgstr "Enregistrer cet ABC"
 msgid "Save this record"
 msgstr "Sauver cet enregistrement audio"
 
-#: ./tune.py:149
+#: ./tune.py:168
 msgid "Save this tune"
 msgstr "Enregistrer le morceau"
 
@@ -126,7 +134,7 @@ msgstr "Le nom principale de ce morceau"
 
 #: ./interfaces.py:142
 msgid "The mp3 sound of the tune"
-msgstr ""
+msgstr "La version MP3 de ce morceau"
 
 #: ./interfaces.py:70
 msgid "The name as you know this tune"
@@ -134,27 +142,27 @@ msgstr "Le nom de la version ABC"
 
 #: ./interfaces.py:148
 msgid "The ogg sound of the tune"
-msgstr ""
+msgstr "La version OGG de ce morceau"
 
 #: ./interfaces.py:129
 msgid "The score of the tune as PDF"
-msgstr ""
+msgstr "La partition de ce morceau en PDF"
 
 #: ./interfaces.py:123
 msgid "The score of the tune as SVG"
-msgstr ""
+msgstr "La partition de ce morceau en SVG"
 
 #: ./interfaces.py:26
 msgid "The score of the tune as png image"
-msgstr ""
+msgstr "La partition de ce morceau en image PNG"
 
 #: ./interfaces.py:76
 msgid "The tune in abc format"
-msgstr ""
+msgstr "Le morceau en format ABC"
 
 #: ./interfaces.py:92
 msgid "The type of the tune"
-msgstr ""
+msgstr "Le type de morceau"
 
 #: ./interfaces.py:75
 msgid "Tune abc"
@@ -168,8 +176,12 @@ msgstr "Le nom du morceau"
 msgid "Uninstalls the collective.abctune add-on."
 msgstr ""
 
-#: ./abc.py:83
-#: ./tune.py:114
+#: ./skins/abc-tune/abctune_macros.pt:117
+msgid "Voir l'ABC"
+msgstr "Voir l'ABC"
+
+#: ./abc.py:84
+#: ./tune.py:127
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 
@@ -177,7 +189,7 @@ msgstr ""
 msgid "abc"
 msgstr "Version ABC"
 
-#: ./browser/viewlets/list_records.pt:14
+#: ./skins/abc-tune/abctune_macros.pt:61
 msgid "audio records"
 msgstr "Enregistrements Audio"
 
@@ -193,7 +205,7 @@ msgstr "Générer un nouveau son OGG"
 msgid "create sound ?"
 msgstr "Créer le son ?"
 
-#: ./skins/abc-tune/abctune_macros.pt:43
+#: ./skins/abc-tune/abctune_macros.pt:109
 msgid "download pdf"
 msgstr "Télécharger le PDF"
 
@@ -209,17 +221,17 @@ msgstr ""
 msgid "import ABC file..."
 msgstr "Importer un fichier ABC..."
 
-#: ./browser/import_abc.py:111
+#: ./browser/import_abc.py:119
 msgid "import tunes from this file"
 msgstr "Importer ces morceaux contenus dans ce fichier"
 
-#: ./skins/abc-tune/abctune_macros.pt:89
+#: ./skins/abc-tune/abctune_macros.pt:165
 msgid "invalid abc !!! No score !"
-msgstr ""
+msgstr "ABC non valide !!! Pas de partition !"
 
 #: ./interfaces.py:141
 msgid "mp3"
-msgstr ""
+msgstr "mp3"
 
 #: ./interfaces.py:147
 msgid "ogg"
@@ -233,15 +245,15 @@ msgstr "Re-générer la partition et le son"
 msgid "save ABC"
 msgstr "Enregistrer ABC"
 
-#: ./tune.py:165
+#: ./tune.py:184
 msgid "save and add abc"
 msgstr "Enregistrer et créer une version ABC"
 
-#: ./tune.py:177
+#: ./tune.py:199
 msgid "save and add record"
 msgstr "Enregistrer et créer un enregistrement"
 
-#: ./skins/abc-tune/abctune_macros.pt:25
+#: ./skins/abc-tune/abctune_macros.pt:91
 msgid "sound"
 msgstr "Son : "
 

@@ -3,16 +3,20 @@
 from zope.publisher.browser import BrowserView
 from collective.abctune.utils import sort_by_title
 from plone import api
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 import logging
 
 
-logger = logging.getLogger('collective.abctune:getOUTPUTS ')
+logger = logging.getLogger('collective.abctune:tunesListFolder ')
 
 
 class tunesListFolder(BrowserView):
-    """ AJAX method/view"""
-    def getTunes(self):
+
+    def getTunes(self, REQUEST=None):
+        # CheckAuthenticator(self.request)
+        alsoProvides(self.request, IDisableCSRFProtection)
         objs = api.content.find(
             portal_type='tune',
             context=self.context,

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-13 16:12+0000\n"
+"POT-Creation-Date: 2018-09-10 23:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr "Ajouter un enregistrement"
 msgid "Add a document text"
 msgstr "Ajouter un texte"
 
-#: ./abc.py:105
+#: ./abc.py:106
 msgid "Add a new ABC !"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Add a new record !"
 msgstr ""
 
-#: ./tune.py:133
+#: ./tune.py:146
 msgid "Add a new tune !"
 msgstr ""
 
@@ -58,11 +58,11 @@ msgstr "Fichier audio"
 msgid "Add an abc"
 msgstr "Ajouter une ABC"
 
-#: ./browser/import_abc.py:123
+#: ./browser/import_abc.py:131
 msgid "Cancel import"
 msgstr ""
 
-#: ./abc.py:132
+#: ./abc.py:139
 msgid "Cancel this abc"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Cancel this record"
 msgstr ""
 
-#: ./tune.py:159
+#: ./tune.py:178
 msgid "Cancel this tune"
 msgstr ""
 
@@ -94,9 +94,9 @@ msgstr "Organiser..."
 msgid "PDF Score"
 msgstr ""
 
-#: ./abc.py:121
+#: ./abc.py:122
 #: ./record.py:69
-#: ./tune.py:153
+#: ./tune.py:172
 msgid "Please correct errors"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 msgid "SVG Score"
 msgstr ""
 
-#: ./abc.py:117
+#: ./abc.py:118
 msgid "Save this abc"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Save this record"
 msgstr ""
 
-#: ./tune.py:149
+#: ./tune.py:168
 msgid "Save this tune"
 msgstr ""
 
@@ -180,8 +180,8 @@ msgstr "Voir le morceau et tous les éléments associés"
 msgid "View_tune"
 msgstr "Voir le morceau"
 
-#: ./abc.py:83
-#: ./tune.py:114
+#: ./abc.py:84
+#: ./tune.py:127
 msgid "\"The tune was modified... continue ?\""
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "import abc file"
 msgstr "ABC: Import"
 
-#: ./browser/import_abc.py:111
+#: ./browser/import_abc.py:119
 msgid "import tunes from this file"
 msgstr ""
 
@@ -229,11 +229,11 @@ msgstr ""
 msgid "reinstall abctune"
 msgstr ""
 
-#: ./tune.py:165
+#: ./tune.py:184
 msgid "save and add abc"
 msgstr ""
 
-#: ./tune.py:177
+#: ./tune.py:199
 msgid "save and add record"
 msgstr ""
 

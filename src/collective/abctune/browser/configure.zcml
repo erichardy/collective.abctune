@@ -107,6 +107,8 @@
       for="plone.app.contenttypes.interfaces.IFolder"
       class=".tunes_list_folder.tunesListFolder"
       template="tunes_list_folder.pt"
+      menu="plone_displayviews"
+      title="List of tunes"
       permission="zope2.View"
       />
 
@@ -115,6 +117,8 @@
       for="plone.app.contenttypes.interfaces.ICollection"
       class=".tunes_list_collection.tunesListCollection"
       template="tunes_list_collection.pt"
+      menu="plone_displayviews"
+      title="List of tunes"
       permission="zope2.View"
       />
 

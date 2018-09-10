@@ -15,7 +15,7 @@
 .accordeon-title {
   color: #555555;
   cursor: -webkit-grab;
-  cursor: grab;
+  cursor: pointer;
   padding: 5px 3px 5px 10px;
   border: 1px solid #AAAAAA;
   background-color: #DDDDDD;

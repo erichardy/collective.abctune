@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from plone.app.contenttypes.browser.collection import CollectionView
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 import logging
 
 
@@ -11,6 +13,11 @@ class tunesListCollection(CollectionView):
     """
     code from plone.app.contenttypes.browser.collection.CollectionView
     """
+    """
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+    """
+
     def results(self, **kwargs):
         """Return a content listing based result set with results from the
         collection query.
@@ -23,6 +30,7 @@ class tunesListCollection(CollectionView):
         :rtype: ``plone.app.contentlisting.interfaces.IContentListing`` based
                 sequence.
         """
+        alsoProvides(self.request, IDisableCSRFProtection)
         # Extra filter
         contentFilter = self.request.get('contentFilter', {})
         contentFilter.update(kwargs.get('contentFilter', {}))

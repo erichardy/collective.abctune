@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-13 16:12+0000\n"
+"POT-Creation-Date: 2018-09-10 23:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.abctune\n"
 
-#: ./abc.py:83
-#: ./tune.py:114
+#: ./abc.py:84
+#: ./tune.py:127
 msgid "\"The tune was modified... continue ?\""
+msgstr ""
+
+#: ./skins/abc-tune/abctune_macros.pt:119
+msgid "ABC"
 msgstr ""
 
 #: ./interfaces.py:69
@@ -30,15 +34,15 @@ msgstr ""
 msgid "ABC modified<br />think to save your work !"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:55
-msgid "ABC not valid, no PDF !"
+#: ./skins/abc-tune/abctune_macros.pt:128
+msgid "ABC not valid or no PDF !"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:37
-msgid "ABC not valid, no sound !"
+#: ./skins/abc-tune/abctune_macros.pt:103
+msgid "ABC not valid or no sound !"
 msgstr ""
 
-#: ./abc.py:105
+#: ./abc.py:106
 msgid "Add a new ABC !"
 msgstr ""
 
@@ -46,15 +50,15 @@ msgstr ""
 msgid "Add a new record !"
 msgstr ""
 
-#: ./tune.py:133
+#: ./tune.py:146
 msgid "Add a new tune !"
 msgstr ""
 
-#: ./browser/import_abc.py:123
+#: ./browser/import_abc.py:131
 msgid "Cancel import"
 msgstr ""
 
-#: ./abc.py:132
+#: ./abc.py:139
 msgid "Cancel this abc"
 msgstr ""
 
@@ -62,7 +66,7 @@ msgstr ""
 msgid "Cancel this record"
 msgstr ""
 
-#: ./tune.py:159
+#: ./tune.py:178
 msgid "Cancel this tune"
 msgstr ""
 
@@ -72,6 +76,10 @@ msgstr ""
 
 #: ./configure.zcml:25
 msgid "Installs the collective.abctune add-on."
+msgstr ""
+
+#: ./browser/configure.zcml:113
+msgid "List of tunes"
 msgstr ""
 
 #: ./interfaces.py:135
@@ -90,9 +98,9 @@ msgstr ""
 msgid "PDF Score"
 msgstr ""
 
-#: ./abc.py:121
+#: ./abc.py:122
 #: ./record.py:69
-#: ./tune.py:153
+#: ./tune.py:172
 msgid "Please correct errors"
 msgstr ""
 
@@ -100,7 +108,7 @@ msgstr ""
 msgid "SVG Score"
 msgstr ""
 
-#: ./abc.py:117
+#: ./abc.py:118
 msgid "Save this abc"
 msgstr ""
 
@@ -108,7 +116,7 @@ msgstr ""
 msgid "Save this record"
 msgstr ""
 
-#: ./tune.py:149
+#: ./tune.py:168
 msgid "Save this tune"
 msgstr ""
 
@@ -176,11 +184,15 @@ msgstr ""
 msgid "Uninstalls the collective.abctune add-on."
 msgstr ""
 
+#: ./skins/abc-tune/abctune_macros.pt:117
+msgid "Voir l'ABC"
+msgstr ""
+
 #: ./profiles/default/types/abc.xml
 msgid "abc"
 msgstr ""
 
-#: ./browser/viewlets/list_records.pt:14
+#: ./skins/abc-tune/abctune_macros.pt:61
 msgid "audio records"
 msgstr ""
 
@@ -196,7 +208,7 @@ msgstr ""
 msgid "create sound ?"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:43
+#: ./skins/abc-tune/abctune_macros.pt:109
 msgid "download pdf"
 msgstr ""
 
@@ -212,11 +224,11 @@ msgstr ""
 msgid "import ABC file..."
 msgstr ""
 
-#: ./browser/import_abc.py:111
+#: ./browser/import_abc.py:119
 msgid "import tunes from this file"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:89
+#: ./skins/abc-tune/abctune_macros.pt:165
 msgid "invalid abc !!! No score !"
 msgstr ""
 
@@ -236,15 +248,15 @@ msgstr ""
 msgid "save ABC"
 msgstr ""
 
-#: ./tune.py:165
+#: ./tune.py:184
 msgid "save and add abc"
 msgstr ""
 
-#: ./tune.py:177
+#: ./tune.py:199
 msgid "save and add record"
 msgstr ""
 
-#: ./skins/abc-tune/abctune_macros.pt:25
+#: ./skins/abc-tune/abctune_macros.pt:91
 msgid "sound"
 msgstr ""
 
