@@ -20,17 +20,38 @@
   border: 1px solid #AAAAAA;
   background-color: #DDDDDD;
   width: 728px;
+  border-radius: 3px;
+}
+.go-to-tune {
+  text-shadow: 3px 2px #DDDDDD;
+  font-size: 80%;
+  float: right;
+}
+.tooltip-inner {
+  color: #030303 !important;
+  background-color: #EEEEEE !important;
+  max-width: 500px !important;
 }
 </style>
-
+<span tal:replace="structure context/@@authenticator/authenticator"/>
 <h1>${context/title}</h1>
 
     <div tal:define="tunes view/getTunes;
                      portal_state context/@@plone_portal_state;
-                     portal_url portal_state/portal_url;">
+                     portal_url portal_state/portal_url;
+                     token context/@@authenticator/token">
 		<span tal:repeat="tune tunes">
-		  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number}">
-		  	<p tal:attributes="class string:accordeon-title; id string:${tuneClass}">${tune/title}</p>
+		  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number};
+		                    tooltip tune/description | nothing;
+		                    tune_url tune/getURL|tune/absolute_url"
+		        class="accordeon-header">
+		  	
+		  	<p tal:define="tooltip tune/description | nothing;"
+		  	   data-toggle="tooltip"
+		  	   tal:attributes="class string:accordeon-title pat-tooltip;
+		  	                   id string:${tuneClass};
+		  	                   title string:${tooltip}">${tune/title}
+		  	 </p>
 		  	<span tal:attributes="class string:${tuneClass} accordeon-content">
 			  <span tal:define="records python:tune.getTuneObjectsByType('WildcardAudio');
 			                    abcs python:tune.getTuneObjectsByType('abc')">
@@ -41,9 +62,14 @@
 	              <span tal:condition="records">
 	                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
 	              </span>
+			      <a class="go-to-tune" href="${tune_url}?_authenticator=${token}"
+		  	         tal:attributes="target string:_blank"
+		  	         i18n:translate=""
+		  	      >Go to tune</a>
 			  </span>
 			</span>  
 		  </span>
+		  <p />
 		</span>
 	</div>
 

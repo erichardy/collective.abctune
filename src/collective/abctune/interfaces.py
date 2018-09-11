@@ -57,6 +57,11 @@ class ITune(Interface):
         title=_(u'Tune name'),
         description=_(u'The main name as you know this tune'),
         )
+    description = schema.Text(
+        title=_(u'Short description'),
+        description=_(u'Short tune description for, i.e., tooltips'),
+        required=False,
+        )
 
 
 class IABC(Interface):

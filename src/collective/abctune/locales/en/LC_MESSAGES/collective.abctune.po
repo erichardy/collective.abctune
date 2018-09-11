@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-10 23:15+0000\n"
+"POT-Creation-Date: 2018-09-11 12:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "ABC"
 msgstr ""
 
-#: ./interfaces.py:69
+#: ./interfaces.py:74
 msgid "ABC Tune name"
 msgstr ""
 
@@ -66,6 +66,11 @@ msgstr ""
 msgid "Edit ABC"
 msgstr ""
 
+#: ./browser/tunes_list_collection.pt:61
+#: ./browser/tunes_list_folder.pt:65
+msgid "Go to tune"
+msgstr ""
+
 #: ./configure.zcml:25
 msgid "Installs the collective.abctune add-on."
 msgstr ""
@@ -74,11 +79,11 @@ msgstr ""
 msgid "List of tunes"
 msgstr ""
 
-#: ./interfaces.py:135
+#: ./interfaces.py:140
 msgid "Midi"
 msgstr ""
 
-#: ./interfaces.py:136
+#: ./interfaces.py:141
 msgid "Midi sound of the tune"
 msgstr ""
 
@@ -86,7 +91,7 @@ msgstr ""
 msgid "More detailed origin of the tune, from O: field"
 msgstr ""
 
-#: ./interfaces.py:128
+#: ./interfaces.py:133
 msgid "PDF Score"
 msgstr ""
 
@@ -96,7 +101,7 @@ msgstr ""
 msgid "Please correct errors"
 msgstr ""
 
-#: ./interfaces.py:122
+#: ./interfaces.py:127
 msgid "SVG Score"
 msgstr ""
 
@@ -112,8 +117,16 @@ msgstr ""
 msgid "Save this tune"
 msgstr ""
 
-#: ./interfaces.py:116
+#: ./interfaces.py:121
 msgid "Score"
+msgstr ""
+
+#: ./interfaces.py:61
+msgid "Short description"
+msgstr ""
+
+#: ./interfaces.py:62
+msgid "Short tune description for, i.e., tooltips"
 msgstr ""
 
 #: ./templates/abc_view.pt:76
@@ -124,7 +137,7 @@ msgstr ""
 msgid "The area from which the tune is from"
 msgstr ""
 
-#: ./interfaces.py:110
+#: ./interfaces.py:115
 msgid "The country"
 msgstr ""
 
@@ -132,23 +145,23 @@ msgstr ""
 msgid "The main name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:142
+#: ./interfaces.py:147
 msgid "The mp3 sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:70
+#: ./interfaces.py:75
 msgid "The name as you know this tune"
 msgstr ""
 
-#: ./interfaces.py:148
+#: ./interfaces.py:153
 msgid "The ogg sound of the tune"
 msgstr ""
 
-#: ./interfaces.py:129
+#: ./interfaces.py:134
 msgid "The score of the tune as PDF"
 msgstr ""
 
-#: ./interfaces.py:123
+#: ./interfaces.py:128
 msgid "The score of the tune as SVG"
 msgstr ""
 
@@ -156,15 +169,15 @@ msgstr ""
 msgid "The score of the tune as png image"
 msgstr ""
 
-#: ./interfaces.py:76
+#: ./interfaces.py:81
 msgid "The tune in abc format"
 msgstr ""
 
-#: ./interfaces.py:92
+#: ./interfaces.py:97
 msgid "The type of the tune"
 msgstr ""
 
-#: ./interfaces.py:75
+#: ./interfaces.py:80
 msgid "Tune abc"
 msgstr ""
 
@@ -213,7 +226,7 @@ msgstr ""
 msgid "file containing ABC tunes to import"
 msgstr ""
 
-#: ./interfaces.py:93
+#: ./interfaces.py:98
 msgid "from the field R:"
 msgstr ""
 
@@ -229,11 +242,11 @@ msgstr ""
 msgid "invalid abc !!! No score !"
 msgstr ""
 
-#: ./interfaces.py:141
+#: ./interfaces.py:146
 msgid "mp3"
 msgstr ""
 
-#: ./interfaces.py:147
+#: ./interfaces.py:152
 msgid "ogg"
 msgstr ""
 

@@ -12,10 +12,12 @@
 
   <div tal:define="docObj context/getDocumentAndPosition;
                    doc python:docObj[0];
-                   pos python:docObj[1]">
-    <h1 class="documentFirstHeading" >
+                   pos python:docObj[1];
+                   desc context/description | nothing;">
+    <h3 class="documentFirstHeadingg" >
         <span tal:omit-tag="" tal:content="context/Title">title</span>
-    </h1>
+    </h3>
+    <span></span>${desc}
     <span tal:condition="python:(pos == 0) and (pos is not None)">
     	<metal:macro use-macro="context/abctune_macros/macros/display-document" />
     </span>
