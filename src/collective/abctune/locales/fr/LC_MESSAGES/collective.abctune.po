@@ -69,7 +69,7 @@ msgstr "Editer l'ABC..."
 #: ./browser/tunes_list_collection.pt:61
 #: ./browser/tunes_list_folder.pt:65
 msgid "Go to tune"
-msgstr "Aller au morceau..."
+msgstr "Aller à ce morceau..."
 
 #: ./configure.zcml:25
 msgid "Installs the collective.abctune add-on."

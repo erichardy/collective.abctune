@@ -14,22 +14,26 @@
 <style>
 .accordeon-title {
   color: #555555;
-  cursor: -webkit-grab;
   cursor: pointer;
   padding: 5px 3px 5px 10px;
   border: 1px solid #AAAAAA;
   background-color: #DDDDDD;
-  width: 728px;
+  width: 100%;
+  border-radius: 3px;
+}
+.accordeon-content {
+  display: block;
 }
 .go-to-tune {
   text-shadow: 3px 2px #DDDDDD;
   font-size: 80%;
   float: right;
+  margin: -25px 0px 0px 0px;
 }
 .tooltip-inner {
   color: #030303 !important;
   background-color: #EEEEEE !important;
-  max-width: 500px !important;
+  max-width: 600px !important;
 }
 </style>
 
@@ -37,8 +41,8 @@
 
     <div tal:define="results view/results;
                      token context/@@authenticator/token">
-    	<span tal:repeat="tune results">
-    	  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number};
+    	<span tal:repeat="tune results" tal:omit-tag="">
+    	  <div tal:define="tuneClass string:${tune/id}-${repeat/tune/number};
     	                    tooltip tune/description | nothing;
     	                    tune_url tune/getURL|tune/absolute_url">
 		  	<p tal:define="tooltip tune/description | nothing;"
@@ -58,13 +62,15 @@
 	              <span tal:condition="records">
 	                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
 	              </span>
-			     <a class="go-to-tune" href="${tune_url}?_authenticator=${token}"
+	              <p class="go-to-tune">
+			     <a href="${tune_url}?_authenticator=${token}"
 		  	         tal:attributes="target string:_blank"
 		  	         i18n:translate=""
 		  	      >Go to tune</a>
+		  	      </p>
 			  </span>
 			</span>  
-		  </span>
+		  </div>
 	    </span>
     </div>
 
