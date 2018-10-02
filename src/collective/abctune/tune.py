@@ -8,6 +8,8 @@ from plone.dexterity.browser import add
 from plone.dexterity.content import Container
 from Products.Five import BrowserView
 from z3c.form import button
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 # from plone.directives import dexterity
 from zope.interface import implementer
 import base64
@@ -56,7 +58,7 @@ class tune(Container):
                 )
         return TuneObjects
 
-    def getTuneObjectsByType(self, portal_type):
+    def getTuneObjectsByType(self, portal_type, request=None):
         """
         :returns: un dictionnaire ayant pour clés les content_types
             de la liste ``tune_obj_types`` s'il y en a qui sont trouvés,
@@ -64,6 +66,9 @@ class tune(Container):
             correspondant triée par ordre de positionnement dans le
             container.
         """
+        if request:
+            alsoProvides(request, IDisableCSRFProtection)
+
         objs = api.content.find(
             portal_type=portal_type,
             context=self,

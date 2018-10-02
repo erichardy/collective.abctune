@@ -5,10 +5,9 @@
       lang="en"
       i18n:domain="collective.abctune">
 
-<div tal:define="portal_state context/@@plone_portal_state;
-                 portal_url portal_state/portal_url;
+<div tal:define="
                  tune python:context;
-                 records python:tune.getTuneObjectsByType('WildcardAudio');"
+                 records python:tune.getTuneObjectsByType('WildcardAudio', request);"
      class="abctune-list-records-viewlet"
      tal:condition="python:len(records)">
 
@@ -36,6 +35,7 @@
 </div>
 </span>
 
+<div tal:content="structure string:${request}"></div>
 </div>
 
 </html>
