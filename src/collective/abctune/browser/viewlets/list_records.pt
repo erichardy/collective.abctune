@@ -34,8 +34,6 @@
   </span>
 </div>
 </span>
-
-<div tal:content="structure string:${request}"></div>
 </div>
 
 </html>
