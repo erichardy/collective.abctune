@@ -87,6 +87,8 @@
 		  <span tal:define="tuneClass string:${tune/id}-${repeat/tune/number};
 		                    tooltip tune/description | nothing;
 		                    desc python:tune.description if tune.description else ' ';
+		                    docObj tune/getDocumentAndPosition;
+		                    doc python:docObj[0];
 		                    tune_url tune/getURL|tune/absolute_url"
 		        class="accordeon-header">
 		  	
@@ -112,6 +114,9 @@
 	              <span tal:condition="records">
 	                <metal:macro use-macro="context/abctune_macros/macros/tabs-records" />
 	              </span>
+	              <span tal:condition="python:doc is not None">
+    	            <metal:macro use-macro="context/abctune_macros/macros/display-document" />
+                  </span>
 			      <a class="go-to-tune" href="${tune_url}?_authenticator=${token}"
 		  	         tal:attributes="target string:_blank"
 		  	         i18n:translate=""
